@@ -1,0 +1,61 @@
+.shareButton{
+   position: fixed;
+    left: 1%;
+    bottom: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.allShareBtn{
+position: relative; float: left; display: block;
+}
+.shareLine{
+margin: -8px 5px 0px 5px;
+}
+.shareFacebook{
+margin: -10px 5px 10px 5px;
+}
+.shareTwitter{
+margin: -2px 5px 0px 5px;
+}
+.shareLinkedIn{
+margin: -2px 5px 0px 5px;
+}
+.shareGPlus{
+margin: -5px 5px 0px 5px;
+}
+
+@media only screen and (max-width:979px){
+    .shareButton{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding-top: 14px;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: inherit;
+    }
+    .allShareBtn{
+    position: relative; float: left; display: inline-block;
+    }
+    .shareLine{
+    margin: -8px 5px 0px 5px;"
+    }
+    .shareFacebook{
+    margin: -10px 5px 0px 5px;
+    }
+    .shareTwitter{
+    margin: -2px 5px 0px 5px;
+    }
+    .shareLinkedIn{
+    margin: -2px 5px 0px 5px;
+    }
+    .shareGPlus{
+    margin: -5px 5px 0px 5px;
+    }
+}

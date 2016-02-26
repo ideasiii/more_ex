@@ -1,0 +1,372 @@
+
+
+body {
+	background-color: #CCCCCC;
+	background-attachment: fixed;
+    background-size: cover;
+    overflow-x: hidden;
+    marging:0;
+}
+
+.wrapper {
+        width: 1100px;   /*寬度設定為1100px*/
+        margin: auto;   /*版面居中對齊*/
+        
+        }
+
+.navbar {
+	background: rgba(0,0,0,0.7);
+	width: 100%;
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	z-index: -1;
+	height: 50px;
+
+}
+
+h1{
+    margin: 0 0 35px;
+    text-align: left;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+	}
+h2{
+	color:#1e90FF;
+}
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 35px;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.header0 {
+	text-align: left;
+	position: absolute;
+	vertical-align:middle
+    
+	width: 250px;
+	text-decoration: none;
+	z-index: 1;
+}
+.header0 a {
+	color: white;
+	}
+.header0 a:hover {
+	color: #DCDCDC;
+}
+
+.header1 {
+	text-align: right;
+	vertical-align:middle
+	position: absolute;
+    left:900px;	
+	color: block;
+	z-index: 2;
+
+}
+
+.header1 a {
+	padding: 20px;
+	text-decoration: none;
+	
+    color: white;
+}
+
+.header1 a:hover {
+	color: #DCDCDC;
+}
+
+.divider {
+	border: 5px solid rgba(0,113,188,0.8);
+	width: 99%;
+	position: static;
+	
+	
+}
+
+
+.header2 {
+	width: 100%;
+	height: 150px;
+	font-style: italic;
+	font-size: 1.3em;
+	color: #d5d3ce;
+	margin-bottom: 60px;
+	position:absolute;
+    top:300px;
+    z-index:3;	
+
+}
+.header2 img {
+	float: center;
+	margin: auto;
+}
+.header2 p {
+	width: 750px;
+	text-align: center;
+
+}
+.header2 p span {
+	margin-top: 20px;
+}
+.header2 p:last-child {
+	margin-left: 450px;
+}
+
+.main {
+	width: 100%;
+	height: 1100px;
+	background: rgba(178,178,178,0.7);
+	margin: 0 auto;
+	box-shadow: 0 0 10px;
+	
+}
+
+.subMain {
+
+	background-image: url(img/total_grid.png);
+	background: rgba(217,217,217,0.1);
+	position: relative;
+	left: 6%;
+}
+.textForm {
+	background-color: #FFFCF0;
+	color: block;
+	width: 100%;
+	float: left;
+	font-size: normal;
+	
+	font-family: 'Open Sans', sans-serif;
+	
+}
+.textForm p:last-child {
+	font-size: 1.2em;
+}
+
+
+fieldset {
+	width: 40%;
+	height: 300px;
+	border: 3px solid #353433;
+	
+}
+legend {
+	margin-left: 31%;
+	padding: 0 20px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.5em;
+    color: #353433;
+
+}
+fieldset img {
+	vertical-align:middle;
+
+}
+
+fieldset input {
+	width: 100%;
+	height: 34px;
+	border-radius: 4px;
+	background: rgba(178,178,178,0.1);
+
+}
+
+fieldset label {
+	font-family: 'Open Sans', sans-serif;
+}
+
+fieldset i {
+	color: #ff0000;
+}
+fieldset select {
+	width: 100%;
+	height: 34px;
+	border-radius: 4px;
+	
+}
+
+input[type="checkbox"] {
+	width: 16px;
+	height: 16px;
+	float: left;
+}
+fieldset span {
+	display: none;
+}
+fieldset a {
+	text-decoration: none;
+	padding: 20px 30%;
+	background: rgba(71,180,240,0.8);
+	position: relative;
+	top: 40px;
+	left: 0.5%;
+	text-align: center;
+	border-radius: 10px;
+	color: black;
+	font-family: 'Roboto', sans-serif;
+
+}
+fieldset div {
+	text-align: center;
+	width: 100%;
+
+}
+fieldset a:hover {
+	background: rgba(0,162,251,1);
+}
+fieldset i[class="fa fa-lightbulb-o"] {
+	color: black;
+	margin-right: 4px;
+}
+
+input {
+	border: 1px solid #353433;
+}
+
+
+.footer {
+	background: rgba(128,128,128,0.7);
+	width: 100%;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	z-index:5;	
+
+}
+
+	
+.temp {
+	background: white !important;
+}
+
+
+
+/* Validation classes */
+
+.firstNameHelp, .lastNameHelp, .emailHelp, .phoneHelp, .selectHelp ,.PassWordHelp{
+
+	font-style: italic;
+	color: red;
+	opacity: 0.8;
+}
+
+.button {
+	width:50px;
+    min-height: 1 em;
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 5px 5px 5px 0px;
+    cursor: pointer;
+    opacity: 0.9;
+    color: #F0F0F0;
+    font-size: 1em;
+    letter-spacing: 1px;
+    text-shadow: rgba(0,0,0,0.9) 0px 1px 2px;
+    background: #434343;
+    border: 1px solid #242424;
+   
+    -webkit-border-radius: 4px;
+     -khtml-border-radius: 4px;
+       -moz-border-radius: 4px;
+         -o-border-radius: 4px;
+            border-radius: 4px;
+    -webkit-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+     -khtml-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+       -moz-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+         -o-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+            box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+    -webkit-transition: all 0.1s linear;
+     -khtml-transition: all 0.1s linear;
+       -moz-transition: all 0.1s linear;
+         -o-transition: all 0.1s linear;
+            transition: all 0.1s linear;
+}
+
+.button {
+    min-height: 1.5em;
+    display: inline-block;
+    padding: 12px 36px;
+    margin: 5px 5px 5px 0px;
+    cursor: pointer;
+    opacity: 0.9;
+    text-decoration: none;
+    color: #FFF;
+    font-size: 1em;
+    letter-spacing: 1px;
+    text-shadow: rgba(0,0,0,0.9) 0px 1px 2px;
+    
+    background: #434343;
+    border: 1px solid #242424;
+   
+    -webkit-border-radius: 4px;
+     -khtml-border-radius: 4px;
+       -moz-border-radius: 4px;
+         -o-border-radius: 4px;
+            border-radius: 4px;
+    -webkit-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+     -khtml-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+       -moz-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+         -o-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+            box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+    -webkit-transition: all 0.1s linear;
+     -khtml-transition: all 0.1s linear;
+       -moz-transition: all 0.1s linear;
+         -o-transition: all 0.1s linear;
+            transition: all 0.1s linear;
+}
+.button:a { text-decoration: none }  
+.button:hover {
+    -webkit-box-shadow: rgba(0,0,0,0.5) 0px 2px 5px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+     -khtml-box-shadow: rgba(0,0,0,0.5) 0px 2px 5px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+       -moz-box-shadow: rgba(0,0,0,0.5) 0px 2px 5px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+         -o-box-shadow: rgba(0,0,0,0.5) 0px 2px 5px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+            box-shadow: rgba(0,0,0,0.5) 0px 2px 5px, inset rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(0,0,0,0.25) 0px 0px 0px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+}
+.button:active {
+    -webkit-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px,inset rgba(255,255,255,0) 0px 1px 0px, inset rgba(0,0,0,0.5) 0px 0px 5px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+     -khtml-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px,inset rgba(255,255,255,0) 0px 1px 0px, inset rgba(0,0,0,0.5) 0px 0px 5px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+       -moz-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0) 0px 1px 0px, inset rgba(0,0,0,0.5) 0px 0px 5px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+         -o-box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0) 0px 1px 0px, inset rgba(0,0,0,0.5) 0px 0px 5px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+            box-shadow: rgba(255,255,255,0.25) 0px 1px 0px, inset rgba(255,255,255,0) 0px 1px 0px, inset rgba(0,0,0,0.5) 0px 0px 5px, inset rgba(255,255,255,0.03) 0px 20px 0px, inset rgba(0,0,0,0.15) 0px -20px 20px, inset rgba(255,255,255,0.05) 0px 20px 20px;
+}
+.shine {
+    display: block;
+    position: relative;
+    background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(50%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+    background: -o-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+    background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#00ffffff',GradientType=1 );
+    background: linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+    padding: 0px 12px;
+    top: -12px;
+    left: -24px;
+    height: 1px;
+    -webkit-box-shadow: rgba(255,255,255,0.2) 0px 1px 5px;
+     -khtml-box-shadow: rgba(255,255,255,0.2) 0px 1px 5px;
+       -moz-box-shadow: rgba(255,255,255,0.2) 0px 1px 5px;
+         -o-box-shadow: rgba(255,255,255,0.2) 0px 1px 5px;
+            box-shadow: rgba(255,255,255,0.2) 0px 1px 5px;
+    -webkit-transition: all 0.3s ease-in-out;
+     -khtml-transition: all 0.3s ease-in-out;
+       -moz-transition: all 0.3s ease-in-out;
+         -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+}
+.button:hover .shine {left: 24px;}
+.button:active .shine {opacity: 0;}
+.button.white {background: #e9e9e9;}
+.button.gray {background: #555;}
+.button.blue {background: #00A2FB;}
+.button.green {background: #477343;}
+.button.red {background: #723131;}
+.button.purple {background: #4b3f5e;}
+.button.orange {background: #624529;}
+
