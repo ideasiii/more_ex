@@ -90,7 +90,40 @@
 			document.getElementById("type_download").innerHTML = 'MORE API List';
 			break;
 		}
+	}
 
+	var VisibleMenu = ''; // 記錄目前顯示的子選單的 ID
+
+	// 顯示或隱藏子選單
+	function switchMenu(theSubMenu)
+	{
+		var SubMenu = document.getElementById(theSubMenu);
+		if (SubMenu.style.display == 'none')
+		{ // 顯示子選單
+			//SubMenu.style.minWidth = theMainMenu.clientWidth; // 讓子選單的最小寬度與主選單相同 (僅為了美觀)
+			SubMenu.style.display = 'block';
+			//hideMenu(); // 隱藏子選單
+			//VisibleMenu = theSubMenu;
+		}
+		else
+		{ // 隱藏子選單
+			SubMenu.style.display = 'none';
+			//if (theEvent != 'MouseOver' || VisibleMenu != theSubMenu)
+			//{
+			//	SubMenu.style.display = 'none';
+			//	VisibleMenu = '';
+			//}
+		}
+	}
+
+	// 隱藏子選單
+	function hideMenu()
+	{
+		if (VisibleMenu != '')
+		{
+			document.getElementById(VisibleMenu).style.display = 'none';
+		}
+		VisibleMenu = '';
 	}
 </script>
 
@@ -353,40 +386,30 @@
 								<div class="panel-heading">AiPlug 智慧插座API</div>
 								<div class="panel-body">
 									<div class="row">
-										<form action="appUpdate.jsp" method="post" enctype="multipart/form-data" name="formAppUpdate" id="formAppUpdate">
-											<input name="<%=Common.APP_ID%>" type="hidden" value="" /> <input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
-											<div class="col-lg-12">
 
-												<div class="form-group">
-													<img src="/IdeasDeveloperConsole/uploadfile/api/AiPlug_light-191x300.jpg" alt="" width=75 height=75>&nbsp;&nbsp;<label>FamilyAsyst AiPlug-WiFi智慧插座
-														可遠端遙控開關 透過API切斷電源以避免浪費家庭電力 </label>
-												</div>
-
-												<div class="form-group">
-													<label>APP 名稱</label> <input class="form-control" id="<%=Common.APP_NAME%>" name="<%=Common.APP_NAME%>" value="" disabled>
-												</div>
-
-												<div class="form-group">
-													<label>APP 平台</label> <select class="form-control" id="<%=Common.APP_OS%>" name="<%=Common.APP_OS%>" disabled>
-
-														<option selected>Android</option>
-														<option>IOS</option>
-
-														<option>Android</option>
-														<option selected>IOS</option>
-
-													</select>
-												</div>
-
-												<div class="form-group">
-													<label>APP 類別</label> <select class="form-control" id="<%=Common.APP_CATEGORY%>" name="<%=Common.APP_CATEGORY%>" disabled>
-														<option>工具</option>
-														<option>天氣</option>
-													</select>
-												</div>
+										<div class="col-lg-12">
+											<div class="form-group">
+												<img src="/IdeasDeveloperConsole/uploadfile/api/AiPlug_light-191x300.jpg" alt="" width=75 height=75>&nbsp;&nbsp;<label>FamilyAsyst AiPlug-WiFi智慧插座 可遠端遙控開關
+													透過API切斷電源以避免浪費家庭電力 </label>
 											</div>
-										</form>
-										<!-- /.col-lg-6 (nested) -->
+
+											<div class="form-group">
+												<div class="panel panel-primary">
+													<div class="panel-heading">
+														<a href="#" onClick="switchMenu('aiplug_api')" class="btn btn-success navbar-btn" role="button">POST</a>API註冊
+													</div>
+													<div class="panel-body" id="aiplug_api">
+														<div class="row">
+															<img src="/IdeasDeveloperConsole/uploadfile/api/AiPlug_light-191x300.jpg" alt="" width=75 height=75>&nbsp;&nbsp;<label>FamilyAsyst AiPlug-WiFi智慧插座
+																可遠端遙控開關 透過API切斷電源以避免浪費家庭電力 </label>
+														</div>
+													</div>
+												</div>
+												<div class="form-group"></div>
+
+											</div>
+										</div>
+										<!-- /.col-lg-12 (nested) -->
 									</div>
 
 									<!-- /.row -->
