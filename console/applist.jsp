@@ -8,6 +8,7 @@
 <%@ page import="java.util.Arrays"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.util.HashMap"%>
+<%@ page import="sdk.ideas.Logs"%>
 
 <%
 	final String strToken = request.getParameter(Common.USER_TOKEN);
@@ -17,10 +18,12 @@
 		return;
 	}
 	SerSdk serSdk = new SerSdk();
+	Logs.showTrace("App List  token:" + strToken);
 %>
 
 <html lang="zh-Hant-TW">
 <head>
+<LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
 <meta http-equiv="Content-Type" content="text/html; charset=big5">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="SER SDK Console">
@@ -57,7 +60,7 @@
 
 
 	<!-- Header  logo mark-->
-	<nav role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+	<nav role="navigation" class="navbar navbar-fixed-top navbar-blue">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -71,15 +74,15 @@
 				<ul class="nav navbar-nav navbar-right text-lg">
 					<li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">我的APP<b class="caret"></b></a>
 						<ul role="menu" class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							<li><a href="appadd.html">APP新增 </a></li>
+							<li><a href="#" onClick="formSubmit('FormAppAdd')">APP新增 </a></li>
 							<li class="divider"></li>
 						</ul></li>
 					<li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">下載SDK<b class="caret"></b></a>
 						<ul role="menu" class="dropdown-menu" aria-labelledby="dropdownMenu2">
-							<li><a href="#">Android</a></li>
-							<li><a href="#">IOS</a></li>
+							<li><a href="#" onClick="formSubmit('FormHome');">Android</a></li>
+							<li><a href="#" onClick="formSubmit('FormDownloadIos');">IOS</a></li>
 							<li class="divider"></li>
-							<li><a href="about.html">關於</a></li>
+							<!-- <li><a href="about.html">關於</a></li> -->
 						</ul></li>
 					<li><a href="logout.jsp">登出</a></li>
 				</ul>
@@ -229,6 +232,10 @@
 
 	<form action="index.jsp" method="post" name="FormHome" id="FormHome">
 		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+	</form>
+
+	<form action="index.jsp" method="post" name="FormDownloadIos" id="FormDownloadIos">
+		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" /> <input name="<%=Common.IOS%>" type="hidden" value="<%=Common.IOS%>" />
 	</form>
 
 	<form action="appNew.jsp" method="post" name="FormAppAdd" id="FormAppAdd">

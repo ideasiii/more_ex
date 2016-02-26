@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ideas Developer Concole ">
+<meta name="author" content="EmilyChen">
+<title>MORE Console ｜註冊</title>
+<!-- Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-theme.css" rel="stylesheet">
+
+<!--Fonts-->
+<link href='http://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+<!-- jQuery (Bootstrap 所有外掛均需要使用) -->
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<!-- Javascript -->
+<script src="js/utility.js"></script>
+
+</head>
+<body>
+	<!-- Header  logo mark-->
+	<nav role="navigation" class="navbar navbar-fixed-top navbar-blue">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+			</div>
+
+			<div id="navbarCollapse" class="collapse navbar-collapse text-justify">
+				<a class="nav navbar-nav navbar-left" href="#"> <img src="img/ser_logo.png" class="img-responsive" alt="IdeadBrand" onClick="formSubmit('FormHome');"></a>
+			</div>
+		</div>
+	</nav>
+	<!-- Main Content-->
+
+	<!-- Start Login Form -->
+
+	<div class="container">
+		<div class="thumbnail">
+			<h3>
+				<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;註冊MORE會員新帳號</b>
+			</h3>
+			<BR>
+			<form class="form-horizontal" action="memberAdd.jsp" method="post" name="FormRegister" id="FormRegister">
+
+				<div class="form-group">
+					<label for="inputFirstName1" class="col-sm-2 control-label">申請者聯繫Email</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="inputFirstName1" placeholder="Email Account" name="email"> Email為未來API後台登入帳號，請慎選
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputLastName1" class="col-sm-2 control-label">密碼</label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" id="inputLastName1" placeholder="Password" name="password">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputLastName1" class="col-sm-2 control-label">再確認密碼</label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" id="inputLastName1" placeholder="Password" name="password2">請再重複輸入相同密碼
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputLastName1" class="col-sm-2 control-label">申請者</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="disabledInput" placeholder="Name" name="name">請填申請者姓名
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputPassword3" class="col-sm-2 control-label">申請單位</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="inputPassword3" placeholder="Company" name="company">請填公司名稱
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputPassword3" class="col-sm-2 control-label">申請者聯繫電話</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="inputPassword3" placeholder="Phone" name="phone">方便客服聯繫
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="button" class="btn btn-success btn-lg" onClick="checkRegisterData('FormRegister')">註冊</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<!--End thumbnail-->
+	</div>
+	<!-- End Col-sm-12 -->
+
+	<!-- Footer -->
+	<div class="media navbar-inverse text-center">
+		<h4 class="text-muted">&copy;2016 MORE SDK Console</h4>
+	</div>
+
+	<!-- Form -->
+	<form action="index.jsp" method="post" name="FormHome" id="FormHome"></form>
+</body>
+</html>

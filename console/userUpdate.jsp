@@ -3,25 +3,7 @@
 <%@ page import="sdk.ideas.StringUtility"%>
 <%@ page import="sdk.ideas.Logs"%>
 <%@ page import="sdk.ideas.SerSdk"%>
-<%@ page import="org.apache.commons.fileupload.*"%>
-<%@ page import="org.apache.commons.fileupload.disk.DiskFileItemFactory"%>
-<%@ page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
-<%@ page import="org.apache.commons.io.FilenameUtils"%>
-<%@page import="java.io.File"%>
-<%@ page import="java.io.BufferedReader"%>
-<%@ page import="java.io.FileInputStream"%>
-<%@ page import="java.io.InputStreamReader"%>
-<%@ page import="java.util.Iterator"%>
-<%@ page import="java.util.List"%>
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="java.util.HashMap"%>
-<%@ page import="java.sql.*"%>
-<%@ page import="java.util.HashMap"%>
-<%@ page import="sdk.ideas.StringUtility"%>
-<%@ page import="sdk.ideas.sqliteClient"%>
-<%@ page import="java.util.Iterator"%>
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="java.util.Arrays"%>
+
 <%
 	request.setCharacterEncoding("utf-8");
 	final String strToken = request.getParameter(Common.USER_TOKEN);
@@ -39,6 +21,7 @@
 
 <HTML>
 <HEAD>
+<LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
 <TITLE>SER SDK Console | User Update</TITLE>
 
 <!-- Javascript -->
@@ -50,7 +33,7 @@
 	<p style="text-align: center;">&nbsp;</p>
 	<p style="text-align: center;">&nbsp;</p>
 	<p style="text-align: center;">
-		<img alt="Loading" src="img/loading.gif" style="width: 160px; height: 160px;" />
+		<img alt="Loading" src="img/map_loading.gif" style="width: 260px; height: 260px;" />
 	</p>
 
 	<form action="applist.jsp" method="post" name="FormAppList" id="FormAppList">

@@ -17,6 +17,7 @@
 
 <HTML>
 <HEAD>
+<LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
 <TITLE>SER SDK Console | APP Delete</TITLE>
 
 <!-- Javascript -->
@@ -28,7 +29,7 @@
 	<p style="text-align: center;">&nbsp;</p>
 	<p style="text-align: center;">&nbsp;</p>
 	<p style="text-align: center;">
-		<img alt="Loading" src="img/loading.gif" style="width: 160px; height: 160px;" />
+		<img alt="Loading" src="img/map_loading.gif" style="width: 260px; height: 260px;" />
 	</p>
 
 	<form action="applist.jsp" method="post" name="FormAppList" id="FormAppList">

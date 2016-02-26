@@ -11,14 +11,9 @@
 <%@ page import="java.io.BufferedReader"%>
 <%@ page import="java.io.FileInputStream"%>
 <%@ page import="java.io.InputStreamReader"%>
-<%@ page import="java.util.Iterator"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.HashMap"%>
-<%@ page import="java.sql.*"%>
-<%@ page import="java.util.HashMap"%>
-<%@ page import="sdk.ideas.StringUtility"%>
-<%@ page import="sdk.ideas.sqliteClient"%>
 <%@ page import="java.util.Iterator"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.Arrays"%>
@@ -29,6 +24,7 @@
 	String strAppOs = null;
 	String strAppCategory = null;
 	String strAppDesc = null;
+	String strAppIcon = null;
 
 	boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 	if (isMultipart) {
@@ -98,6 +94,8 @@
 					itemUploadFile.write(uploadedFile);
 					mapData.put(Common.APP_ICON,
 							Common.UPLOAD_FILE_PATH + "/" + mapData.get(Common.USER_TOKEN) + "/" + strFileName);
+					strAppIcon = Common.UPLOAD_FILE_PATH + "/" + mapData.get(Common.USER_TOKEN) + "/"
+							+ strFileName;
 				}
 			}
 		}
@@ -106,6 +104,7 @@
 
 <HTML>
 <HEAD>
+<LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
 <TITLE>SER SDK Console | APP Update</TITLE>
 
 <!-- Javascript -->
@@ -130,7 +129,7 @@
 <%
 	SerSdk serSdk = new SerSdk();
 	if (StringUtility.isValid(strToken) && StringUtility.isValid(strAppId)) {
-		serSdk.updateApp(strAppId, strAppName, strAppOs, strAppCategory, strAppDesc);
+		serSdk.updateApp(strAppId, strAppIcon, strAppName, strAppOs, strAppCategory, strAppDesc);
 	}
 
 	serSdk = null;

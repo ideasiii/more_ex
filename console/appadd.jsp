@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java"%>
+<%@ page trimDirectiveWhitespaces="true"%>
 <%@ page import="sdk.ideas.Common"%>
 <%@ page import="org.apache.commons.fileupload.*"%>
 <%@ page import="org.apache.commons.fileupload.disk.DiskFileItemFactory"%>
@@ -10,8 +11,6 @@
 <%@ page import="java.io.InputStreamReader"%>
 <%@ page import="java.util.Iterator"%>
 <%@ page import="java.util.List"%>
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="java.util.HashMap"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.util.HashMap"%>
 <%@ page import="sdk.ideas.StringUtility"%>
@@ -19,10 +18,11 @@
 <%@ page import="java.util.Iterator"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.Arrays"%>
-
+<%@ page import="sdk.ideas.Logs"%>
 
 <HTML>
 <head>
+<LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
 <!-- Javascript -->
 <script src="js/utility.js"></script>
 </head>
@@ -31,7 +31,7 @@
 	<p style="text-align: center;">&nbsp;</p>
 	<p style="text-align: center;">&nbsp;</p>
 	<p style="text-align: center;">
-		<img alt="Loading" src="img/loading.gif" style="width: 160px; height: 160px;" />
+		<img alt="Loading" src="img/map_loading.gif" style="width: 260px; height: 260px;" />
 	</p>
 	<%
 		//Check that we have a file upload request
@@ -104,7 +104,7 @@
 			*/
 			final String strToken = mapData.get(Common.USER_TOKEN);
 
-			// Insert App Data to Database
+			Logs.showTrace("Insert App Data to Database, token:" + strToken);
 			sqliteClient sqlite = new sqliteClient();
 			Connection con = sqlite.getConnection(Common.DB_PATH_IDEAS);
 			mapData.put(Common.APP_ID, strAppId);

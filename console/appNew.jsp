@@ -12,6 +12,7 @@
 
 <html lang="zh-Hant-TW">
 <head>
+<LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Ideas Developer Concole ">
@@ -37,7 +38,7 @@
 </head>
 <body>
 	<!-- Header  logo mark-->
-	<nav role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+	<nav role="navigation" class="navbar navbar-fixed-top navbar-blue">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -349,7 +350,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
-							<button type="submit" class="btn btn-info active" onClick="formSubmit('formAddIOS')">新增並建立新的APP ID</button>
+							<button type="button" class="btn btn-info active" onClick="checkAppAddData('formAddIOS')">新增並建立新的APP ID</button>
 						</div>
 					</div>
 				</div>

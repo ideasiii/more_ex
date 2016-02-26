@@ -5,6 +5,7 @@
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.Iterator"%>
 <%@ page import="java.util.ArrayList"%>
+<%@ page import="sdk.ideas.Logs"%>
 
 <%
 	SerSdk serSdk = new SerSdk();
@@ -16,15 +17,28 @@
 	}
 
 	final String strHostUrl = request.getRequestURL().toString();
+	final String strShowIosDownload = request.getParameter(Common.IOS);
+	final String strSdkUrl = request.getRequestURL().toString();
+	final String strRegister = "register.html";
+	//final String strRegister = "http://api.ser.ideas.iii.org.tw/api/register";
 %>
 
 <html lang="zh-Hant-TW">
 <head>
+<LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Ideas Developer Concole ">
-<meta name="author" content="EmilyChen">
+<meta name="description" content="SER SDK主要能提供App開發者能更快速與簡潔的開發App程式，App開發人員只要將SER SDK加入到自己的App專案裡，透過API的呼叫即可執行SER SDK提供的服務">
+<meta name="author" content="SER">
 <title>SER SDK Console</title>
+<!-- You can use open graph tags to customize link previews.
+    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+<meta property="og:url" content="<%=strHostUrl%>" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="SER SDK Console" />
+<meta property="og:description" content="SER SDK主要能提供App開發者能更快速與簡潔的開發App程式，App開發人員只要將SER SDK加入到自己的App專案裡，透過API的呼叫即可執行SER SDK提供的服務" />
+<meta property="og:image" content="http://54.199.198.94:8080/IdeasDeveloperConsole/SerSdk/img/ser_logo.png" />
+
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-theme.css" rel="stylesheet">
@@ -35,31 +49,45 @@
 
 
 <!--Fonts-->
-<link href='http://fonts.googleapis.com/css?family=Courgette'
-	rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Roboto'
-	rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans'
-	rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
 <!-- Javascript -->
 <script src="js/utility.js"></script>
 <script src="js/signin.js"></script>
 <script type="text/javascript">
-	function showTab(tab) {
+	function showTab(tab)
+	{
 
-		switch (tab) {
+		switch (tab)
+		{
 		case 0:
+			document.getElementById('tab_api').className = "";
 			document.getElementById('tab_android').className = "active";
 			document.getElementById('tab_ios').className = "";
 			document.getElementById('sdk_android').style.display = "";
 			document.getElementById('sdk_ios').style.display = "none";
+			document.getElementById('more_api').style.display = "none";
+			document.getElementById("type_download").innerHTML = 'Android SDK List';
 			break;
 		case 1:
+			document.getElementById('tab_api').className = "";
 			document.getElementById('tab_android').className = "";
 			document.getElementById('tab_ios').className = "active";
 			document.getElementById('sdk_android').style.display = "none";
+			document.getElementById('more_api').style.display = "none";
 			document.getElementById('sdk_ios').style.display = "";
+			document.getElementById("type_download").innerHTML = 'IOS SDK List';
+			break;
+		case 2:
+			document.getElementById('tab_api').className = "active";
+			document.getElementById('tab_android').className = "";
+			document.getElementById('tab_ios').className = "";
+			document.getElementById('more_api').style.display = "";
+			document.getElementById('sdk_ios').style.display = "none";
+			document.getElementById('sdk_android').style.display = "none";
+			document.getElementById("type_download").innerHTML = 'MORE API List';
 			break;
 		}
 
@@ -69,72 +97,46 @@
 </head>
 <body>
 	<!-- Header  logo mark-->
-	<nav role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+	<nav class="navbar navbar-fixed-top navbar-blue " role="navigation" style="margin-bottom: 0">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
-				<button type="button" data-target="#navbarCollapse"
-					data-toggle="collapse" class="navbar-toggle">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+				<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
 			</div>
 
-			<div id="navbarCollapse"
-				class="collapse navbar-collapse text-justify">
-				<a class="nav navbar-nav navbar-left" href="#"> <img
-					src="img/ser_logo.png" class="img-responsive" alt="IdeadBrand"></a>
+			<div id="navbarCollapse" class="collapse navbar-collapse text-justify">
+				<a class="nav navbar-nav navbar-left" href="#"> <img src="img/ser_logo.png" class="img-responsive" alt="IdeadBrand"></a>
 
 				<!-- No Login -->
 
-				<form class="navbar-form navbar-right" role="search"
-					action="index.jsp" method="post" name="FormLogin" id="FormLogin">
+				<form class="navbar-form navbar-right" role="search" action="index.jsp" method="post" name="FormLogin" id="FormLogin">
 					<div class="form-group">
-						<label for="exampleInputEmail2" class="text-muted">電子郵件</label> <input
-							type="email" class="form-control input-sm"
-							id="exampleInputEmail2" placeholder="account@example.com"
-							name="account">
+						<label for="exampleInputEmail2" class="text-muted">電子郵件</label> <input type="email" class="form-control input-sm" id="exampleInputEmail2" placeholder="account@example.com"
+							name="account"
+						>
 					</div>
 					<div class="form-group">
-						<label for="exampleInputPassword2" class="text-muted">密碼</label> <input
-							type="password" class="form-control input-sm"
-							id="exampleInputPassword2" placeholder="密碼" name="password">
+						<label for="exampleInputPassword2" class="text-muted">密碼</label> <input type="password" class="form-control input-sm" id="exampleInputPassword2" placeholder="密碼"
+							name="password"
+						>
 					</div>
-					<!-- 
-					<div class="checkbox text-muted input-sm">
-						<label> <input type="checkbox">記住我
-						</label>
-					</div>
-					-->
-					<a href="#" class="btn btn-primary navbar-btn active" role="button"
-						onclick="onLogin()">&nbsp;&nbsp;登入</a> &nbsp;<a href="login.html"
-						class="btn btn-success navbar-btn" role="button">註冊</a>
+					<a href="#" class="btn btn-primary navbar-btn active" role="button" onclick="onLogin()">&nbsp;&nbsp;登入</a> &nbsp;<a href="#" onClick="formSubmit('FormRegister')"
+						class="btn btn-success navbar-btn" role="button"
+					>註冊</a>
 				</form>
 				<!-- End No Login-->
 				<!-- Login navbar-->
-				<ul class="nav navbar-nav navbar-right text-lg"
-					style="display: none" id="header_option">
-					<li class="dropdown"><a data-toggle="dropdown"
-						class="dropdown-toggle" href="#">我的APP<b class="caret"></b></a>
-						<ul role="menu" class="dropdown-menu"
-							aria-labelledby="dropdownMenu1">
-							<li><a href="#" onClick="formSubmit('FormAppAdd')">APP新增
-							</a></li>
+				<ul class="nav navbar-nav navbar-right text-lg" style="display: none" id="header_option">
+					<li class="dropdown"><a data-toggle="dropdown" class="text-muted" href="#"><B>我的APP</B><b class="caret"></b></a>
+						<ul role="menu" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+							<li><a href="#" onClick="formSubmit('FormAppAdd')">APP新增 </a></li>
 							<li><a href="#" onClick="formSubmit('FormAppList')">APP列表</a></li>
 							<li class="divider"></li>
 						</ul></li>
-					<li class="dropdown"><a data-toggle="dropdown"
-						class="dropdown-toggle" href="#">下載SDK<b class="caret"></b></a>
-						<ul role="menu" class="dropdown-menu"
-							aria-labelledby="dropdownMenu2">
-							<li><a href="#" onClick="showTab(0)">Android</a></li>
-							<li><a href="#" onClick="showTab(1)">IOS</a></li>
-							<li class="divider"></li>
-							<li><a href="about.html">關於</a></li>
-						</ul></li>
 
-					<li><a href="logout.jsp">登出</a></li>
+					<li><a href="logout.jsp" class="text-muted"><B>登出</B></a></li>
 				</ul>
 				<!--End Login navbar-->
 			</div>
@@ -143,12 +145,10 @@
 
 	<!-- Main Content-->
 	<div class="jumbotron">
-		<div id="carousel-example-generic" class="carousel slide"
-			data-ride="carousel">
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
-				<li data-target="#carousel-example-generic" data-slide-to="0"
-					class="active"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 				<li data-target="#carousel-example-generic" data-slide-to="1"></li>
 				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
 				<li data-target="#carousel-example-generic" data-slide-to="3"></li>
@@ -157,8 +157,7 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner text-muted" role="listbox">
 				<div class="item active">
-					<img src="img/banner01.jpg" class="container-fluid"
-						alt="idexbanner">
+					<img src="img/banner01.jpg" class="container-fluid" alt="idexbanner">
 					<div class="carousel-caption">
 						<div>
 							<h2>SER SDK Console</h2>
@@ -191,10 +190,8 @@
 					<div class="carousel-caption">
 						<div class="text-right">
 							<h3>SER SDK Console</h3>
-							<p>包含了：APP Event Tracking Service, Facebook Authentication
-								Service</p>
-							<p>Tencent QQ Authentication Service, IOT Service, Dashboard
-								Service</p>
+							<p>包含了：APP Event Tracking Service, Facebook Authentication Service</p>
+							<p>Tencent QQ Authentication Service, IOT Service, Dashboard Service</p>
 							<p>SER API Service…等服務。</p>
 						</div>
 					</div>
@@ -203,13 +200,9 @@
 			</div>
 
 			<!-- Controls -->
-			<a class="left carousel-control" href="#carousel-example-generic"
-				role="button" data-slide="prev"> <span
-				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 				<span class="sr-only">Previous</span>
-			</a> <a class="right carousel-control" href="#carousel-example-generic"
-				role="button" data-slide="next"> <span
-				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			</a> <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
@@ -219,15 +212,12 @@
 	<div class="jumbotron">
 		<div class="container-fluid">
 			<ul class="nav nav-tabs">
-				<li role="presentation" class="active" id="tab_android"><a
-					href="#" onClick="showTab(0)"><img src="img/androidm.png"
-						alt="android">SDK for Android</a></li>
-				<li role="presentation" id="tab_ios"><a href="#"
-					onClick="showTab(1)"><img src="img/iosm.png" alt="android">SDK
-						for IOS</a></li>
+				<li role="presentation" class="active" id="tab_android"><a href="#" onClick="showTab(0)"><img src="img/androidm.png" alt="android" width="40" height="40">&nbsp;SDK
+						for Android</a></li>
+				<li role="presentation" id="tab_ios"><a href="#" onClick="showTab(1)"><img src="img/iosm.png" alt="android" width="40" height="40">&nbsp;SDK for IOS</a></li>
+				<li role="presentation" id="tab_api"><a href="#" onClick="showTab(2)"><img src="img/icon-api.png" alt="api" width="40" height="40">&nbsp;MORE API</a></li>
 			</ul>
-
-			<h2 class="text-center text-muted">APP SDK Download</h2>
+			<p id="type_download" class="text-center text-muted" style="text-align: center;">Android SDK List</p>
 
 			<%
 				ArrayList<SerSdk.SdkData> listSdk = new ArrayList<SerSdk.SdkData>();
@@ -252,26 +242,22 @@
 				<div class="col-sm-6 col-md-4">
 					<div class="thumbnail">
 						<h4>
-							<%=sdkData.sdk_owner%><img src="img/androidm.png" alt="android">
+							<%=sdkData.sdk_owner%>&nbsp;<img src="img/androidm.png" alt="android" width="40" height="40">
 						</h4>
 						<div class="caption">
 							<h3><%=sdkData.sdk_name%></h3>
 							<h5><%=sdkData.sdk_desc%></h5>
 							<p>
-								<a href="<%=sdkData.sdk_file%>" class="btn btn-primary"
-									role="button"> <span class="glyphicon glyphicon-saved"
-									aria-hidden="true"></span> FILE
-								</a> <a href="<%=sdkData.sdk_doc%>" class="btn btn-danger"
-									role="button"> <span class="glyphicon glyphicon-save-file"
-									aria-hidden="true"></span> PDF
+								<a href="<%=sdkData.sdk_file%>" class="btn btn-primary" role="button"> <span class="glyphicon glyphicon-saved" aria-hidden="true"></span> FILE
+								</a> <a href="<%=sdkData.sdk_doc%>" class="btn btn-danger" role="button"> <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span> PDF
 								</a>
 							</p>
 
-							<!--RWD shareButton Made By EmilyChen Start-->
+							<!-- Facebook like -->
 							<div class="shareButton" id="fb-root">
-								<!--FacebookStart-->
 								<script>
-									(function(d, s, id) {
+									(function(d, s, id)
+									{
 										var js, fjs = d.getElementsByTagName(s)[0];
 										if (d.getElementById(id))
 											return;
@@ -282,13 +268,10 @@
 									}(document, 'script', 'facebook-jssdk'));
 								</script>
 								<div class="allShareBtn shareFacebook">
-									<div class="fb-like" data-href="<%=strHostUrl%>"
-										data-width="20" data-layout="button_count" data-action="like"
-										data-show-faces="true" data-share="true"></div>
+									<div class="fb-like" data-href="<%=strHostUrl%>" data-width="20" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 								</div>
-								<!--FacebookEND-->
 							</div>
-							<!--RWD shareButton Made By EmilyChen END-->
+							<!--Facebook like END-->
 						</div>
 					</div>
 					<!--End thumbnail-->
@@ -301,6 +284,7 @@
 			</div>
 			<!--End android row-->
 
+			<!-- IOS row -->
 			<div class="row" id="sdk_ios" style="display: none;">
 				<%
 					if (0 < nCount) {
@@ -319,25 +303,22 @@
 				<div class="col-sm-6 col-md-4">
 					<div class="thumbnail">
 						<h4>
-							<%=sdkData.sdk_owner%><img src="img/iosm.png" alt="ios">
+							<%=sdkData.sdk_owner%>&nbsp;<img src="img/iosm.png" alt="ios" width="40" height="40">
 						</h4>
 						<div class="caption">
 							<h3><%=sdkData.sdk_name%></h3>
 							<h5><%=sdkData.sdk_desc%></h5>
 							<p>
-								<a href="<%=sdkData.sdk_file%>" class="btn btn-primary"
-									role="button"> <span class="glyphicon glyphicon-saved"
-									aria-hidden="true"></span> FILE
-								</a> <a href="<%=sdkData.sdk_doc%>" class="btn btn-danger"
-									role="button"> <span class="glyphicon glyphicon-save-file"
-									aria-hidden="true"></span> PDF
+								<a href="<%=sdkData.sdk_file%>" class="btn btn-primary" role="button"> <span class="glyphicon glyphicon-saved" aria-hidden="true"></span> FILE
+								</a> <a href="<%=sdkData.sdk_doc%>" class="btn btn-danger" role="button"> <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span> PDF
 								</a>
 							</p>
 							<!--RWD shareButton Made By EmilyChen Start-->
 							<div class="shareButton" id="fb-root">
 								<!--FacebookStart-->
 								<script>
-									(function(d, s, id) {
+									(function(d, s, id)
+									{
 										var js, fjs = d.getElementsByTagName(s)[0];
 										if (d.getElementById(id))
 											return;
@@ -348,9 +329,7 @@
 									}(document, 'script', 'facebook-jssdk'));
 								</script>
 								<div class="allShareBtn shareFacebook">
-									<div class="fb-like" data-href="<%=strHostUrl%>"
-										data-width="20" data-layout="button_count" data-action="like"
-										data-show-faces="true" data-share="true"></div>
+									<div class="fb-like" data-href="<%=strHostUrl%>" data-width="20" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 								</div>
 								<!--FacebookEND-->
 							</div>
@@ -364,7 +343,63 @@
 					}
 				%>
 			</div>
+			<!-- End IOS row -->
+			<!-- API row -->
+			<div class="row" id="more_api" style="display: none;">
+				<div id="page-wrapper">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="panel panel-primary">
+								<div class="panel-heading">AiPlug 智慧插座API</div>
+								<div class="panel-body">
+									<div class="row">
+										<form action="appUpdate.jsp" method="post" enctype="multipart/form-data" name="formAppUpdate" id="formAppUpdate">
+											<input name="<%=Common.APP_ID%>" type="hidden" value="" /> <input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+											<div class="col-lg-12">
 
+												<div class="form-group">
+													<img src="/IdeasDeveloperConsole/uploadfile/api/AiPlug_light-191x300.jpg" alt="" width=75 height=75>&nbsp;&nbsp;<label>FamilyAsyst AiPlug-WiFi智慧插座
+														可遠端遙控開關 透過API切斷電源以避免浪費家庭電力 </label>
+												</div>
+
+												<div class="form-group">
+													<label>APP 名稱</label> <input class="form-control" id="<%=Common.APP_NAME%>" name="<%=Common.APP_NAME%>" value="" disabled>
+												</div>
+
+												<div class="form-group">
+													<label>APP 平台</label> <select class="form-control" id="<%=Common.APP_OS%>" name="<%=Common.APP_OS%>" disabled>
+
+														<option selected>Android</option>
+														<option>IOS</option>
+
+														<option>Android</option>
+														<option selected>IOS</option>
+
+													</select>
+												</div>
+
+												<div class="form-group">
+													<label>APP 類別</label> <select class="form-control" id="<%=Common.APP_CATEGORY%>" name="<%=Common.APP_CATEGORY%>" disabled>
+														<option>工具</option>
+														<option>天氣</option>
+													</select>
+												</div>
+											</div>
+										</form>
+										<!-- /.col-lg-6 (nested) -->
+									</div>
+
+									<!-- /.row -->
+								</div>
+								<div class="panel-footer"></div>
+							</div>
+						</div>
+					</div>
+					<!-- /.row -->
+				</div>
+				<!-- /#page-wrapper -->
+			</div>
+			<!-- End API row -->
 		</div>
 	</div>
 	<!--End jumbotron-->
@@ -372,7 +407,7 @@
 
 	<!-- Footer -->
 	<div class="media navbar-inverse text-center">
-		<h4 class="text-muted">&copy;2016 SER SDK Console</h4>
+		<h4 class="text-muted">&copy;2016 MORE SDK Console</h4>
 	</div>
 
 	<%
@@ -383,16 +418,20 @@
 		}
 
 		serSdk = null;
+
+		if (StringUtility.isValid(strShowIosDownload) && strShowIosDownload.trim().equals(Common.IOS))
+		{
+			out.println("<script>showTab(1);</script>");
+		}
 	%>
-	<form action="appNew.jsp" method="post" name="FormAppAdd"
-		id="FormAppAdd">
-		<input name="<%=Common.USER_TOKEN%>" type="hidden"
-			value="<%=strToken%>" />
+	<form action="appNew.jsp" method="post" name="FormAppAdd" id="FormAppAdd">
+		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
 	</form>
-	<form action="applist.jsp" method="post" name="FormAppList"
-		id="FormAppList">
-		<input name="<%=Common.USER_TOKEN%>" type="hidden"
-			value="<%=strToken%>" />
+	<form action="applist.jsp" method="post" name="FormAppList" id="FormAppList">
+		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
 	</form>
+	<FORM action="<%=strRegister%>" method="post" name="FormRegister" id="FormRegister">
+		<input name="sdk_url" type="hidden" value="<%=strSdkUrl%>" />
+	</FORM>
 </body>
 </html>

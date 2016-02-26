@@ -1,8 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" language="java"%>
 <%@ page import="sdk.ideas.Common"%>
-<%@ page import="sdk.ideas.SerSdk"%>
 <%@ page import="sdk.ideas.StringUtility"%>
-<%@ page import="sdk.ideas.sqliteClient"%>
 <%@ page import="java.util.Iterator"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.Arrays"%>
@@ -32,7 +30,6 @@
 	if (StringUtility.isValid(strEdit) && strEdit.trim().equals("true")) {
 		appEditAble = true;
 	}
-	SerSdk serSdk = new SerSdk();
 
 	if (strAppDesc.trim().equals("null"))
 		strAppDesc = "";
@@ -41,13 +38,14 @@
 <html lang="zh-Hant-TW">
 
 <head>
+<LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
 <meta http-equiv="Content-Type" content="text/html; charset=big5">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="SER SDK Console">
-<meta name="author" content="EmilyChen">
+<meta name="description" content="MORE Console">
+<meta name="author" content="MORE Developer">
 
-<title>SER SDK Console｜首頁|</title>
+<title>MORE｜App Detail</title>
 
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.css" rel="stylesheet">
@@ -92,7 +90,7 @@
 	<div id="wrapper">
 
 		<!-- Navigation -->
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+		<nav class="navbar navbar-blue navbar-fixed-top" role="navigation" style="margin-bottom: 0">
 			<div id="navbarCollapse" class="collapse navbar-collapse text-justify">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -374,8 +372,6 @@
 			out.println("<script>document.getElementById('btn_app_update_submit').style.display = \"\";</script>");
 			out.println("<script>document.getElementById('btn_user_update_submit').style.display = \"\";</script>");
 		}
-
-		serSdk = null;
 	%>
 </body>
 

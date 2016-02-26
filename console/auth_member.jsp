@@ -3,13 +3,15 @@
 
 <HTML>
 <HEAD>
-
+<LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
 <script type="text/javascript">
-	function jumpManagerPage() {
+	function jumpManagerPage()
+	{
 		document.formLoginSuccess.submit();
 	}
 
-	function jumpLoginPage() {
+	function jumpLoginPage()
+	{
 		alert("登入失敗!\n請重新登入");
 		document.formLoginFail.submit();
 	}
@@ -22,31 +24,41 @@
 	<p style="text-align: center;">&nbsp;</p>
 	<p style="text-align: center;">&nbsp;</p>
 	<p style="text-align: center;">
-		<img alt="Loading" src="img/loading.gif"
-			style="width: 160px; height: 160px;" />
+		<img alt="Loading" src="img/map_loading.gif" style="width: 260px; height: 260px;" />
 	</p>
 	<h2 style="color: blue; text-align: center;">會員登入</h2>
 
 	<%------------------------- JSP Code -------------------------------%>
 	<%@ page import="sdk.ideas.StringUtility"%>
-	<%@ page import="sdk.ideas.SerSdk"%>
+	<%@ page import="sdk.ideas.More"%>
 	<%@ page import="sdk.ideas.Logs"%>
 
 	<%
 		final String strAccount = request.getParameter("account");
 		final String strPassword = request.getParameter("password");
 
+		Logs.showTrace("login:" + strAccount + "/" + strPassword);
 		String strToken = null;
 
 		if (!StringUtility.isValid(strAccount) || !StringUtility.isValid(strPassword)) {
 			out.println("Invalid Parameters");
 			return;
 		}
-		SerSdk serSdk = new SerSdk();
-		SerSdk.MemData memData = new SerSdk.MemData();
-		boolean bAuthResult = serSdk.login(strAccount, strPassword, memData);
-		strToken = memData.mstrToken;
-		Logs.showTrace("Login get token:" + strToken);
+
+		More more = new More();
+
+		More.MemberData memberData = new More.MemberData();
+		int nCount = more.queryMember(strAccount, memberData);
+		more = null;
+		boolean bAuthResult = false;
+		if (0 < nCount) {
+			strToken = memberData.member_token;
+			Logs.showTrace("Login get token:" + strToken);
+			if (strPassword.trim().equals(memberData.member_password.trim())) {
+				bAuthResult = true;
+				Logs.showTrace("login success:" + memberData.member_email + "/" + memberData.member_password);
+			}
+		}
 	%>
 
 	<%
@@ -58,8 +70,7 @@
 		if (bAuthResult) {
 	%>
 	<form action="index.jsp" method="post" name="formLoginSuccess">
-		<input name="<%=Common.USER_TOKEN%>" type="hidden"
-			value="<%=strToken%>" />
+		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
 	</form>
 	<script type="text/javascript">
 		setTimeout('jumpManagerPage()', 1);
