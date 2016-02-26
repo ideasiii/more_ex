@@ -45,7 +45,7 @@
 <meta name="description" content="MORE Console">
 <meta name="author" content="MORE Developer">
 
-<title>MORE｜App Detail</title>
+<title>MORE</title>
 
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.css" rel="stylesheet">

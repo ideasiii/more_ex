@@ -30,7 +30,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="SER SDK主要能提供App開發者能更快速與簡潔的開發App程式，App開發人員只要將SER SDK加入到自己的App專案裡，透過API的呼叫即可執行SER SDK提供的服務">
 <meta name="author" content="SER">
-<title>SER SDK Console</title>
+<title>MORE</title>
 <!-- You can use open graph tags to customize link previews.
     Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 <meta property="og:url" content="<%=strHostUrl%>" />

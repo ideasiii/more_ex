@@ -23,6 +23,7 @@
 <HTML>
 <head>
 <LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
+<title>MORE</title>
 <!-- Javascript -->
 <script src="js/utility.js"></script>
 </head>

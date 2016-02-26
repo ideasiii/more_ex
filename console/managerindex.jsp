@@ -22,7 +22,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Ideas Developer Concole ">
 <meta name="author" content="EmilyChen">
-<title>Ideas Developer Console ｜ 管理首頁</title>
+<title>MORE</title>
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-theme.css" rel="stylesheet">

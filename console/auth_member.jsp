@@ -18,7 +18,7 @@
 </script>
 
 </HEAD>
-<TITLE>member login</TITLE>
+<title>MORE</title>
 <BODY>
 	<p style="text-align: center;">&nbsp;</p>
 	<p style="text-align: center;">&nbsp;</p>

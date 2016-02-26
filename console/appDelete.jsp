@@ -18,7 +18,7 @@
 <HTML>
 <HEAD>
 <LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
-<TITLE>SER SDK Console | APP Delete</TITLE>
+<title>MORE</title>
 
 <!-- Javascript -->
 <script src="js/utility.js"></script>

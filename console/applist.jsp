@@ -28,7 +28,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="SER SDK Console">
 <meta name="author" content="EmilyChen">
-<title>SER SDK Console ｜首頁| APP列表</title>
+<title>MORE</title>
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-social.css" rel="stylesheet">
