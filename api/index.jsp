@@ -1,68 +1,49 @@
-<%@ page contentType="text/html; charset=utf-8" language="java"%>
+<%@ page contentType="tapplication/json; charset=utf-8" language="java" session="false"%>
 <%@ page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
 <%@ page import="java.util.Map"%>
+<%@ page import="sdk.ideas.AiPlug"%>
+<%@ page import="sdk.ideas.HttpsClient.Response"%>
 
-<html>
-<head>
-<title>MORE API</title>
-</head>
-<body>
-	<p style="text-align: center;">&nbsp;</p>
-	<p style="text-align: center;">&nbsp;</p>
-	<p style="text-align: center;">&nbsp;</p>
-	<p style="text-align: center;">
-		<img alt="Loading" src="../console/img/map_loading.gif" style="width: 260px; height: 260px;" />
-	</p>
+<%
+	final int ID_API_AIPLUG_REGISTER = 1;
+	final int ID_API_AIPLUG_VERIFY = 2;
 
-	<%
-		final int ID_API_AIPLUG_REGISTER = 1;
-	
-		out.println("Content-Type: " + request.getContentType());
-		request.setCharacterEncoding("UTF-8");
-		Map<String, String[]> parameters = request.getParameterMap();
-		if (0 < parameters.size())
+	request.setCharacterEncoding("UTF-8");
+
+	String strParam = request.getParameter("api_id");
+	if (null != strParam)
+	{
+		int nApi_id = -1;
+		try
 		{
-			for (String parameter : parameters.keySet())
+			nApi_id = Integer.valueOf(strParam);
+			switch (nApi_id)
 			{
-				String strValue = new String(parameters.get(parameter)[0].getBytes("ISO-8859-1"), "UTF-8");
-				out.println("KEY:" + parameter + " VALUE:" + parameters.get(parameter)[0]);
-				System.out.println("KEY:" + parameter + " VALUE:" + parameters.get(parameter)[0]);
-			}
-
-			String strParam = request.getParameter("api_id");
-			if (null != strParam)
+			case ID_API_AIPLUG_REGISTER:
 			{
-				int nApi_id = -1;
-				try
-				{
-					nApi_id = Integer.valueOf(strParam);
-					switch (nApi_id)
-					{
-					case ID_API_AIPLUG_REGISTER:
-						break;
-					}
-				}
-				catch (NumberFormatException e)
-				{
-					out.println("Parameter api_id invalid, must be a number");
-					System.out.println("Parameter api_id invalid, must be a number");
-				}
+				AiPlug aiplug = new AiPlug();
+				Response resp = new Response();
+				aiplug.register("0975961276", "cs@tiscservice.com", resp);
+				aiplug = null;
+				out.println(resp.mstrContent);
+				return;
 			}
-			else
-			{
-				out.println("Parameter api_id invalid");
-				System.out.println("Parameter api_id invalid");
+			case ID_API_AIPLUG_VERIFY:
+				break;
 			}
-			return;
 		}
-		else
+		catch (NumberFormatException e)
 		{
-			out.println("Can't get parameters");
+			out.println(
+					"{\"result\":false,\"errcode\":\"-1\",\"message\":\"api_id invalid, must be a number\"}");
 		}
-	%>
+	}
+	else
+	{
+		out.println("{\"result\":false,\"errcode\":\"-1\",\"message\":\"api_id invalid\"}");
+	}
+%>
 
-</body>
-</html>
 
 
 
