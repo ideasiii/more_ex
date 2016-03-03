@@ -8,12 +8,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class SerSdk
 {
-	final String mstrLoginURL = "http://iii-maas.azurewebsites.net/maas/api/member/signin/simple";
+	final String mstrLoginURL = "http://api.ser.ideas.iii.org.tw/api/user/sdk_user_status";
 
 	public static class MemData
 	{
@@ -65,6 +64,7 @@ public class SerSdk
 		try
 		{
 			final String strParam = "account=" + strAccount + "&password=" + strPassword;
+			Logs.showTrace("MORE SDK Login:" + strParam);
 			HttpsClient httpClient = new HttpsClient();
 			HttpsClient.Response resp = new HttpsClient.Response();
 			httpClient.sendPost(mstrLoginURL, strParam, resp);
@@ -72,15 +72,21 @@ public class SerSdk
 
 			if (HttpURLConnection.HTTP_OK == resp.mnCode && StringUtility.isValid(resp.mstrContent))
 			{
+				Logs.showTrace("MORE SDK Login Response:" + resp.mstrContent);
 				JSONObject jsonObj;
 				jsonObj = new JSONObject(resp.mstrContent);
 				bAuthResult = jsonObj.getBoolean("result");
 				if (bAuthResult)
 				{
-					JSONArray jsonArray = jsonObj.getJSONArray("response");
-					JSONObject jsonItem = jsonArray.getJSONObject(0);
-					memData.mstrToken = jsonItem.getString("token");
-					memData.mnAppId = jsonItem.getInt("appid");
+					// JSONArray jsonArray = jsonObj.getJSONArray("response");
+					// JSONObject jsonItem = jsonArray.getJSONObject(0);
+					memData.mstrToken = strAccount; // jsonItem.getString("token");
+					memData.mnAppId = 0;// jsonItem.getInt("appid");
+					Logs.showTrace("MORE SDK Login Success, Account:" + strAccount);
+				}
+				else
+				{
+					Logs.showTrace("MORE SDK Login Fail, Account:" + strAccount);
 				}
 				jsonObj = null;
 			}
@@ -211,18 +217,32 @@ public class SerSdk
 		}
 	}
 
-	public void updateApp(final String strAppId, final String strAppName, final String strAppOs,
-			final String strAppCategory, final String strAppDesc)
+	public void updateApp(final String strAppId, final String strAppIcon, final String strAppName,
+			final String strAppOs, final String strAppCategory, final String strAppDesc)
 	{
 		try
 		{
 			sqliteClient sqlite = new sqliteClient();
 			Connection con = sqlite.getConnection(Common.DB_PATH_IDEAS);
 
-			String sql = "update app set app_name = ? , app_os = ? , app_category = ? , app_description = ? where app_id = ?";
+			String sql = null;
+			if (null == strAppIcon)
+			{
+				sql = "update app set app_name = ? , app_os = ? , app_category = ? , app_description = ? where app_id = ?";
+			}
+			else
+			{
+				sql = "update app set app_icon = ?, app_name = ? , app_os = ? , app_category = ? , app_description = ? where app_id = ?";
+			}
+
 			PreparedStatement pst = null;
 			pst = con.prepareStatement(sql);
 			int idx = 1;
+
+			if (null != strAppIcon)
+			{
+				pst.setString(idx++, strAppIcon);
+			}
 			pst.setString(idx++, strAppName);
 			pst.setString(idx++, strAppOs);
 			pst.setString(idx++, strAppCategory);

@@ -69,3 +69,17 @@ function checkRegisterData(formName)
 	alert(errMsg);
 	return false;
 }
+
+function switchShow(Element)
+{
+	var SubMenu = document.getElementById(Element);
+
+	if (SubMenu.style.display == 'none')
+	{
+		SubMenu.style.display = 'block';
+	}
+	else
+	{
+		SubMenu.style.display = 'none';
+	}
+}

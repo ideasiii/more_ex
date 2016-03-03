@@ -18,8 +18,9 @@
 
 	final String strHostUrl = request.getRequestURL().toString();
 	final String strShowIosDownload = request.getParameter(Common.IOS);
-	final String strSdkUrl = request.getRequestURL().toString();
 	final String strRegister = "register.html";
+	final String strApiUrl = request.getScheme() + "://" + request.getLocalAddr();
+	final String strApiPath = "/more/api/index.jsp";
 	//final String strRegister = "http://api.ser.ideas.iii.org.tw/api/register";
 %>
 
@@ -28,20 +29,33 @@
 <LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="SER SDK主要能提供App開發者能更快速與簡潔的開發App程式，App開發人員只要將SER SDK加入到自己的App專案裡，透過API的呼叫即可執行SER SDK提供的服務">
-<meta name="author" content="SER">
+<meta name="description" content="MORE SDK主要能提供App開發者能更快速與簡潔的開發App程式，App開發人員只要將MORE SDK加入到自己的App專案裡，透過API的呼叫即可執行MORE SDK提供的服務">
+<meta name="author" content="MORE">
 <title>MORE</title>
 <!-- You can use open graph tags to customize link previews.
     Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
 <meta property="og:url" content="<%=strHostUrl%>" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="SER SDK Console" />
-<meta property="og:description" content="SER SDK主要能提供App開發者能更快速與簡潔的開發App程式，App開發人員只要將SER SDK加入到自己的App專案裡，透過API的呼叫即可執行SER SDK提供的服務" />
-<meta property="og:image" content="http://54.199.198.94:8080/IdeasDeveloperConsole/SerSdk/img/ser_logo.png" />
+<meta property="og:title" content="MORE Console" />
+<meta property="og:description" content="MORE SDK主要能提供App開發者能更快速與簡潔的開發App程式，App開發人員只要將MORE SDK加入到自己的App專案裡，透過API的呼叫即可執行MORE SDK提供的服務" />
+<meta property="og:image" content="http://54.199.198.94/IdeasDeveloperConsole/SerSdk/img/ser_logo.png" />
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-theme.css" rel="stylesheet">
+
+<style>
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td {
+	padding: 8px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+</style>
 
 <!-- jQuery (Bootstrap 所有外掛均需要使用) -->
 <script src="js/jquery-1.11.3.min.js"></script>
@@ -91,40 +105,6 @@
 			break;
 		}
 	}
-
-	var VisibleMenu = ''; // 記錄目前顯示的子選單的 ID
-
-	// 顯示或隱藏子選單
-	function switchMenu(theSubMenu)
-	{
-		var SubMenu = document.getElementById(theSubMenu);
-		if (SubMenu.style.display == 'none')
-		{ // 顯示子選單
-			//SubMenu.style.minWidth = theMainMenu.clientWidth; // 讓子選單的最小寬度與主選單相同 (僅為了美觀)
-			SubMenu.style.display = 'block';
-			//hideMenu(); // 隱藏子選單
-			//VisibleMenu = theSubMenu;
-		}
-		else
-		{ // 隱藏子選單
-			SubMenu.style.display = 'none';
-			//if (theEvent != 'MouseOver' || VisibleMenu != theSubMenu)
-			//{
-			//	SubMenu.style.display = 'none';
-			//	VisibleMenu = '';
-			//}
-		}
-	}
-
-	// 隱藏子選單
-	function hideMenu()
-	{
-		if (VisibleMenu != '')
-		{
-			document.getElementById(VisibleMenu).style.display = 'none';
-		}
-		VisibleMenu = '';
-	}
 </script>
 
 </head>
@@ -146,8 +126,8 @@
 
 				<form class="navbar-form navbar-right" role="search" action="index.jsp" method="post" name="FormLogin" id="FormLogin">
 					<div class="form-group">
-						<label for="exampleInputEmail2" class="text-muted">電子郵件</label> <input type="email" class="form-control input-sm" id="exampleInputEmail2" placeholder="account@example.com"
-							name="account"
+						<label for="exampleInputEmail2" class="text-muted" for="exampleInputEmail2">電子郵件</label> <input type="email" class="form-control input-sm" id="exampleInputEmail2"
+							placeholder="account@example.com" name="account"
 						>
 					</div>
 					<div class="form-group">
@@ -394,35 +374,270 @@
 											</div>
 
 											<div class="form-group">
-												<div class="panel panel-primary">
-													<div class="panel-heading">
-														<a href="#" onClick="switchMenu('aiplug_api')" class="btn btn-success navbar-btn" role="button">POST</a>API註冊
-													</div>
-													<div class="panel-body" id="aiplug_api">
+												<div class="panel ">
+													<table>
+														<thead>
+															<tr style="background-color: #aabbb7;">
+																<th scope="col"><a href="#aiplug_api_register" onClick="switchShow('aiplug_api_register')" class="btn btn-default " role="button" style="color: #3377b7;">POST</a></th>
+																<th scope="col" style="text-align: right;">API 註冊</th>
+															</tr>
+														</thead>
+														<tbody>
+														</tbody>
+													</table>
+													<div class="col-lg-12" id="aiplug_api_register" style="display: none;">
 														<div class="row">
-															<img src="/IdeasDeveloperConsole/uploadfile/api/AiPlug_light-191x300.jpg" alt="" width=75 height=75>&nbsp;&nbsp;<label>FamilyAsyst AiPlug-WiFi智慧插座
-																可遠端遙控開關 透過API切斷電源以避免浪費家庭電力 </label>
+															<BR> <LABEL>Target Host: <%=strApiUrl%></LABEL>
+															<HR>
+															<LABEL>API Path:<%=strApiPath%></LABEL>
+															<HR>
+															<table>
+																<thead>
+																	<tr>
+																		<th scope="col">參數名</th>
+																		<th scope="col">參數值</th>
+																		<th scope="col">格式</th>
+																		<th scope="col">說明</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>api_id</td>
+																		<td><input type="text" class="form-control input-sm" id="api_id" placeholder="1" name="api_id" style="width: 70%" value="1" disabled></td>
+																		<td>String</td>
+																		<td>API 編號(必填)</td>
+																	</tr>
+																	<tr>
+																		<td>owner</td>
+																		<td><input type="text" class="form-control input-sm" id="api_owner" placeholder="Phone Number" name="api_owner" style="width: 70%"></td>
+																		<td>String</td>
+																		<td>使用者手機門號(必填)</td>
+																	</tr>
+																	<tr>
+																		<td>mail</td>
+																		<td><input type="email" class="form-control input-sm" id="api_mail" placeholder="account@domain.com" name="api_mail" style="width: 70%"></td>
+																		<td>String</td>
+																		<td>註冊Mail(必填)</td>
+																	</tr>
+																</tbody>
+															</table>
+															<p>&nbsp;</p>
+
+															<table>
+																<thead>
+																	<tr>
+																		<th scope="col">回傳格式</th>
+																		<th scope="col">回傳資訊</th>
+																		<th scope="col">說明</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>JSON</td>
+																		<td><textarea cols="50" rows="7" style="font-size: 16px; padding: 5px;" disabled id="api_resp_fail" name="api_resp_success">
+												{"result":false,"errcode":"4"}
+											</textarea></td>
+																		<td>資料錯誤回傳格式</td>
+																	</tr>
+																	<tr>
+																		<td>JSON</td>
+																		<td><textarea cols="50" rows="7" style="font-size: 16px; padding: 5px;" disabled id="api_resp_success" name="api_resp_success">
+												{"result:true,"data":{"owner":"0975961276","mail":"cs@tiscservice.com","token":"224ff43f051d3a0ffedcce68aa9c96a1","verify":0}}
+											</textarea></td>
+																		<td>資料正確回傳格式</td>
+																	</tr>
+																</tbody>
+															</table>
 														</div>
 													</div>
 												</div>
-												<div class="form-group"></div>
-
 											</div>
-										</div>
-										<!-- /.col-lg-12 (nested) -->
-									</div>
 
-									<!-- /.row -->
+											<div class="form-group">
+												<div class="panel">
+													<table>
+														<thead>
+															<tr style="background-color: #aabbb7;">
+																<th scope="col"><a href="#aiplug_api_verify" onClick="switchShow('aiplug_api_verify')" class="btn btn-default " role="button" style="color: #3377b7;">POST</a></th>
+																<th scope="col" style="text-align: right;">API 開通</th>
+															</tr>
+														</thead>
+														<tbody>
+														</tbody>
+													</table>
+													<div class="col-lg-12" id="aiplug_api_verify" style="display: none;">
+														<div class="row">
+															<BR> <LABEL>Target Host: <%=strApiUrl%></LABEL>
+															<HR>
+															<LABEL>API Path:<%=strApiPath%></LABEL>
+															<HR>
+															<table>
+																<thead>
+																	<tr>
+																		<th scope="col">參數名</th>
+																		<th scope="col">參數值</th>
+																		<th scope="col">格式</th>
+																		<th scope="col">說明</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>api_id</td>
+																		<td><input type="text" class="form-control input-sm" id="api_id" placeholder="1" name="api_id" style="width: 70%" value="2" disabled></td>
+																		<td>String</td>
+																		<td>API 編號(必填)</td>
+																	</tr>
+																	<tr>
+																		<td>owner</td>
+																		<td><input type="text" class="form-control input-sm" id="api_owner" placeholder="Phone Number" name="api_owner" style="width: 70%"></td>
+																		<td>String</td>
+																		<td>使用者手機門號(必填)</td>
+																	</tr>
+																	<tr>
+																		<td>smscode</td>
+																		<td><input type="text" class="form-control input-sm" id="api_smscode" placeholder="0000" name="api_smscode" style="width: 70%"></td>
+																		<td>String</td>
+																		<td>驗證碼(必填)</td>
+																	</tr>
+																</tbody>
+															</table>
+															<p>&nbsp;</p>
+															<table>
+																<thead>
+																	<tr>
+																		<th scope="col">回傳格式</th>
+																		<th scope="col">回傳資訊</th>
+																		<th scope="col">說明</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>JSON</td>
+																		<td><textarea cols="50" rows="7" style="font-size: 16px; padding: 5px;" disabled id="api_resp_fail" name="api_resp_success">
+												{"result":false,"errcode":"6"}
+											</textarea></td>
+																		<td>資料錯誤回傳格式</td>
+																	</tr>
+																	<tr>
+																		<td>JSON</td>
+																		<td><textarea cols="50" rows="7" style="font-size: 16px; padding: 5px;" disabled id="api_resp_success" name="api_resp_success">
+												{"result:true,"data":{"owner":"0975961276","mail":"cs@tiscservice.com","token":"224ff43f051d3a0ffedcce68aa9c96a1","verify":1}}
+											</textarea></td>
+																		<td>資料正確回傳格式</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- 列出所有插座狀態 -->
+											<div class="form-group">
+												<div class="panel">
+													<table>
+														<thead>
+															<tr style="background-color: #aabbb7;">
+																<th scope="col"><a href="#aiplug_api_list" onClick="switchShow('aiplug_api_list')" class="btn btn-default " role="button" style="color: #3377b7;">POST</a></th>
+																<th scope="col" style="text-align: right;" id="#aiplug_api_list_title">列出所有插座狀態</th>
+															</tr>
+														</thead>
+														<tbody>
+														</tbody>
+													</table>
+													<div class="col-lg-12" id="aiplug_api_list" style="display: none;">
+														<div class="row">
+															<BR> <LABEL>Target Host: <%=strApiUrl%></LABEL>
+															<HR>
+															<LABEL>API Path:<%=strApiPath%></LABEL>
+															<HR>
+															<table>
+																<thead>
+																	<tr>
+																		<th scope="col">參數名</th>
+																		<th scope="col">參數值</th>
+																		<th scope="col">格式</th>
+																		<th scope="col">說明</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>api_id</td>
+																		<td><input type="text" class="form-control input-sm" id="api_id" placeholder="1" name="api_id" style="width: 70%" value="3" disabled></td>
+																		<td>String</td>
+																		<td>API 編號(必填)</td>
+																	</tr>
+																	<tr>
+																		<td>owner</td>
+																		<td><input type="text" class="form-control input-sm" id="api_owner" placeholder="Phone Number" name="api_owner" style="width: 70%"></td>
+																		<td>String</td>
+																		<td>使用者手機門號(必填)</td>
+																	</tr>
+																	<tr>
+																		<td>token</td>
+																		<td><input type="text" class="form-control input-sm" id="api_token" placeholder="" name="api_token" style="width: 70%"></td>
+																		<td>String</td>
+																		<td>API金鑰(必填)</td>
+																	</tr>
+																</tbody>
+															</table>
+															<p>&nbsp;</p>
+															<table>
+																<thead>
+																	<tr>
+																		<th scope="col">回傳格式</th>
+																		<th scope="col">回傳資訊</th>
+																		<th scope="col">說明</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>JSON</td>
+																		<td><textarea cols="50" rows="7" style="font-size: 16px; padding: 5px;" disabled id="api_resp_fail" name="api_resp_success">
+												{"result":false,"errcode":"6"}
+											</textarea></td>
+																		<td>資料錯誤回傳格式</td>
+																	</tr>
+																	<tr>
+																		<td>JSON</td>
+																		<td><textarea cols="50" rows="7" style="font-size: 16px; padding: 5px;" disabled id="api_resp_success" name="api_resp_success">
+												{"result:true,"data":{"owner":"0975961276","mail":"cs@tiscservice.com","token":"224ff43f051d3a0ffedcce68aa9c96a1","verify":1}}
+											</textarea></td>
+																		<td>資料正確回傳格式</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- /列出所有插座狀態 -->
+											<!-- /.col-lg-12 (nested) -->
+										</div>
+										<!-- /.row -->
+									</div>
 								</div>
-								<div class="panel-footer"></div>
+							</div>
+						</div>
+						<!-- /.row -->
+					</div>
+
+
+					<!-- 
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="panel panel-primary">
+								<div class="panel-heading">AiPlug 智慧插座API</div>
+								<div class="panel-body">
+									<div class="row"></div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<!-- /.row -->
+-->
+					<!-- /#page-wrapper -->
 				</div>
-				<!-- /#page-wrapper -->
+				<!-- End API row -->
 			</div>
-			<!-- End API row -->
 		</div>
 	</div>
 	<!--End jumbotron-->
@@ -453,8 +668,6 @@
 	<form action="applist.jsp" method="post" name="FormAppList" id="FormAppList">
 		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
 	</form>
-	<FORM action="<%=strRegister%>" method="post" name="FormRegister" id="FormRegister">
-		<input name="sdk_url" type="hidden" value="<%=strSdkUrl%>" />
-	</FORM>
+	<FORM action="<%=strRegister%>" method="post" name="FormRegister" id="FormRegister"></FORM>
 </body>
 </html>

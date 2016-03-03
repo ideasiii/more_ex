@@ -7,6 +7,7 @@ public abstract class Common
 {
 	final public static String UPLOAD_FILE_PATH = "/uploadfile";
 	final public static String DB_PATH_IDEAS = "/data/sqlite/ideas.db";
+	final public static String DB_PATH_MORE_MEMBER = "/data/sqlite/more_member.db";
 	final public static String PATH_DOWNLOAD_LIB_ANDROID = "/ideas/sdk/download/libs/android";
 	final public static String PATH_DOWNLOAD_LIB_IOS = "/ideas/sdk/download/libs/ios";
 	final public static String PATH_DOWNLOAD_DOC_ANDROID = "/ideas/sdk/download/doc/android";
