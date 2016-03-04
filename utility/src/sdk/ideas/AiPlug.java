@@ -4,9 +4,6 @@
  */
 package sdk.ideas;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 /**
  * @author Louis Ju
  * @since 2016-02-16
@@ -20,49 +17,21 @@ public class AiPlug
 	private final String PATH_API_CONFIGURE = "/AiPlugOpenAPI/Configure";
 
 	private HttpsClient httpClient = null;
-	private ArrayList<AiPlugResponseListener> listListener = null;
-
-	private final int ID_REGISTER = 1;
-	private final int ID_VERIFY = 2;
-	private final int ID_LIST = 3;
-	private final int ID_CONFIGURE = 4;
 
 	public AiPlug()
 	{
 		httpClient = new HttpsClient();
 	}
 
-	public static interface AiPlugResponseListener
+	@Override
+	protected void finalize() throws Throwable
 	{
-		public void onResponse(final int nApiId, final int nCode, final String strContent);
-	}
-
-	/**
-	 * Set callback
-	 * 
-	 * @param listener
-	 */
-	public void setAiPlugResponseListener(AiPlugResponseListener listener)
-	{
-		if (null != listener)
-		{
-			listListener.add(listener);
-		}
-	}
-
-	private void callback(final int nApiId, final int nCode, final String strContent)
-	{
-		for (int i = 0; i < listListener.size(); ++i)
-		{
-			listListener.get(i).onResponse(nApiId, nCode, strContent);
-		}
+		httpClient = null;
+		super.finalize();
 	}
 
 	public int register(final String strOwner, final String strMail, HttpsClient.Response resp)
 	{
-		// HashMap<String, String> mapParam = new HashMap<String, String>();
-		// mapParam.put("owner", strOwner);
-		// mapParam.put("mail", strMail);
 		String strParam = "owner=" + strOwner + "&mail=" + strMail;
 		try
 		{
@@ -70,40 +39,60 @@ public class AiPlug
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
-			return -1;
+			resp.mnCode = -1;
+			resp.mstrContent = e.getMessage();
+			Logs.showError(e.toString());
 		}
-		return 0;
+		return resp.mnCode;
 	}
 
-	public int verify(final String strOwner, final String strSmsCode)
+	public int verify(final String strOwner, final String strSmsCode, HttpsClient.Response resp)
 	{
-		HashMap<String, String> mapParam = new HashMap<String, String>();
-		mapParam.put("owner", strOwner);
-		mapParam.put("smscode", strSmsCode);
-		// httpClient.httpPost(ID_VERIFY, TARGET_HOST + PATH_API_VERIFY,
-		// mapParam);
-		return 0;
+		String strParam = "owner=" + strOwner + "&smscode=" + strSmsCode;
+		try
+		{
+			httpClient.sendPost(TARGET_HOST + PATH_API_VERIFY, strParam, resp);
+		}
+		catch (Exception e)
+		{
+			resp.mnCode = -1;
+			resp.mstrContent = e.getMessage();
+			Logs.showError(e.toString());
+		}
+		return resp.mnCode;
 	}
 
-	public int list(final String strOwner, final String strToken)
+	public int list(final String strOwner, final String strToken, HttpsClient.Response resp)
 	{
-		HashMap<String, String> mapParam = new HashMap<String, String>();
-		mapParam.put("owner", strOwner);
-		mapParam.put("token", strToken);
-		// httpClient.httpPost(ID_LIST, TARGET_HOST + PATH_API_LIST, mapParam);
-		return 0;
+		String strParam = "owner=" + strOwner + "&token=" + strToken;
+		try
+		{
+			httpClient.sendPost(TARGET_HOST + PATH_API_LIST, strParam, resp);
+		}
+		catch (Exception e)
+		{
+			resp.mnCode = -1;
+			resp.mstrContent = e.getMessage();
+			Logs.showError(e.toString());
+		}
+		return resp.mnCode;
 	}
 
-	public int configure(final String strOutletId, final String strStatus, final String strOwner, final String strToken)
+	public int configure(final String strOutletId, final String strStatus, final String strOwner, final String strToken,
+			HttpsClient.Response resp)
 	{
-		HashMap<String, String> mapParam = new HashMap<String, String>();
-		mapParam.put("outletid", strOutletId);
-		mapParam.put("status", strStatus);
-		mapParam.put("owner", strOwner);
-		mapParam.put("token", strToken);
-		// httpClient.httpPost(ID_CONFIGURE, TARGET_HOST + PATH_API_CONFIGURE,
-		// mapParam);
-		return 0;
+		String strParam = "outletid=" + strOutletId + "&status=" + strStatus + "&owner=" + strOwner + "&token="
+				+ strToken;
+		try
+		{
+			httpClient.sendPost(TARGET_HOST + PATH_API_CONFIGURE, strParam, resp);
+		}
+		catch (Exception e)
+		{
+			resp.mnCode = -1;
+			resp.mstrContent = e.getMessage();
+			Logs.showError(e.toString());
+		}
+		return resp.mnCode;
 	}
 }

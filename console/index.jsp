@@ -373,6 +373,7 @@ th, td {
 													透過API切斷電源以避免浪費家庭電力 </label>
 											</div>
 
+											<!-- API 註冊 -->
 											<div class="form-group">
 												<div class="panel ">
 													<table>
@@ -437,14 +438,17 @@ th, td {
 																		<td><textarea cols="50" rows="7" style="font-size: 16px; padding: 5px;" disabled id="api_resp_fail" name="api_resp_success">
 												{"result":false,"errcode":"4"}
 											</textarea></td>
-																		<td>資料錯誤回傳格式</td>
+																		<td>資料錯誤回傳格式 <br>errcode:"0" 遠端資料庫錯誤 <br>errcode:"1" 參數錯誤 <br>errcode:"2" 找不到裝置 <br>errcode:"3" 找不到使用者(手機) <br>errcode:"4"
+																			使用者(手機)已經開通 <br>errcode:"5" 使用者(手機)尚未開通 <br>errcode:"6" 驗證錯誤 <br>errcode:"7" API金鑰錯誤 <br>errcode:"8" 其他錯誤
+																		</td>
 																	</tr>
 																	<tr>
 																		<td>JSON</td>
 																		<td><textarea cols="50" rows="7" style="font-size: 16px; padding: 5px;" disabled id="api_resp_success" name="api_resp_success">
 												{"result:true,"data":{"owner":"0975961276","mail":"cs@tiscservice.com","token":"224ff43f051d3a0ffedcce68aa9c96a1","verify":0}}
 											</textarea></td>
-																		<td>資料正確回傳格式</td>
+																		<td>資料正確回傳格式<br>verify參數說明<br>verify:0 尚未開通<br>verify:1 開通
+																		</td>
 																	</tr>
 																</tbody>
 															</table>
@@ -452,7 +456,8 @@ th, td {
 													</div>
 												</div>
 											</div>
-
+											<!-- /API 註冊 -->
+											<!-- API 開通 -->
 											<div class="form-group">
 												<div class="panel">
 													<table>
@@ -531,6 +536,7 @@ th, td {
 													</div>
 												</div>
 											</div>
+											<!-- /API 開通 -->
 											<!-- 列出所有插座狀態 -->
 											<div class="form-group">
 												<div class="panel">
@@ -611,6 +617,98 @@ th, td {
 												</div>
 											</div>
 											<!-- /列出所有插座狀態 -->
+											<!-- 控制插座 -->
+											<div class="form-group">
+												<div class="panel">
+													<table>
+														<thead>
+															<tr style="background-color: #aabbb7;">
+																<th scope="col"><a href="#aiplug_api_configure" onClick="switchShow('aiplug_api_configure')" class="btn btn-default " role="button" style="color: #3377b7;">POST</a></th>
+																<th scope="col" style="text-align: right;" id="#aiplug_api_list_title">控制插座</th>
+															</tr>
+														</thead>
+														<tbody>
+														</tbody>
+													</table>
+													<div class="col-lg-12" id="aiplug_api_configure" style="display: none;">
+														<div class="row">
+															<BR> <LABEL>Target Host: <%=strApiUrl%></LABEL>
+															<HR>
+															<LABEL>API Path:<%=strApiPath%></LABEL>
+															<HR>
+															<table>
+																<thead>
+																	<tr>
+																		<th scope="col">參數名</th>
+																		<th scope="col">參數值</th>
+																		<th scope="col">格式</th>
+																		<th scope="col">說明</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>api_id</td>
+																		<td><input type="text" class="form-control input-sm" id="api_id" placeholder="1" name="api_id" style="width: 70%" value="4" disabled></td>
+																		<td>String</td>
+																		<td>API 編號(必填)</td>
+																	</tr>
+																	<tr>
+																		<td>outletid</td>
+																		<td><input type="text" class="form-control input-sm" id="outletid" placeholder="PTxxxxxxxxxxxxxxxxxx" name="outletid" style="width: 70%"></td>
+																		<td>String</td>
+																		<td>插座識別碼(必填)</td>
+																	</tr>
+																	<tr>
+																		<td>status</td>
+																		<td><input type="text" class="form-control input-sm" id="status" placeholder="1" name="status" style="width: 70%"></td>
+																		<td>String</td>
+																		<td>插座狀態(必填)</td>
+																	</tr>
+																	<tr>
+																		<td>owner</td>
+																		<td><input type="text" class="form-control input-sm" id="api_owner" placeholder="Phone Number" name="api_owner" style="width: 70%"></td>
+																		<td>String</td>
+																		<td>使用者手機門號(必填)</td>
+																	</tr>
+																	<tr>
+																		<td>token</td>
+																		<td><input type="text" class="form-control input-sm" id="api_token" placeholder="" name="api_token" style="width: 70%"></td>
+																		<td>String</td>
+																		<td>API金鑰(必填)</td>
+																	</tr>
+																</tbody>
+															</table>
+															<p>&nbsp;</p>
+															<table>
+																<thead>
+																	<tr>
+																		<th scope="col">回傳格式</th>
+																		<th scope="col">回傳資訊</th>
+																		<th scope="col">說明</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td>JSON</td>
+																		<td><textarea cols="50" rows="7" style="font-size: 16px; padding: 5px;" disabled id="api_resp_fail" name="api_resp_success">
+												{"result":false,"errcode":"7"}
+											</textarea></td>
+																		<td>資料錯誤回傳格式</td>
+																	</tr>
+																	<tr>
+																		<td>JSON</td>
+																		<td><textarea cols="50" rows="7" style="font-size: 16px; padding: 5px;" disabled id="api_resp_success" name="api_resp_success">
+												{"result:true,"data":{"status":1,"data":{"outletid":"PTxxxxxxxxxxxxxxxxxx","portindex":10,"port":"5158","state":0,"target":1,"online":"1"}}}
+											</textarea></td>
+																		<td>資料正確回傳格式</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- /控制插座 -->
 											<!-- /.col-lg-12 (nested) -->
 										</div>
 										<!-- /.row -->
