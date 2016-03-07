@@ -1,0 +1,264 @@
+<%@ page contentType="text/html; charset=utf-8" language="java"%>
+<!DOCTYPE html>
+<html id="XenForo" lang="UTF-8" dir="LTR" class="Public NoJs LoggedOut NoSidebar  NoResponsive">
+<head>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="MORE">
+<meta name="description" content="MORE">
+
+<link rel="stylesheet" href="../css/style.css" />
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/xenforo.js?_v=9a20bde6"></script>
+
+<title>MORE</title>
+
+</head>
+<body>
+	<!-- Login Bar -->
+	<div id="loginBar">
+		<div class="pageWidth">
+			<div class="pageContent">
+				<h3 id="loginBarHandle">
+					<label for="LoginControl"><a href="login.html" class="concealed noOutline">登入</a></label>
+				</h3>
+
+			</div>
+		</div>
+	</div>
+	<!-- /Login Bar -->
+	<!-- Login Bar Content -->
+	<form action="login.html" method="post" class="xenForm" id="login" style="display: none">
+
+		<div class="ctrlWrapper">
+			<dl class="ctrlUnit">
+				<dt>
+					<label for="LoginControl">帳號</label>
+				</dt>
+				<dd>
+					<input type="text" name="login" id="LoginControl" class="textCtrl" tabindex="101" style="height: 30px" />
+				</dd>
+			</dl>
+
+
+			<dl class="ctrlUnit">
+				<dt>
+					<label for="ctrl_password">密碼</label>
+				</dt>
+				<dd>
+					<input type="password" name="password" class="textCtrl" id="ctrl_password" tabindex="102" style="height: 30px" />
+				</dd>
+			</dl>
+
+
+			<dl class="ctrlUnit submitUnit">
+				<dt></dt>
+				<dd>
+					<input type="submit" class="button primary" value="登入" tabindex="104" data-loginPhrase="登入" data-signupPhrase="登入" /> <input type="submit" class="button primary" value="註冊"
+						tabindex="104" data-loginPhrase="註冊" data-signupPhrase="註冊"
+					/>
+				</dd>
+			</dl>
+		</div>
+	</form>
+	<!-- /Login Bar Content -->
+
+
+
+	<!-- Header Mover-->
+	<div id="headerMover">
+		<div id="headerProxy"></div>
+		<header>
+			<div id="header">
+				<div id="tabLinksLongBar"></div>
+				<div id="logoBlock">
+					<div class="pageWidth">
+						<div class="pageContent">
+							<div id="logo">
+								<img src="../image/more.png" alt="MORE" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="navigation" class="pageWidth">
+					<div class="pageContent">
+						<nav>
+							<div class="navTabs">
+								<ul class="publicTabs">
+
+									<!-- MORE SDK -->
+									<li class="navTab templates selected"><a href="" class="navLink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MORE SDK</a>
+										<div class="tabLinks">
+											<ul class="secondaryContent blockLinksList">
+												<li><a rel="nofollow" href="moresdkandroid.jsp">Android</a></li>
+
+												<li><a rel="nofollow" href="moresdkios.jsp">IOS</a></li>
+											</ul>
+										</div></li>
+									<!-- /MORE SDK -->
+
+									<!-- MORE API -->
+									<li class="navTab moreapi Popup PopupControl PopupClosed"><a href="moreapi.jsp" class="navLink">MORE API</a>
+
+										<div class="Menu JsOnly tabMenu">
+											<ul class="secondaryContent blockLinksList">
+												<li><a rel="nofollow" href="https://freewebsitetemplates.com/link/free-web-templates/" data-ga-event="click" data-ga-category="Text Link" data-ga-action="Ad Click"
+													data-ga-label="Free Website - Top Navigation - 1"
+												>æºæ§å®¶é»</a></li>
+
+												<li><a rel="nofollow" href="https://freewebsitetemplates.com/link/fw-free-business-websites/" data-ga-event="click" data-ga-category="Text Link"
+													data-ga-action="Ad Click" data-ga-label="Free Website - Top Navigation - 2"
+												>Free BUSINESS Websites</a></li>
+
+												<li><a rel="nofollow" href="https://freewebsitetemplates.com/link/fw-free-websites/" data-ga-event="click" data-ga-category="Text Link" data-ga-action="Ad Click"
+													data-ga-label="Free Website - Top Navigation - 3"
+												>Free Websites</a></li>
+
+												<li><a rel="nofollow" href="https://freewebsitetemplates.com/link/fw-free-website-builder/" data-ga-event="click" data-ga-category="Text Link"
+													data-ga-action="Ad Click" data-ga-label="Free Website - Top Navigation - 4"
+												>Free Website Builder</a></li>
+
+												<li><a rel="nofollow" href="https://freewebsitetemplates.com/link/all-templates/" data-ga-event="click" data-ga-category="Text Link" data-ga-action="Ad Click"
+													data-ga-label="Free Website - Top Navigation - 5"
+												>ALL Templates</a></li>
+											</ul>
+										</div></li>
+									<!-- /MORE API -->
+								</ul>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div id="content">
+			<div class="pageWidth">
+				<div class="pageContent">
+					<div id="blockList">
+						<ul>
+							<li>
+								<div class="sdkBlock">sdgdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</div>
+								<div class="option">
+									<ul>
+										<li><a class="download" href="/download/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Download Click"
+											data-ga-label="Running Website Template"
+										>Download</a></li>
+										<li><a target="_blank" class="view" href="/preview/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Preview Click"
+											data-ga-label="Running Website Template"
+										>Document</a></li>
+
+									</ul>
+								</div>
+							</li>
+
+							<li>
+								<div class="sdkBlock">sdgdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</div>
+								<div class="option">
+									<ul>
+										<li><a class="download" href="/download/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Download Click"
+											data-ga-label="Running Website Template"
+										>Download</a></li>
+										<li><a target="_blank" class="view" href="/preview/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Preview Click"
+											data-ga-label="Running Website Template"
+										>Document</a></li>
+
+									</ul>
+								</div>
+							</li>
+
+							<li>
+								<div class="sdkBlock">sdgdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</div>
+								<div class="option">
+									<ul>
+										<li><a class="download" href="/download/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Download Click"
+											data-ga-label="Running Website Template"
+										>Download</a></li>
+										<li><a target="_blank" class="view" href="/preview/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Preview Click"
+											data-ga-label="Running Website Template"
+										>Document</a></li>
+
+									</ul>
+								</div>
+							</li>
+
+
+
+
+							<li>
+								<div class="sdkBlock">sdgdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</div>
+								<div class="option">
+									<ul>
+										<li><a class="download" href="/download/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Download Click"
+											data-ga-label="Running Website Template"
+										>Download</a></li>
+										<li><a target="_blank" class="view" href="/preview/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Preview Click"
+											data-ga-label="Running Website Template"
+										>Document</a></li>
+
+									</ul>
+								</div>
+							</li>
+
+
+
+
+
+
+
+							<li>
+								<div class="sdkBlock">sdgdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff</div>
+								<div class="option">
+									<ul>
+										<li><a class="download" href="/download/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Download Click"
+											data-ga-label="Running Website Template"
+										>Download</a></li>
+										<li><a target="_blank" class="view" href="/preview/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Preview Click"
+											data-ga-label="Running Website Template"
+										>Document</a></li>
+
+									</ul>
+								</div>
+							</li>
+
+
+						</ul>
+					</div>
+
+					<div class="titleBar">
+						<h1></h1>
+						<p id="pageDescription" class="muted baseHtml">
+							MORE平台將多項服務與應用包裝成多個獨立的模組，提供給APP開發人員可以加入到自己的APP專案裡
+							透過API的呼叫即可執行多種應用與服務。<br>MORE平台提供的服務包含了：APP Event Tracking
+							Service, Facebook Authentication Service Tencent QQ
+							Authentication Service, IOT Service, Dashboard Service SER API
+							Service…等服務。
+						</p>
+					</div>
+				</div>
+				<!-- /pageContent -->
+			</div>
+			<!-- /pageWidth -->
+		</div>
+		<!-- /content -->
+	</div>
+	<!-- /Header Mover-->
+
+	<!-- footer -->
+	<footer>
+		<div class="footer">
+			<div class="pageWidth">
+				<div class="pageContent">
+					<img class="footerLogo" alt="MORE Logo" src="../image/more_logo.png">
+					<ul class="footerLinks">
+						<li><a href="misc/contact">Contact Us</a></li>
+						<li><a href="https://freewebsitetemplates.com/" class="homeLink">Home</a></li>
+						<li><a href="/#navigation" class="topLink">Top</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</footer>
+	<!-- /footer -->
+</body>
+</html>

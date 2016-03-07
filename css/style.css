@@ -183,7 +183,67 @@ img
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :-moz-broken
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -284,7 +344,37 @@ img
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -355,7 +445,37 @@ width
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -391,6 +511,36 @@ width
 
 ),
 img
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -524,6 +674,36 @@ img
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :not
 
 
@@ -558,7 +738,37 @@ img
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -629,7 +839,37 @@ width
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -732,7 +972,52 @@ width
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -800,8 +1085,53 @@ width
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 50
 px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -937,7 +1267,67 @@ img
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :-moz-broken
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1038,7 +1428,37 @@ img
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1109,7 +1529,37 @@ height
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1145,6 +1595,36 @@ height
 
 ),
 img
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1278,6 +1758,36 @@ img
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :not
 
 
@@ -1312,7 +1822,37 @@ img
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1383,7 +1923,37 @@ height
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1486,7 +2056,52 @@ height
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1554,8 +2169,53 @@ height
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 50
 px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7282,6 +7942,7 @@ div.forum_view .pageNavLinkGroup, div.conversation_list .pageNavLinkGroup
 }
 
 #blockList ul li img {
+	/**
 	-moz-box-shadow: 0 0 5px #888;
 	-webkit-box-shadow: 0 0 5px;
 	border: 1px solid #fff;
@@ -7291,6 +7952,8 @@ div.forum_view .pageNavLinkGroup, div.conversation_list .pageNavLinkGroup
 	box-shadow: 0 0 5px #888;
 	height: 280px;
 	width: 220px;
+	**/
+	
 }
 
 #blockList ul li a {
@@ -7364,6 +8027,12 @@ div.forum_view .pageNavLinkGroup, div.conversation_list .pageNavLinkGroup
 
 #blockList ul ul li a.view {
 	background: url('../image/icons.gif') no-repeat 24px -99px;
+}
+
+#blockList ul ul li a.pdf {
+	width: 10px;
+	height: 10px;
+	background: url('../image/icon-pdf-white.png') no-repeat;
 }
 
 #blockList ul ul li a.discuss {
@@ -7623,6 +8292,33 @@ ul#fwtTopLinksX li a:hover {
 	box-shadow: 0 0 5px #888;
 	position: relative;
 	padding: 2px 0;
+}
+
+.sdkBlock .logo {
+	width: 40px;
+	height: 40px;
+	padding: 10px 0 0 10px;
+	float: left;
+}
+
+.sdkBlock .title {
+	padding: 15px 10px;
+}
+
+.sdkBlock .desc {
+	font-family: Arial;
+	font-size: 16px;
+	text-align: left;
+	padding: 10px 10px 0 10px;
+	color: #176093;
+}
+
+.sdkBlock hr {
+	width: 80%;
+	-webkit-box-shadow: 0 0 5px #888;
+	-moz-box-shadow: 0 0 5px #888;
+	-khtml-box-shadow: 0 0 5px #888;
+	box-shadow: 0 0 5px #888;
 }
 
 .footerLogo {

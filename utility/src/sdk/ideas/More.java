@@ -10,6 +10,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 /**
  * @author Louis Ju
@@ -33,6 +36,18 @@ public class More
 		public String member_token;
 		public int member_auth_state;
 		public int member_group;
+		public String create_date;
+	}
+
+	public static class SdkData
+	{
+		public String sdk_id;
+		public String sdk_os;
+		public String sdk_owner;
+		public String sdk_name;
+		public String sdk_desc;
+		public String sdk_file;
+		public String sdk_doc;
 		public String create_date;
 	}
 
@@ -160,6 +175,51 @@ public class More
 
 		return sb.toString();
 	}
-	
-	
+
+	public int querySdk(ArrayList<SdkData> listSdk)
+	{
+		int nCount = 0;
+
+		try
+		{
+			sqliteClient sqlite = new sqliteClient();
+			Connection con = sqlite.getConnection(Common.DB_PATH_IDEAS);
+			String strSQL = "select * from sdk order by create_date;";
+			ArrayList<HashMap<String, String>> listData = new ArrayList<HashMap<String, String>>();
+			sqlite.query(con, strSQL, Common.listSdkField, listData);
+			con.close();
+			sqlite = null;
+
+			if (0 < listData.size())
+			{
+				Iterator<HashMap<String, String>> it = null;
+				HashMap<String, String> mapItem;
+				it = listData.iterator();
+				SdkData sdkData = null;
+				while (it.hasNext())
+				{
+					sdkData = new SdkData();
+					mapItem = it.next();
+					sdkData.sdk_id = mapItem.get(Common.SDK_ID);
+					sdkData.sdk_os = mapItem.get(Common.SDK_OS);
+					sdkData.sdk_owner = mapItem.get(Common.SDK_OWNER);
+					sdkData.sdk_name = mapItem.get(Common.SDK_NAME);
+					sdkData.sdk_desc = mapItem.getOrDefault(Common.SDK_DESC, "No Description");
+					sdkData.sdk_file = mapItem.get(Common.SDK_FILE);
+					sdkData.sdk_doc = mapItem.getOrDefault(Common.SDK_DOC, "");
+					sdkData.create_date = mapItem.get(Common.CREATE_DATE);
+					listSdk.add(sdkData);
+					sdkData = null;
+				}
+				nCount = listSdk.size();
+			}
+		}
+		catch (SQLException e)
+		{
+			Logs.showError(e.toString());
+			e.printStackTrace();
+		}
+
+		return nCount;
+	}
 }
