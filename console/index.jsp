@@ -521,7 +521,8 @@ th, td {
 																		<td><textarea cols="50" rows="7" style="font-size: 16px; padding: 5px;" disabled id="api_resp_fail" name="api_resp_success">
 												{"result":false,"errcode":"6"}
 											</textarea></td>
-																		<td>資料錯誤回傳格式</td>
+																		<td>資料錯誤回傳格式<br>errcode:"0" 遠端資料庫錯誤 <br>errcode:"1" 參數錯誤 <br>errcode:"2" 找不到裝置 <br>errcode:"3" 找不到使用者(手機) <br>errcode:"4"
+																			使用者(手機)已經開通 <br>errcode:"5" 使用者(手機)尚未開通 <br>errcode:"6" 驗證錯誤 <br>errcode:"7" API金鑰錯誤 <br>errcode:"8" 其他錯誤</td>
 																	</tr>
 																	<tr>
 																		<td>JSON</td>
@@ -601,7 +602,8 @@ th, td {
 																		<td><textarea cols="50" rows="7" style="font-size: 16px; padding: 5px;" disabled id="api_resp_fail" name="api_resp_success">
 												{"result":false,"errcode":"6"}
 											</textarea></td>
-																		<td>資料錯誤回傳格式</td>
+																		<td>資料錯誤回傳格式<br>errcode:"0" 遠端資料庫錯誤 <br>errcode:"1" 參數錯誤 <br>errcode:"2" 找不到裝置 <br>errcode:"3" 找不到使用者(手機) <br>errcode:"4"
+																			使用者(手機)已經開通 <br>errcode:"5" 使用者(手機)尚未開通 <br>errcode:"6" 驗證錯誤 <br>errcode:"7" API金鑰錯誤 <br>errcode:"8" 其他錯誤</td>
 																	</tr>
 																	<tr>
 																		<td>JSON</td>
@@ -693,7 +695,8 @@ th, td {
 																		<td><textarea cols="50" rows="7" style="font-size: 16px; padding: 5px;" disabled id="api_resp_fail" name="api_resp_success">
 												{"result":false,"errcode":"7"}
 											</textarea></td>
-																		<td>資料錯誤回傳格式</td>
+																		<td>資料錯誤回傳格式<br>errcode:"0" 遠端資料庫錯誤 <br>errcode:"1" 參數錯誤 <br>errcode:"2" 找不到裝置 <br>errcode:"3" 找不到使用者(手機) <br>errcode:"4"
+																			使用者(手機)已經開通 <br>errcode:"5" 使用者(手機)尚未開通 <br>errcode:"6" 驗證錯誤 <br>errcode:"7" API金鑰錯誤 <br>errcode:"8" 其他錯誤</td>
 																	</tr>
 																	<tr>
 																		<td>JSON</td>
