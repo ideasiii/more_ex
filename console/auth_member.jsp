@@ -36,7 +36,11 @@
 	<%
 		final String strAccount = request.getParameter("account");
 		final String strPassword = request.getParameter("password");
+		String strFrom = request.getParameter("from");
 
+		if (null == strFrom) {
+			strFrom = "index.jsp";
+		}
 		Logs.showTrace("login:" + strAccount + "/" + strPassword);
 		String strToken = null;
 
@@ -69,7 +73,7 @@
 
 		if (bAuthResult) {
 	%>
-	<form action="index.jsp" method="post" name="formLoginSuccess">
+	<form action="<%=strFrom%>" method="post" name="formLoginSuccess">
 		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
 	</form>
 	<script type="text/javascript">
@@ -80,7 +84,7 @@
 		}
 	%>
 
-	<form action="index.jsp" method="post" name="formLoginFail"></form>
+	<form action="<%=strFrom%>" method="post" name="formLoginFail"></form>
 	<script type="text/javascript">
 		setTimeout('jumpLoginPage()', 1);
 	</script>

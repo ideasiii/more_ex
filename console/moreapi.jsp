@@ -16,16 +16,9 @@
 	}
 
 	final String strHostUrl = request.getRequestURL().toString();
-	final String strShowIosSdk = request.getParameter(Common.IOS);
-
-	ArrayList<More.SdkData> listSdk = new ArrayList<More.SdkData>();
-	int nCount = more.querySdk(listSdk);
-	int nshowSdkType = 0;
-	if (StringUtility.isValid(strShowIosSdk) && strShowIosSdk.trim().equals(Common.IOS))
-		nshowSdkType = 1;
 %>
 <!DOCTYPE html>
-<html id="XenForo" lang="utf-8" dir="LTR" class="Public NoJs LoggedOut NoSidebar  NoResponsive">
+<html id="XenForo" lang="UTF-8" dir="LTR" class="Public NoJs LoggedOut NoSidebar  NoResponsive">
 <head>
 <head>
 <meta charset="utf-8">
@@ -44,17 +37,17 @@
 		switch (tab)
 		{
 		case 0:
-			document.getElementById('sdk_android').style.display = "block";
-			document.getElementById('sdk_ios').style.display = "none";
+			document.getElementById('api_smart_family').style.display = "block";
+			document.getElementById('api_iot').style.display = "none";
 			break;
 		case 1:
-			document.getElementById('sdk_android').style.display = "none";
-			document.getElementById('sdk_ios').style.display = "block";
+			document.getElementById('api_smart_family').style.display = "none";
+			document.getElementById('api_iot').style.display = "block";
 			break;
 		}
 	}
 </script>
-<title>MORE SDK</title>
+<title>MORE API</title>
 
 </head>
 <body>
@@ -64,11 +57,14 @@
 			<div class="pageContent">
 				<h3 id="loginBarHandle">
 					<%
-						if (bLogined) {
+						if (bLogined)
+						{
 					%>
-					<label for="LoginControl"><a href="#" class="concealed noOutline" onClick="formSubmit('FormMoreSdk')">登出</a></label>
+					<label for="LoginControl"><a href="#" class="concealed noOutline" onClick="formSubmit('FormMoreApi')">登出</a></label>
 					<%
-						} else {
+						}
+						else
+						{
 					%>
 					<label for="LoginControl"><a href="login.html" class="concealed noOutline">登入</a></label>
 					<%
@@ -81,7 +77,6 @@
 	<!-- /Login Bar -->
 	<!-- Login Bar Content -->
 	<form action="auth_member.jsp" method="post" class="xenForm" style="display: none" name="login" id="login">
-		<input name="from" type="hidden" value="moresdk.jsp" />
 		<div class="ctrlWrapper">
 			<dl class="ctrlUnit">
 				<dt>
@@ -91,6 +86,8 @@
 					<input type="text" name="account" id="LoginControl" class="textCtrl" tabindex="101" style="height: 30px" />
 				</dd>
 			</dl>
+
+
 			<dl class="ctrlUnit">
 				<dt>
 					<label for="ctrl_password">密碼</label>
@@ -110,6 +107,7 @@
 		</div>
 	</form>
 	<!-- /Login Bar Content -->
+
 	<!-- Header Mover-->
 	<div id="headerMover">
 		<div id="headerProxy"></div>
@@ -132,17 +130,21 @@
 								<ul class="publicTabs">
 
 									<!-- MORE SDK -->
-									<li class="navTab templates selected"><a href="#" class="navLink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MORE SDK</a>
-										<div class="tabLinks">
-											<ul class="secondaryContent blockLinksList">
-												<li><a rel="nofollow" href="#" onClick="showTab(0)" id="a_android">Android</a></li>
-												<li><a rel="nofollow" href="#" onClick="showTab(1)" id="a_ios">IOS</a></li>
-											</ul>
+									<li class="navTab templates Popup PopupControl PopupClosed"><a href="#" class="navLink" onClick="formSubmit('FormMoreSdk')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MORE
+											SDK</a>
+										<div class="Menu JsOnly tabMenu templatesTabLinks">
+											<div class="primaryContent menuHeader"></div>
 										</div></li>
 									<!-- /MORE SDK -->
 
 									<!-- MORE API -->
-									<li class="navTab moreapi Popup PopupControl PopupClosed"><a href="#" class="navLink" onClick="formSubmit('FormMoreApi')">MORE API</a></li>
+									<li class="navTab moreapi selected"><a href="" class="navLink">MORE API</a>
+										<div class="tabLinks">
+											<ul class="secondaryContent blockLinksList">
+												<li><a rel="nofollow" href="#" onClick="showTab(0)" id="a_smart_family">智慧家電</a></li>
+												<li><a rel="nofollow" href="#" onClick="showTab(1)" id="a_iot">物連網</a></li>
+											</ul>
+										</div></li>
 									<!-- /MORE API -->
 								</ul>
 							</div>
@@ -155,80 +157,40 @@
 			<div class="pageWidth">
 				<div class="pageContent">
 					<div id="blockList">
-						<!-- SDK Android List -->
-						<ul id="sdk_android">
-							<%
-								if (0 < nCount) {
-									Iterator<More.SdkData> it = null;
-									it = listSdk.iterator();
-									More.SdkData sdkData = null;
-									while (it.hasNext()) {
-										sdkData = it.next();
-										if (sdkData.sdk_os.trim().equals("ios"))
-											continue;
-
-										if (!bLogined) {
-											sdkData.sdk_file = "#";
-										}
-							%>
+						<!-- API Smart Family -->
+						<ul id="api_smart_family">
 							<li>
-								<div class="sdkBlock">
-									<img src="img/androidm.png" alt="android" class="logo">
-									<p class="title"><%=sdkData.sdk_name%></p>
-									<HR>
-									<p class="desc"><%=sdkData.sdk_desc%></p>
-								</div>
+								<div class="sdkBlock">Aiplug</div>
 								<div class="option">
 									<ul>
-										<li><a class="download" href="<%=sdkData.sdk_file%>">Download</a></li>
-										<li><a target="_blank" class="view" href="<%=sdkData.sdk_doc%>">Document</a></li>
+										<li><a class="download" href="/download/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Download Click"
+											data-ga-label="Running Website Template"
+										>Download</a></li>
+										<li><a target="_blank" class="view" href="/preview/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Preview Click"
+											data-ga-label="Running Website Template"
+										>Document</a></li>
 									</ul>
 								</div>
 							</li>
-
-							<%
-								}
-								}
-							%>
 						</ul>
-						<!-- /SDK Android List -->
-						<!-- SDK IOS List -->
-						<ul id="sdk_ios">
-							<%
-								if (0 < nCount) {
-									Iterator<More.SdkData> it = null;
-									it = listSdk.iterator();
-									More.SdkData sdkData = null;
-									while (it.hasNext()) {
-										sdkData = it.next();
-										if (sdkData.sdk_os.trim().equals("android"))
-											continue;
-
-										if (!bLogined) {
-											sdkData.sdk_file = "#";
-										}
-							%>
+						<!-- /API Smart Family -->
+						<!-- API IOT -->
+						<ul id="api_iot">
 							<li>
-								<div class="sdkBlock">
-									<img src="img/iosm.png" alt="ios" class="logo">
-									<p class="title"><%=sdkData.sdk_name%></p>
-									<HR>
-									<p class="desc"><%=sdkData.sdk_desc%></p>
-								</div>
+								<div class="sdkBlock">IOT</div>
 								<div class="option">
 									<ul>
-										<li><a class="download" href="<%=sdkData.sdk_file%>">Download</a></li>
-										<li><a target="_blank" class="view" href="<%=sdkData.sdk_doc%>">Document</a></li>
+										<li><a class="download" href="/download/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Download Click"
+											data-ga-label="Running Website Template"
+										>Download</a></li>
+										<li><a target="_blank" class="view" href="/preview/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Preview Click"
+											data-ga-label="Running Website Template"
+										>Document</a></li>
 									</ul>
 								</div>
 							</li>
-
-							<%
-								}
-								}
-							%>
 						</ul>
-						<!-- /SDK IOS List -->
+						<!-- API IOT -->
 					</div>
 
 					<div class="titleBar">
@@ -265,22 +227,10 @@
 	</footer>
 	<!-- /footer -->
 
-	<!-- Show SDK List -->
-	<script>
-		showTab(
-	<%=nshowSdkType%>
-		);
-	</script>
-	<!-- /Show SDK List -->
+	<form action="moresdk.jsp" method="post" name="FormMoreSdk" id="FormMoreSdk">
+		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+	</form>
+	<form action="moreapi.jsp" method="post" name="FormMoreApi" id="FormMoreApi"></form>
+
 </body>
-
-<form action="moreapi.jsp" method="post" name="FormMoreApi" id="FormMoreApi">
-	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
-</form>
-
-<form action="moresdk.jsp" method="post" name="FormMoreSdk" id="FormMoreSdk"></form>
 </html>
-
-<%
-	more = null;
-%>
