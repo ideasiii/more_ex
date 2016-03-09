@@ -254,14 +254,12 @@
 				<div class="pageContent">
 					<img class="footerLogo" alt="MORE Logo" src="../image/more_logo.png">
 					<ul class="footerLinks">
-						<li><a href="misc/contact">Contact Us</a></li>
-						<li><a href="https://freewebsitetemplates.com/" class="homeLink">Home</a></li>
-						<li><a href="/#navigation" class="topLink">Top</a></li>
+						<li><a href="#">Contact Us</a></li>
+						<li><a href="moresdk.jsp" class="homeLink">Home</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-
 	</footer>
 	<!-- /footer -->
 
