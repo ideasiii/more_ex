@@ -34,7 +34,7 @@
 <script type="text/javascript">
 	
 </script>
-<title>MORE TEMPLATE</title>
+<title>MORE MDM</title>
 
 </head>
 <body>
@@ -118,7 +118,7 @@
 								<ul class="publicTabs">
 
 									<!-- MORE HOME -->
-									<li class="navTab morehome selected"><a href="#" class="navLink">HOME</a></li>
+									<li class="navTab morehome Popup PopupControl PopupClosed"><a href="#" class="navLink">HOME</a></li>
 									<!-- /MORE HOME -->
 
 									<!-- MORE SDK -->
@@ -130,7 +130,7 @@
 									<!-- /MORE API -->
 
 									<!-- MORE MDM -->
-									<li class="navTab moremdm Popup PopupControl PopupClosed"><a href="#" class="navLink">MORE MDM</a></li>
+									<li class="navTab moremdm selected"><a href="#" class="navLink">MORE MDM</a></li>
 									<!-- /MORE MDM -->
 
 									<!-- MORE DASHBOARD -->

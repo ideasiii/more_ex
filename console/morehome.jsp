@@ -34,7 +34,7 @@
 <script type="text/javascript">
 	
 </script>
-<title>MORE TEMPLATE</title>
+<title>MORE HOME</title>
 
 </head>
 <body>

@@ -129,6 +129,10 @@
 							<div class="navTabs">
 								<ul class="publicTabs">
 
+									<!-- MORE HOME -->
+									<li class="navTab morehome Popup PopupControl PopupClosed"><a href="#" class="navLink" onClick="formSubmit('FormMoreHome')">HOME</a></li>
+									<!-- /MORE HOME -->
+
 									<!-- MORE SDK -->
 									<li class="navTab templates Popup PopupControl PopupClosed"><a href="#" class="navLink" onClick="formSubmit('FormMoreSdk')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MORE
 											SDK</a>
@@ -146,6 +150,18 @@
 											</ul>
 										</div></li>
 									<!-- /MORE API -->
+
+									<!-- MORE MDM -->
+									<li class="navTab moremdm Popup PopupControl PopupClosed"><a href="#" class="navLink" onClick="formSubmit('FormMoreMdm')">MORE MDM</a></li>
+									<!-- /MORE MDM -->
+
+									<!-- MORE DASHBOARD -->
+									<li class="navTab moredashboard Popup PopupControl PopupClosed"><a href="#" class="navLink">DASHBOARD</a></li>
+									<!-- /MORE DASHBOARD -->
+
+									<!-- MORE ABOUT -->
+									<li class="navTab moreabout Popup PopupControl PopupClosed"><a href="#" class="navLink">ABOUT</a></li>
+									<!-- /MORE ABOUT -->
 								</ul>
 							</div>
 						</nav>
@@ -227,10 +243,29 @@
 	</footer>
 	<!-- /footer -->
 
+	<form action="morehome.jsp" method="post" name="FormMoreHome" id="FormMoreHome">
+		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+	</form>
+
 	<form action="moresdk.jsp" method="post" name="FormMoreSdk" id="FormMoreSdk">
 		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
 	</form>
-	<form action="moreapi.jsp" method="post" name="FormMoreApi" id="FormMoreApi"></form>
+
+	<form action="moreapi.jsp" method="post" name="FormMoreApi" id="FormMoreApi">
+		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+	</form>
+
+	<form action="moremdm.jsp" method="post" name="FormMoreMdm" id="FormMoreMdm">
+		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+	</form>
+
+	<form action="moredashboard.jsp" method="post" name="FormMoreDashboard" id="FormMoreDashboard">
+		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+	</form>
+
+	<form action="moreabout.jsp" method="post" name="FormMoreAbout" id="FormMoreAbout">
+		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+	</form>
 
 </body>
 </html>

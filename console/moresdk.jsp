@@ -131,8 +131,12 @@
 							<div class="navTabs">
 								<ul class="publicTabs">
 
+									<!-- MORE HOME -->
+									<li class="navTab morehome Popup PopupControl PopupClosed"><a href="#" class="navLink" onClick="formSubmit('FormMoreHome')">HOME</a></li>
+									<!-- /MORE HOME -->
+
 									<!-- MORE SDK -->
-									<li class="navTab templates selected"><a href="#" class="navLink">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MORE SDK</a>
+									<li class="navTab moresdk selected"><a href="#" class="navLink">MORE SDK</a>
 										<div class="tabLinks">
 											<ul class="secondaryContent blockLinksList">
 												<li><a rel="nofollow" href="#" onClick="showTab(0)" id="a_android">Android</a></li>
@@ -144,6 +148,18 @@
 									<!-- MORE API -->
 									<li class="navTab moreapi Popup PopupControl PopupClosed"><a href="#" class="navLink" onClick="formSubmit('FormMoreApi')">MORE API</a></li>
 									<!-- /MORE API -->
+
+									<!-- MORE MDM -->
+									<li class="navTab moremdm Popup PopupControl PopupClosed"><a href="#" class="navLink">MORE MDM</a></li>
+									<!-- /MORE MDM -->
+
+									<!-- MORE DASHBOARD -->
+									<li class="navTab moredashboard Popup PopupControl PopupClosed"><a href="#" class="navLink">DASHBOARD</a></li>
+									<!-- /MORE DASHBOARD -->
+
+									<!-- MORE ABOUT -->
+									<li class="navTab moreabout Popup PopupControl PopupClosed"><a href="#" class="navLink">ABOUT</a></li>
+									<!-- /MORE ABOUT -->
 								</ul>
 							</div>
 						</nav>
@@ -167,9 +183,9 @@
 										if (sdkData.sdk_os.trim().equals("ios"))
 											continue;
 
-										if (!bLogined) {
-											sdkData.sdk_file = "#";
-										}
+										//		if (!bLogined) {
+										//			sdkData.sdk_file = "#";
+										//		}
 							%>
 							<li>
 								<div class="sdkBlock">
@@ -204,9 +220,9 @@
 										if (sdkData.sdk_os.trim().equals("android"))
 											continue;
 
-										if (!bLogined) {
-											sdkData.sdk_file = "#";
-										}
+										//	if (!bLogined) {
+										//		sdkData.sdk_file = "#";
+										//	}
 							%>
 							<li>
 								<div class="sdkBlock">
@@ -272,11 +288,31 @@
 	<!-- /Show SDK List -->
 </body>
 
+<form action="morehome.jsp" method="post" name="FormMoreHome" id="FormMoreHome">
+	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+</form>
+
+<form action="moresdk.jsp" method="post" name="FormMoreSdk" id="FormMoreSdk">
+	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+</form>
+
 <form action="moreapi.jsp" method="post" name="FormMoreApi" id="FormMoreApi">
 	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
 </form>
 
-<form action="moresdk.jsp" method="post" name="FormMoreSdk" id="FormMoreSdk"></form>
+<form action="moremdm.jsp" method="post" name="FormMoreMdm" id="FormMoreMdm">
+	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+</form>
+
+<form action="moredashboard.jsp" method="post" name="FormMoreDashboard" id="FormMoreDashboard">
+	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+</form>
+
+<form action="moreabout.jsp" method="post" name="FormMoreAbout" id="FormMoreAbout">
+	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+</form>
+
+
 </html>
 
 <%
