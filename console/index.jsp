@@ -248,9 +248,9 @@ th, td {
 							if (sdkData.sdk_os.trim().equals("ios"))
 								continue;
 
-							if (!bLogined) {
-								sdkData.sdk_file = "#";
-							}
+							//		if (!bLogined) {
+							//			sdkData.sdk_file = "#";
+							//		}
 				%>
 				<div class="col-sm-6 col-md-4">
 					<div class="thumbnail">
@@ -309,9 +309,9 @@ th, td {
 							if (sdkData.sdk_os.trim().equals("android"))
 								continue;
 
-							if (!bLogined) {
-								sdkData.sdk_file = "#";
-							}
+							//				if (!bLogined) {
+							//					sdkData.sdk_file = "#";
+							//				}
 				%>
 				<div class="col-sm-6 col-md-4">
 					<div class="thumbnail">
@@ -522,7 +522,8 @@ th, td {
 												{"result":false,"errcode":"6"}
 											</textarea></td>
 																		<td>資料錯誤回傳格式<br>errcode:"0" 遠端資料庫錯誤 <br>errcode:"1" 參數錯誤 <br>errcode:"2" 找不到裝置 <br>errcode:"3" 找不到使用者(手機) <br>errcode:"4"
-																			使用者(手機)已經開通 <br>errcode:"5" 使用者(手機)尚未開通 <br>errcode:"6" 驗證錯誤 <br>errcode:"7" API金鑰錯誤 <br>errcode:"8" 其他錯誤</td>
+																			使用者(手機)已經開通 <br>errcode:"5" 使用者(手機)尚未開通 <br>errcode:"6" 驗證錯誤 <br>errcode:"7" API金鑰錯誤 <br>errcode:"8" 其他錯誤
+																		</td>
 																	</tr>
 																	<tr>
 																		<td>JSON</td>
@@ -603,7 +604,8 @@ th, td {
 												{"result":false,"errcode":"6"}
 											</textarea></td>
 																		<td>資料錯誤回傳格式<br>errcode:"0" 遠端資料庫錯誤 <br>errcode:"1" 參數錯誤 <br>errcode:"2" 找不到裝置 <br>errcode:"3" 找不到使用者(手機) <br>errcode:"4"
-																			使用者(手機)已經開通 <br>errcode:"5" 使用者(手機)尚未開通 <br>errcode:"6" 驗證錯誤 <br>errcode:"7" API金鑰錯誤 <br>errcode:"8" 其他錯誤</td>
+																			使用者(手機)已經開通 <br>errcode:"5" 使用者(手機)尚未開通 <br>errcode:"6" 驗證錯誤 <br>errcode:"7" API金鑰錯誤 <br>errcode:"8" 其他錯誤
+																		</td>
 																	</tr>
 																	<tr>
 																		<td>JSON</td>
@@ -696,7 +698,8 @@ th, td {
 												{"result":false,"errcode":"7"}
 											</textarea></td>
 																		<td>資料錯誤回傳格式<br>errcode:"0" 遠端資料庫錯誤 <br>errcode:"1" 參數錯誤 <br>errcode:"2" 找不到裝置 <br>errcode:"3" 找不到使用者(手機) <br>errcode:"4"
-																			使用者(手機)已經開通 <br>errcode:"5" 使用者(手機)尚未開通 <br>errcode:"6" 驗證錯誤 <br>errcode:"7" API金鑰錯誤 <br>errcode:"8" 其他錯誤</td>
+																			使用者(手機)已經開通 <br>errcode:"5" 使用者(手機)尚未開通 <br>errcode:"6" 驗證錯誤 <br>errcode:"7" API金鑰錯誤 <br>errcode:"8" 其他錯誤
+																		</td>
 																	</tr>
 																	<tr>
 																		<td>JSON</td>

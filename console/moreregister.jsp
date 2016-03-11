@@ -34,66 +34,10 @@
 <script type="text/javascript">
 	
 </script>
-
-<title>MORE HOME</title>
+<title>MORE REGISTER</title>
 
 </head>
 <body>
-	<!-- Login Bar -->
-	<div id="loginBar">
-		<div class="pageWidth">
-			<div class="pageContent">
-				<h3 id="loginBarHandle">
-					<%
-						if (bLogined)
-						{
-					%>
-					<label for="LoginControl"><a href="#" class="concealed noOutline" onClick="formSubmit('FormMoreSdk')">登出</a></label>
-					<%
-						}
-						else
-						{
-					%>
-					<label for="LoginControl"><a href="login.html" class="concealed noOutline">登入</a></label>
-					<%
-						}
-					%>
-				</h3>
-			</div>
-		</div>
-	</div>
-	<!-- /Login Bar -->
-	<!-- Login Bar Content -->
-	<form action="auth_member.jsp" method="post" class="xenForm" style="display: none" name="login" id="login">
-		<input name="from" type="hidden" value="morehome.jsp" />
-		<div class="ctrlWrapper">
-			<dl class="ctrlUnit">
-				<dt>
-					<label for="LoginControl">帳號</label>
-				</dt>
-				<dd>
-					<input type="text" name="account" id="LoginControl" class="textCtrl" tabindex="101" style="height: 30px" />
-				</dd>
-			</dl>
-			<dl class="ctrlUnit">
-				<dt>
-					<label for="ctrl_password">密碼</label>
-				</dt>
-				<dd>
-					<input type="password" name="password" class="textCtrl" id="ctrl_password" tabindex="102" style="height: 30px" />
-				</dd>
-			</dl>
-			<dl class="ctrlUnit submitUnit">
-				<dt></dt>
-				<dd>
-					<input type="button" class="button primary" value="登入" tabindex="104" data-loginPhrase="登入" data-signupPhrase="登入" onclick="onLogin()" /> <input type="button"
-						class="button primary" value="註冊" tabindex="104" data-loginPhrase="註冊" data-signupPhrase="註冊" onClick="formSubmit('FormMoreRegister')"
-					/>
-				</dd>
-			</dl>
-		</div>
-	</form>
-	<!-- /Login Bar Content -->
 
 	<!-- Header Mover-->
 	<div id="headerMover">
@@ -119,7 +63,7 @@
 								<ul class="publicTabs">
 
 									<!-- MORE HOME -->
-									<li class="navTab morehome selected"><a href="#" class="navLink" onClick="formSubmit('FormMoreHome')">HOME</a></li>
+									<li class="navTab morehome selected"><a href="#" class="navLink">HOME</a></li>
 									<!-- /MORE HOME -->
 
 									<!-- MORE SDK -->
@@ -131,15 +75,15 @@
 									<!-- /MORE API -->
 
 									<!-- MORE MDM -->
-									<li class="navTab moremdm Popup PopupControl PopupClosed"><a href="#" class="navLink" onClick="formSubmit('FormMoreMdm')">MORE MDM</a></li>
+									<li class="navTab moremdm Popup PopupControl PopupClosed"><a href="#" class="navLink">MORE MDM</a></li>
 									<!-- /MORE MDM -->
 
 									<!-- MORE DASHBOARD -->
-									<li class="navTab moredashboard Popup PopupControl PopupClosed"><a href="#" class="navLink" onClick="formSubmit('FormMoreDashboard')">DASHBOARD</a></li>
+									<li class="navTab moredashboard Popup PopupControl PopupClosed"><a href="#" class="navLink">DASHBOARD</a></li>
 									<!-- /MORE DASHBOARD -->
 
 									<!-- MORE ABOUT -->
-									<li class="navTab moreabout Popup PopupControl PopupClosed"><a href="#" class="navLink" onClick="formSubmit('FormMoreAbout')">ABOUT</a></li>
+									<li class="navTab moreabout Popup PopupControl PopupClosed"><a href="#" class="navLink">ABOUT</a></li>
 									<!-- /MORE ABOUT -->
 
 								</ul>
@@ -154,26 +98,15 @@
 			<div class="pageWidth">
 				<div class="pageContent">
 
-					<!-- Block List -->
-					<div id="blockList">
-						<UL>
-							<LI><IMG class="homeAD" alt="MORE SDK" src="img/banner01.jpg"> <span class="homeAdWord"> MORE SDK將多項服務與應用包裝成多個獨立的模組,透過API的呼叫即可執行多種應用與服務 </span></LI>
-							<LI><span class="homeAdWordLeft" style="color: #369caa;"> MORE平台將多項服務與應用包裝成多個獨立的模組，提供給APP開發人員可以加入到自己的APP專案裡 透過API的呼叫即可執行多種應用與服務。 MORE平台提供的服務包含了：APP Event
-									Tracking Service, Facebook Authentication Service Tencent QQ Authentication Service, IOT Service, Dashboard Service SER API Service…等服務。 </span><IMG class="homeAdRight"
-								alt="MORE API" src="img/appmobile.jpg"
-							></LI>
-							<LI><IMG class="homeAD" alt="MORE MDM" src="img/mdm_ad.jpg" style="height: 400px;"> <span class="homeAdWord" style="color: #369caa;"> MORE Mobild Device
-									Manager 手機群組管理應用,讓企業更靈活管理租用的終端設備</span></LI>
-							<LI><IMG class="homeAD" alt="MORE TRACK" src="img/track_ad.jpg" style="height: 400px;"> <span class="homeAdWord"> MORE Tracker SDK收集終端裝置使用行為資料,透過MORE
-									Dashboard了解未來商品趨勢與市場走向 </span></LI>
-						</UL>
-					</div>
-					<!-- /Block List -->
+					<!-- Content Block -->
+					<div id="blockList"></div>
 
 					<div class="titleBar">
+						<!-- /Content Block -->
 
 						<p id="pageDescription" class="muted baseHtml">
-							<BR> <BR> MORE平台提供APP SDK, API, MDM, Dashboard…等服務。
+							MORE平台將多項服務與應用包裝成多個獨立的模組，提供給APP開發人員可以加入到自己的APP專案裡 透過API的呼叫即可執行多種應用與服務。<br>MORE平台提供的服務包含了：APP Event Tracking Service, Facebook Authentication Service Tencent QQ
+							Authentication Service, IOT Service, Dashboard Service SER API Service…等服務。
 						</p>
 					</div>
 				</div>
@@ -224,10 +157,6 @@
 </form>
 
 <form action="moreabout.jsp" method="post" name="FormMoreAbout" id="FormMoreAbout">
-	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
-</form>
-
-<form action="moreregister.jsp" method="post" name="FormMoreRegister" id="FormMoreRegister">
 	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
 </form>
 
