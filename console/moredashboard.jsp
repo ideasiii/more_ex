@@ -34,8 +34,7 @@
 <script type="text/javascript">
 	
 </script>
-
-<title>MORE HOME</title>
+<title>MORE TEMPLATE</title>
 
 </head>
 <body>
@@ -154,26 +153,15 @@
 			<div class="pageWidth">
 				<div class="pageContent">
 
-					<!-- Block List -->
-					<div id="blockList">
-						<UL>
-							<LI><IMG class="homeAD" alt="MORE SDK" src="img/banner01.jpg"> <span class="homeAdWord"> MORE SDK將多項服務與應用包裝成多個獨立的模組,透過API的呼叫即可執行多種應用與服務 </span></LI>
-							<LI><span class="homeAdWordLeft" style="color: #369caa;"> MORE平台將多項服務與應用包裝成多個獨立的模組，提供給APP開發人員可以加入到自己的APP專案裡 透過API的呼叫即可執行多種應用與服務。 MORE平台提供的服務包含了：APP Event
-									Tracking Service, Facebook Authentication Service Tencent QQ Authentication Service, IOT Service, Dashboard Service SER API Service…等服務。 </span><IMG class="homeAdRight"
-								alt="MORE API" src="img/appmobile.jpg"
-							></LI>
-							<LI><IMG class="homeAD" alt="MORE MDM" src="img/mdm_ad.jpg" style="height: 400px;"> <span class="homeAdWord" style="color: #369caa;"> MORE Mobild Device
-									Manager 手機群組管理應用,讓企業更靈活管理租用的終端設備</span></LI>
-							<LI><IMG class="homeAD" alt="MORE TRACK" src="img/track_ad.jpg" style="height: 400px;"> <span class="homeAdWord"> MORE Tracker SDK收集終端裝置使用行為資料,透過MORE
-									Dashboard了解未來商品趨勢與市場走向 </span></LI>
-						</UL>
-					</div>
-					<!-- /Block List -->
+					<!-- Content Block -->
+					<div id="blockList"></div>
 
 					<div class="titleBar">
+						<!-- /Content Block -->
 
 						<p id="pageDescription" class="muted baseHtml">
-							<BR> <BR> MORE平台提供APP SDK, API, MDM, Dashboard…等服務。
+							MORE平台將多項服務與應用包裝成多個獨立的模組，提供給APP開發人員可以加入到自己的APP專案裡 透過API的呼叫即可執行多種應用與服務。<br>MORE平台提供的服務包含了：APP Event Tracking Service, Facebook Authentication Service Tencent QQ
+							Authentication Service, IOT Service, Dashboard Service SER API Service…等服務。
 						</p>
 					</div>
 				</div>
