@@ -248,9 +248,9 @@ th, td {
 							if (sdkData.sdk_os.trim().equals("ios"))
 								continue;
 
-							//		if (!bLogined) {
-							//			sdkData.sdk_file = "#";
-							//		}
+							if (!bLogined) {
+								sdkData.sdk_file = "#";
+							}
 				%>
 				<div class="col-sm-6 col-md-4">
 					<div class="thumbnail">
@@ -309,9 +309,9 @@ th, td {
 							if (sdkData.sdk_os.trim().equals("android"))
 								continue;
 
-							//				if (!bLogined) {
-							//					sdkData.sdk_file = "#";
-							//				}
+							if (!bLogined) {
+								sdkData.sdk_file = "#";
+							}
 				%>
 				<div class="col-sm-6 col-md-4">
 					<div class="thumbnail">
