@@ -36,7 +36,7 @@
 <script type="text/javascript">
 	
 </script>
-<title>MORE TEMPLATE</title>
+<title>MORE ABOUT</title>
 
 </head>
 <body>
@@ -120,7 +120,7 @@
 								<ul class="publicTabs">
 
 									<!-- MORE HOME -->
-									<li class="navTab morehome selected"><span class="navLink" style="padding: 0 18px; cursor: default;" onClick="formSubmit('FormMoreHome')">HOME</span></li>
+									<li class="navTab morehome Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreHome')">HOME</span></li>
 									<!-- /MORE HOME -->
 
 									<!-- MORE SDK -->
@@ -136,11 +136,11 @@
 									<!-- /MORE MDM -->
 
 									<!-- MORE DASHBOARD -->
-									<li class="navTab moredashboard Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreDashboard')">DASHBOARD</span></li>
+									<li class="navTab moredashboard Popup PopupControl PopupClosed"><span class="navLink" style="padding: 0 18px;" onClick="formSubmit('FormMoreDashboard')">DASHBOARD</span></li>
 									<!-- /MORE DASHBOARD -->
 
 									<!-- MORE ABOUT -->
-									<li class="navTab moreabout Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreAbout')">ABOUT</span></li>
+									<li class="navTab moreabout selected"><span class="navLink" style="padding: 0 18px; cursor: default;" onClick="formSubmit('FormMoreAbout')">ABOUT</span></li>
 									<!-- /MORE ABOUT -->
 
 								</ul>
@@ -161,7 +161,7 @@
 					<div class="titleBar">
 						<!-- /Content Block -->
 
-						<p id="pageDescription" class="muted baseHtml">MORE</p>
+						<p id="pageDescription" class="muted baseHtml">MORE About</p>
 					</div>
 				</div>
 				<!-- /pageContent -->

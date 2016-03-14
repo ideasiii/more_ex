@@ -23,6 +23,9 @@
 	int nshowSdkType = 0;
 	if (StringUtility.isValid(strShowIosSdk) && strShowIosSdk.trim().equals(Common.IOS))
 		nshowSdkType = 1;
+
+	final String uri = request.getRequestURI();
+	final String pageName = uri.substring(uri.lastIndexOf("/") + 1);
 %>
 <!DOCTYPE html>
 <html id="XenForo" lang="utf-8" dir="LTR" class="Public NoJs LoggedOut NoSidebar  NoResponsive">
@@ -66,11 +69,11 @@
 					<%
 						if (bLogined) {
 					%>
-					<label for="LoginControl"><a href="#" class="concealed noOutline" onClick="formSubmit('FormMoreSdk')">登出</a></label>
+					<label for="LoginControl"><span class="concealed" onClick="formSubmit('FormMoreLogout')" style="cursor: pointer;">登出</span></label>
 					<%
 						} else {
 					%>
-					<label for="LoginControl"><a href="login.html" class="concealed noOutline">登入</a></label>
+					<label for="LoginControl"><span class="concealed noOutline" style="cursor: pointer;">登入</span></label>
 					<%
 						}
 					%>
@@ -81,7 +84,7 @@
 	<!-- /Login Bar -->
 	<!-- Login Bar Content -->
 	<form action="auth_member.jsp" method="post" class="xenForm" style="display: none" name="login" id="login">
-		<input name="from" type="hidden" value="moresdk.jsp" />
+		<input name="from" type="hidden" value="<%=pageName%>" />
 		<div class="ctrlWrapper">
 			<dl class="ctrlUnit">
 				<dt>
@@ -102,8 +105,8 @@
 			<dl class="ctrlUnit submitUnit">
 				<dt></dt>
 				<dd>
-					<input type="button" class="button primary" value="登入" tabindex="104" data-loginPhrase="登入" data-signupPhrase="登入" onclick="onLogin()" /> <input type="submit"
-						class="button primary" value="註冊" tabindex="104" data-loginPhrase="註冊" data-signupPhrase="註冊"
+					<input type="button" class="button primary" value="登入" tabindex="104" data-loginPhrase="登入" data-signupPhrase="登入" onclick="onLogin()" /> <input type="button"
+						class="button primary" value="註冊" tabindex="104" data-loginPhrase="註冊" data-signupPhrase="註冊" onClick="formSubmit('FormMoreRegister')"
 					/>
 				</dd>
 			</dl>
@@ -132,11 +135,11 @@
 								<ul class="publicTabs">
 
 									<!-- MORE HOME -->
-									<li class="navTab morehome Popup PopupControl PopupClosed"><a href="#" class="navLink" onClick="formSubmit('FormMoreHome')">HOME</a></li>
+									<li class="navTab morehome Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreHome')">HOME</span></li>
 									<!-- /MORE HOME -->
 
 									<!-- MORE SDK -->
-									<li class="navTab moresdk selected"><a href="#" class="navLink">MORE SDK</a>
+									<li class="navTab moresdk selected"><span class="navLink" style="padding: 0 27px; cursor: default;">MORE SDK</span>
 										<div class="tabLinks">
 											<ul class="secondaryContent blockLinksList">
 												<li><a rel="nofollow" href="#" onClick="showTab(0)" id="a_android">Android</a></li>
@@ -146,19 +149,19 @@
 									<!-- /MORE SDK -->
 
 									<!-- MORE API -->
-									<li class="navTab moreapi Popup PopupControl PopupClosed"><a href="#" class="navLink" onClick="formSubmit('FormMoreApi')">MORE API</a></li>
+									<li class="navTab moreapi Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreApi')">MORE API</span></li>
 									<!-- /MORE API -->
 
 									<!-- MORE MDM -->
-									<li class="navTab moremdm Popup PopupControl PopupClosed"><a href="#" class="navLink">MORE MDM</a></li>
+									<li class="navTab moremdm Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreMdm')">MORE MDM</span></li>
 									<!-- /MORE MDM -->
 
 									<!-- MORE DASHBOARD -->
-									<li class="navTab moredashboard Popup PopupControl PopupClosed"><a href="#" class="navLink">DASHBOARD</a></li>
+									<li class="navTab moredashboard Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreDashboard')">DASHBOARD</span></li>
 									<!-- /MORE DASHBOARD -->
 
 									<!-- MORE ABOUT -->
-									<li class="navTab moreabout Popup PopupControl PopupClosed"><a href="#" class="navLink">ABOUT</a></li>
+									<li class="navTab moreabout Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreAbout')">ABOUT</span></li>
 									<!-- /MORE ABOUT -->
 								</ul>
 							</div>
@@ -270,8 +273,7 @@
 				<div class="pageContent">
 					<img class="footerLogo" alt="MORE Logo" src="../image/more_logo.png">
 					<ul class="footerLinks">
-						<li><a href="#">Contact Us</a></li>
-						<li><a href="moresdk.jsp" class="homeLink">Home</a></li>
+						<li><a target="_blank" href="morecontactus.jsp">Contact Us</a></li>
 					</ul>
 				</div>
 			</div>
@@ -287,6 +289,8 @@
 	</script>
 	<!-- /Show SDK List -->
 </body>
+
+<form action="morehome.jsp" method="post" name="FormMoreLogout" id="FormMoreLogout"></form>
 
 <form action="morehome.jsp" method="post" name="FormMoreHome" id="FormMoreHome">
 	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
@@ -312,7 +316,9 @@
 	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
 </form>
 
-
+<form action="moreregister.jsp" method="post" name="FormMoreRegister" id="FormMoreRegister">
+	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+</form>
 </html>
 
 <%

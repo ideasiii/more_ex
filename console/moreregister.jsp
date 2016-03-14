@@ -62,28 +62,32 @@
 							<div class="navTabs">
 								<ul class="publicTabs">
 
+									<!-- MORE REGISTER -->
+									<li class="navTab morehome selected"><span class="navLink" style="padding: 0 18px; cursor: default;">REGISTER</span></li>
+									<!-- /MORE REGISTER -->
+
 									<!-- MORE HOME -->
-									<li class="navTab morehome selected"><a href="#" class="navLink">HOME</a></li>
+									<li class="navTab morehome Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreHome')">HOME</span></li>
 									<!-- /MORE HOME -->
 
 									<!-- MORE SDK -->
-									<li class="navTab moresdk Popup PopupControl PopupClosed"><a href="#" class="navLink" onClick="formSubmit('FormMoreSdk')">MORE SDK</a></li>
+									<li class="navTab moresdk Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreSdk')">MORE SDK</span></li>
 									<!-- /MORE SDK -->
 
 									<!-- MORE API -->
-									<li class="navTab moreapi Popup PopupControl PopupClosed"><a href="#" class="navLink" onClick="formSubmit('FormMoreApi')">MORE API</a></li>
+									<li class="navTab moreapi Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreApi')">MORE API</span></li>
 									<!-- /MORE API -->
 
 									<!-- MORE MDM -->
-									<li class="navTab moremdm Popup PopupControl PopupClosed"><a href="#" class="navLink">MORE MDM</a></li>
+									<li class="navTab moremdm Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreMdm')">MORE MDM</span></li>
 									<!-- /MORE MDM -->
 
 									<!-- MORE DASHBOARD -->
-									<li class="navTab moredashboard Popup PopupControl PopupClosed"><a href="#" class="navLink">DASHBOARD</a></li>
+									<li class="navTab moredashboard Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreDashboard')">DASHBOARD</span></li>
 									<!-- /MORE DASHBOARD -->
 
 									<!-- MORE ABOUT -->
-									<li class="navTab moreabout Popup PopupControl PopupClosed"><a href="#" class="navLink">ABOUT</a></li>
+									<li class="navTab moreabout Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreAbout')">ABOUT</span></li>
 									<!-- /MORE ABOUT -->
 
 								</ul>
@@ -104,10 +108,7 @@
 					<div class="titleBar">
 						<!-- /Content Block -->
 
-						<p id="pageDescription" class="muted baseHtml">
-							MORE平台將多項服務與應用包裝成多個獨立的模組，提供給APP開發人員可以加入到自己的APP專案裡 透過API的呼叫即可執行多種應用與服務。<br>MORE平台提供的服務包含了：APP Event Tracking Service, Facebook Authentication Service Tencent QQ
-							Authentication Service, IOT Service, Dashboard Service SER API Service…等服務。
-						</p>
+						<p id="pageDescription" class="muted baseHtml">MORE register</p>
 					</div>
 				</div>
 				<!-- /pageContent -->
@@ -125,8 +126,7 @@
 				<div class="pageContent">
 					<img class="footerLogo" alt="MORE Logo" src="../image/more_logo.png">
 					<ul class="footerLinks">
-						<li><a href="#">Contact Us</a></li>
-						<li><a href="morehome.jsp" class="homeLink">Home</a></li>
+						<li><a target="_blank" href="morecontactus.jsp">Contact Us</a></li>
 					</ul>
 				</div>
 			</div>
