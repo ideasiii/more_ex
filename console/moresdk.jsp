@@ -123,7 +123,7 @@
 					<div class="pageWidth">
 						<div class="pageContent">
 							<div id="logo">
-								<img src="../image/more3.png" alt="MORE" />
+								<img src="../image/more_logo.png" alt="MORE LOGO" />
 							</div>
 						</div>
 					</div>
@@ -271,7 +271,7 @@
 		<div class="footer">
 			<div class="pageWidth">
 				<div class="pageContent">
-					<img class="footerLogo" alt="MORE Logo" src="../image/more_logo.png">
+					<img class="footerLogo" alt="MORE Footbar Logo" src="../image/more.png">
 					<ul class="footerLinks">
 						<li><a target="_blank" href="morecontactus.jsp">Contact Us</a></li>
 					</ul>

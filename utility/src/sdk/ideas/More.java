@@ -13,6 +13,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Properties;
+
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /**
  * @author Louis Ju
@@ -222,4 +229,49 @@ public class More
 
 		return nCount;
 	}
+
+	public void SendingEmail(String Email, String Body)
+	{
+		try
+		{
+			String host = "smtp.gmail.com";
+			String from = "louis.ju.tw@gmail.com"; // Your mail id
+			String pass = "Immortal-666"; // Your Password
+			Properties props = System.getProperties();
+			props.put("mail.smtp.starttls.enable", "true"); // added this line
+			props.put("mail.smtp.host", host);
+			props.put("mail.smtp.user", from);
+			props.put("mail.smtp.password", pass);
+			props.put("mail.smtp.port", "465");
+			props.put("mail.smtp.auth", "true");
+			props.put("mail.smtp.ssl.trust", host);
+			String[] to = { Email }; // To Email address
+			Session session = Session.getDefaultInstance(props, null);
+			MimeMessage message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(from));
+			InternetAddress[] toAddress = new InternetAddress[to.length];
+			// To get the array of addresses
+			for (int i = 0; i < to.length; i++)
+			{ // changed from a while loop
+				toAddress[i] = new InternetAddress(to[i]);
+			}
+			System.out.println(Message.RecipientType.TO);
+			for (int j = 0; j < toAddress.length; j++)
+			{ // changed from a while loop
+				message.addRecipient(Message.RecipientType.TO, toAddress[j]);
+			}
+			message.setSubject("Email from MORE");
+
+			message.setContent(Body, "text/html");
+			Transport transport = session.getTransport("smtp");
+			transport.connect(host, from, pass);
+			transport.sendMessage(message, message.getAllRecipients());
+			transport.close();
+		}
+		catch (Exception e)
+		{
+			System.out.println("MORE Send Mail Exception:" + e.toString());
+		}
+	}
+
 }

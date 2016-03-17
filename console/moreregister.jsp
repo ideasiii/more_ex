@@ -26,6 +26,7 @@
 <meta name="description" content="MORE">
 
 <link rel="stylesheet" href="../css/style.css" />
+
 <script src="../js/jquery-1.11.0.min.js"></script>
 <script src="../js/xenforo.js?_v=9a20bde6"></script>
 <!-- Javascript -->
@@ -49,7 +50,7 @@
 					<div class="pageWidth">
 						<div class="pageContent">
 							<div id="logo">
-								<img src="../image/more3.png" alt="MORE" />
+								<img src="../image/more_logo.png" alt="MORE LOGO" />
 							</div>
 						</div>
 					</div>
@@ -103,13 +104,70 @@
 				<div class="pageContent">
 
 					<!-- Content Block -->
-					<div id="blockList"></div>
+					<div id="blockList">
 
-					<div class="titleBar">
-						<!-- /Content Block -->
+						<!-- Start Login Form -->
+						<div class="loginContainer">
+							<form class="form-horizontal" action="memberAdd.jsp" method="post" name="FormRegister" id="FormRegister">
+								<div class="form-group" style="margin-bottom: 50px; font-size: 22px;">
 
-						<p id="pageDescription" class="muted baseHtml">MORE register</p>
+									<b>註冊 MORE 會員新帳號</b>
+
+								</div>
+								<div class="form-group">
+									<label for="inputFirstName1" class="col-sm-2 control-label" style="float: left;">申請者聯繫Email (Email為未來API後台登入帳號，請慎選)</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="inputFirstName1" placeholder="Email Account" name="email">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="inputLastName1" class="col-sm-2 control-label">密碼</label>
+									<div class="col-sm-10">
+										<input type="password" class="form-control" id="inputLastName1" placeholder="Password" name="password">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="inputLastName1" class="col-sm-2 control-label">再確認密碼 (請再重複輸入相同密碼)</label>
+									<div class="col-sm-10">
+										<input type="password" class="form-control" id="inputLastName1" placeholder="Password" name="password2">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="inputLastName1" class="col-sm-2 control-label">申請者 (請填申請者姓名)</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="disabledInput" placeholder="Name" name="name">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="inputPassword3" class="col-sm-2 control-label">申請單位 (請填公司名稱)</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="inputPassword3" placeholder="Company" name="company">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="inputPassword3" class="col-sm-2 control-label">申請者聯繫電話 (方便客服聯繫)</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="inputPassword3" placeholder="Phone" name="phone">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="col-sm-10">
+										<button type="button" class="btn btn-success btn-lg" onClick="checkRegisterData('FormRegister')">註冊</button>
+									</div>
+								</div>
+							</form>
+
+						</div>
+						<!-- End Col-sm-12 -->
 					</div>
+					<!-- /Content Block -->
+
 				</div>
 				<!-- /pageContent -->
 			</div>
@@ -124,7 +182,7 @@
 		<div class="footer">
 			<div class="pageWidth">
 				<div class="pageContent">
-					<img class="footerLogo" alt="MORE Logo" src="../image/more_logo.png">
+					<img class="footerLogo" alt="MORE Footbar Logo" src="../image/more.png">
 					<ul class="footerLinks">
 						<li><a target="_blank" href="morecontactus.jsp">Contact Us</a></li>
 					</ul>
