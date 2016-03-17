@@ -8,6 +8,7 @@
 <%@ page import="sdk.ideas.Logs"%>
 
 <%
+	response.sendRedirect("morehome.jsp");
 	SerSdk serSdk = new SerSdk();
 	final String strToken = request.getParameter(Common.USER_TOKEN);
 	boolean bLogined = false;

@@ -1,4 +1,4 @@
 
 <%
-	response.sendRedirect("index.jsp");
+	response.sendRedirect("morehome.jsp");
 %>
