@@ -171,49 +171,11 @@
 		<div id="content">
 			<div class="pageWidth">
 				<div class="pageContent">
-					<div id="blockList">
-						<!-- API Smart Family -->
-						<ul id="api_smart_family">
-							<li>
-								<div class="sdkBlock">Aiplug</div>
-								<div class="option">
-									<ul>
-										<li><a class="download" href="/download/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Download Click"
-											data-ga-label="Running Website Template"
-										>Download</a></li>
-										<li><a target="_blank" class="view" href="/preview/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Preview Click"
-											data-ga-label="Running Website Template"
-										>Document</a></li>
-									</ul>
-								</div>
-							</li>
-						</ul>
-						<!-- /API Smart Family -->
-						<!-- API IOT -->
-						<ul id="api_iot">
-							<li>
-								<div class="sdkBlock">IOT</div>
-								<div class="option">
-									<ul>
-										<li><a class="download" href="/download/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Download Click"
-											data-ga-label="Running Website Template"
-										>Download</a></li>
-										<li><a target="_blank" class="view" href="/preview/running/" data-ga-event="click" data-ga-category="Template" data-ga-action="Preview Click"
-											data-ga-label="Running Website Template"
-										>Document</a></li>
-									</ul>
-								</div>
-							</li>
-						</ul>
-						<!-- API IOT -->
-					</div>
+					<div id="blockList"></div>
 
 					<div class="titleBar">
 						<h1></h1>
-						<p id="pageDescription" class="muted baseHtml">
-							MORE平台將多項服務與應用包裝成多個獨立的模組，提供給APP開發人員可以加入到自己的APP專案裡 透過API的呼叫即可執行多種應用與服務。<br>MORE平台提供的服務包含了：APP Event Tracking Service, Facebook Authentication Service Tencent QQ
-							Authentication Service, IOT Service, Dashboard Service SER API Service…等服務。
-						</p>
+						<p id="pageDescription" class="muted baseHtml">MORE API</p>
 					</div>
 				</div>
 				<!-- /pageContent -->
