@@ -37,26 +37,40 @@
 
 <link rel="stylesheet" href="../css/style.css" />
 <script src="../js/jquery-1.11.0.min.js"></script>
-<script src="../js/xenforo.js?_v=9a20bde6"></script>
+<script src="../js/xenforo.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
 <!-- Javascript -->
 <script src="js/utility.js"></script>
 <script src="js/more_login.js"></script>
+
 <script type="text/javascript">
 	function showTab(tab)
 	{
 		switch (tab)
 		{
 		case 0:
-			document.getElementById('sdk_android').style.display = "block";
+			document.getElementById('app_register').style.display = "none";
 			document.getElementById('sdk_ios').style.display = "none";
+			document.getElementById('sdk_android').style.display = "block";
 			break;
 		case 1:
+			document.getElementById('app_register').style.display = "none";
 			document.getElementById('sdk_android').style.display = "none";
 			document.getElementById('sdk_ios').style.display = "block";
+			break;
+		case 2:
+			document.getElementById('sdk_android').style.display = "none";
+			document.getElementById('sdk_ios').style.display = "none";
+			document.getElementById('app_register').style.display = "block";
 			break;
 		}
 	}
 </script>
+
+
+
+
 <title>MORE SDK</title>
 
 </head>
@@ -113,6 +127,9 @@
 		</div>
 	</form>
 	<!-- /Login Bar Content -->
+
+
+
 	<!-- Header Mover-->
 	<div id="headerMover">
 		<div id="headerProxy"></div>
@@ -144,6 +161,11 @@
 											<ul class="secondaryContent blockLinksList">
 												<li><a rel="nofollow" href="#" onClick="showTab(0)" id="a_android">Android</a></li>
 												<li><a rel="nofollow" href="#" onClick="showTab(1)" id="a_ios">IOS</a></li>
+												<li><div class="form-group" style="margin-left: 700px;">
+														<div class="col-sm-10">
+															<button type="button" class="btn btn-success btn-lg" onClick="showTab(2)">APP Register</button>
+														</div>
+													</div></li>
 											</ul>
 										</div></li>
 									<!-- /MORE SDK -->
@@ -174,6 +196,36 @@
 			<div class="pageWidth">
 				<div class="pageContent">
 					<div id="blockList">
+						<div id="app_register">
+							<form action="appadd.jsp" method="post" enctype="multipart/form-data" name="formAddAndroid" id="formAddAndroid">
+								<!--APP NAME-->
+								<div class="form-group">
+									<div class="col-md-3">
+										<label for="<%=Common.APP_NAME%>" class="control-label">APP名稱</label>
+									</div>
+									<div class="col-md-9">
+										<input type="text" class="form-control" id="<%=Common.APP_NAME%>" placeholder="APP名稱" name="<%=Common.APP_NAME%>">
+									</div>
+								</div>
+								<!--APP Icon-->
+								<div class="form-group">
+									<div class="col-md-3">
+										<label for="<%=Common.APP_ICON%>" class="control-label">APP Icon</label>
+									</div>
+									<div class="col-md-9">
+										<input class="form-control" id="<%=Common.APP_ICON%>" name="<%=Common.APP_ICON%>" type="file" value="選擇檔案" />
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label for="inputFirstName1" class="col-sm-2 control-label" style="float: left;">申請者聯繫Email (Email為未來API後台登入帳號，請慎選)</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="inputFirstName1" placeholder="Email Account" name="email">
+									</div>
+								</div>
+								
+							</form>
+						</div>
 						<!-- SDK Android List -->
 						<ul id="sdk_android">
 							<%
@@ -185,10 +237,6 @@
 										sdkData = it.next();
 										if (sdkData.sdk_os.trim().equals("ios"))
 											continue;
-
-										//		if (!bLogined) {
-										//			sdkData.sdk_file = "#";
-										//		}
 							%>
 							<li>
 								<div class="sdkBlock">
@@ -249,7 +297,6 @@
 						</ul>
 						<!-- /SDK IOS List -->
 					</div>
-
 					<div class="titleBar">
 						<h1></h1>
 						<p id="pageDescription" class="muted baseHtml">
@@ -265,7 +312,6 @@
 		<!-- /content -->
 	</div>
 	<!-- /Header Mover-->
-
 	<!-- footer -->
 	<footer>
 		<div class="footer">

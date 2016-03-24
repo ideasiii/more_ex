@@ -351,7 +351,31 @@ img
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 :-moz-broken
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -704,7 +728,19 @@ img
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -943,7 +979,19 @@ width
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -1063,6 +1111,18 @@ width
 
 ),
 img
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1532,6 +1592,18 @@ img
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 :not
 
 
@@ -1650,7 +1722,19 @@ img
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -1889,7 +1973,19 @@ width
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -2244,7 +2340,25 @@ width
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 :
+
+
+
+
+
+
 
 
 
@@ -2480,8 +2594,26 @@ width
 
 
 
+
+
+
+
+
+
 50
 px
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2953,7 +3085,31 @@ img
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 :-moz-broken
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3306,7 +3462,19 @@ img
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -3545,7 +3713,19 @@ height
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -3665,6 +3845,18 @@ height
 
 ),
 img
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4134,6 +4326,18 @@ img
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 :not
 
 
@@ -4252,7 +4456,19 @@ img
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -4491,7 +4707,19 @@ height
 
 
 
+
+
+
+
+
+
  
+
+
+
+
+
+
 
 
 
@@ -4846,7 +5074,25 @@ height
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 :
+
+
+
+
+
+
 
 
 
@@ -5082,8 +5328,26 @@ height
 
 
 
+
+
+
+
+
+
 50
 px
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5819,9 +6083,7 @@ a.concealed:hover, .concealed a:hover {
 }
 
 .secondaryContent {
-	background: #f0f7fc
-		url('styles/custom/xenforo/gradients/category-23px-light.png')
-		repeat-x top;
+	background: #f0f7fc url('../image/category-23px-light.png') repeat-x top;
 	padding: 10px;
 	border-bottom: 1px solid #d7edfc;
 }
@@ -5835,9 +6097,7 @@ a.concealed:hover, .concealed a:hover {
 	zoom: 1;
 	font-size: 11px;
 	color: #65a5d1;
-	background: #d7edfc
-		url('styles/custom/xenforo/gradients/category-23px-light.png')
-		repeat-x top;
+	background: #d7edfc url('../image/category-23px-light.png') repeat-x top;
 	padding: 4px 10px;
 	border-bottom: 1px solid #a5cae4;
 	line-height: 16px;
@@ -5931,9 +6191,8 @@ a.concealed:hover, .concealed a:hover {
 /* Basic Tabs */
 .tabs {
 	font-size: 11px;
-	background: #f0f7fc
-		url('styles/custom/xenforo/gradients/form-button-white-25px.png')
-		repeat-x top;
+	background: #f0f7fc url('../image/form-button-white-25px.png') repeat-x
+		top;
 	padding: 0 10px;
 	border-bottom: 1px solid #a5cae4;
 	word-wrap: normal;
@@ -9333,7 +9592,6 @@ html[dir=rtl] #helper_birthday input, html[dir=rtl] #helper_birthday select
 .navTabs .navTab.selected .tabLinks a:hover, .navTabs .navTab.selected .tabLinks a:focus
 	{
 	text-decoration: none;
-	background: url(rgba.php?r=0&g=0&b=0&a=25);
 	background: rgba(0, 0, 0, 0.1);
 	_filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#19000000,
 		endColorstr=#19000000);
@@ -10714,7 +10972,7 @@ div.navTabs ul.publicTabs li.navTab.moreapi.selected {
 
 div.navTabs ul.publicTabs li.navTab.moreapi .tabLinks {
 	width: 1002px;
-	left: -259px;
+	left: -210px;
 	top: 35px;
 }
 
@@ -10843,12 +11101,6 @@ div.navTabs ul.publicTabs li.navTab.PopupClosed:hover .SplitCtrl {
 		-128px 10px;
 }
 
-/*
-	NO DROPDOWN MENU:
-	.navTab .SplitCtrl 			-> the arrow
-	.tabMenu .menuHeader 		-> the menu header
-	.tabMenu .blockLinksList 	-> the menu with the links
-*/
 .navTab .SplitCtrl, .tabMenu .menuHeader, .tabMenu .blockLinksList {
 	display: none;
 }
@@ -11351,13 +11603,15 @@ ul#fwtTopLinksX li a:hover {
 }
 
 .sdkBlock .title {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
 	padding: 15px 10px;
 	height: 30px;
 }
 
 .sdkBlock .desc {
-	font-family: Arial;
-	font-size: 16px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
 	text-align: left;
 	padding: 10px 10px 0 10px;
 	color: #176093;
