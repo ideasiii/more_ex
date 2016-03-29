@@ -32,7 +32,7 @@
 		<img alt="Loading" src="img/map_loading.gif" style="width: 260px; height: 260px;" />
 	</p>
 
-	<form action="applist.jsp" method="post" name="FormAppList" id="FormAppList">
+	<form action="moresdk.jsp" method="post" name="FormAppList" id="FormAppList">
 		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
 	</form>
 

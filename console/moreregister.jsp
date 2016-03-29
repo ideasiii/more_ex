@@ -109,22 +109,22 @@
 						<!-- Start Login Form -->
 						<div class="loginContainer">
 							<form class="form-horizontal" action="memberAdd.jsp" method="post" name="FormRegister" id="FormRegister">
-								<div class="form-group" style="margin-bottom: 50px; font-size: 22px;">
+								<div class="form-group" style="margin-bottom: 50px; font-size: 16px;">
 
 									<b>註冊 MORE 會員新帳號</b>
 
 								</div>
 								<div class="form-group">
-									<label for="inputFirstName1" class="col-sm-2 control-label" style="float: left;">申請者聯繫Email (Email為未來API後台登入帳號，請慎選)</label>
+									<label for="email" class="col-sm-2 control-label" style="float: left;">申請者聯繫Email (Email為未來API後台登入帳號，請慎選)</label>
 									<div class="col-sm-10">
-										<input type="text" class="form-control" id="inputFirstName1" placeholder="Email Account" name="email">
+										<input type="text" class="form-control" id="email" placeholder="Email Account" name="email">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<label for="inputLastName1" class="col-sm-2 control-label">密碼</label>
+									<label for="password" class="col-sm-2 control-label">密碼</label>
 									<div class="col-sm-10">
-										<input type="password" class="form-control" id="inputLastName1" placeholder="Password" name="password">
+										<input type="password" class="form-control" id="password" placeholder="Password" name="password">
 									</div>
 								</div>
 

@@ -21,7 +21,7 @@
 	final String strUserEmail = request.getParameter(Common.USER_EMAIL);
 
 	if (!StringUtility.isValid(strToken) || !StringUtility.isValid(strAppId)) {
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("morehome.jsp");
 		return;
 	}
 
@@ -90,46 +90,31 @@
 	<div id="wrapper">
 
 		<!-- Navigation -->
-		<nav class="navbar navbar-blue navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
 			<div id="navbarCollapse" class="collapse navbar-collapse text-justify">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-					</button>
-					<a class="nav navbar-nav navbar-left" href="#" onClick="formSubmit('FormHome');"><img src="img/ser_logo.png" class="img-responsive" alt="SER SDK Console"></a>
+					
+					<a class="nav navbar-nav navbar-left" href="#" onClick="formSubmit('FormHome');"><img src="../image/more_logo.png" alt="MORE"
+						style="margin-left:5px;padding: 25px; width: 180px; height: 120px;box-shadow: 0 0 5px #888;border: 1px solid #fff;"
+					></a>
 				</div>
-				<!-- /.navbar-header -->
-				<ul class="nav navbar-nav navbar-right text-lg" id="header_option">
-					<li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">我的APP<b class="caret"></b></a>
-						<ul role="menu" class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							<li><a href="#" onClick="formSubmit('FormAppAdd')">APP新增 </a></li>
-							<li><a href="#" onClick="formSubmit('FormAppList')">APP列表</a></li>
-							<li class="divider"></li>
-						</ul></li>
-					<li><a href="logout.jsp">登出</a></li>
-					<li><a href="logout.jsp"></a></li>
-				</ul>
-				<!-- /.navbar-top-links -->
-
-				<div class="navbar-default sidebar" role="navigation">
-					<div class="sidebar-nav navbar-collapse">
-						<ul class="nav" id="side-menu">
-							<li class="sidebar-search">
-								<div class="input-group custom-search-form"></div> <!-- /input-group -->
-							</li>
-							<li><a href="#" onClick="formSubmit('FormHome');"><i class="fa fa-download fa-fw"></i> SER SDK 下載</a></li>
-							<li><a href="#"><i class="fa  fa-th-list fa-fw"></i> 設定<span class="fa arrow"></span></a>
-								<ul class="nav nav-second-level">
-									<li><a href="#" onClick="formSubmit('FormAppEdit')">修改</a></li>
-									<li><a href="#" data-toggle="modal" data-target="#myModal1">刪除</a></li>
-								</ul> <!-- /.nav-second-level --></li>
-						</ul>
-					</div>
-					<!-- /.sidebar-collapse -->
-				</div>
-				<!-- /.navbar-static-side -->
 			</div>
 		</nav>
+
+		<div class="navbar-default sidebar" role="navigation">
+			<div class="sidebar-nav navbar-collapse">
+				<ul class="nav" id="side-menu">
+					<li class="sidebar-search">
+						<div class="input-group custom-search-form"></div> <!-- /input-group -->
+					</li>
+					<li><a href="#"><i class="fa  fa-th-list fa-fw"></i> 設定<span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="#" onClick="formSubmit('FormAppEdit')">修改</a></li>
+							<li><a href="#" data-toggle="modal" data-target="#myModal1">刪除</a></li>
+						</ul> <!-- /.nav-second-level --></li>
+				</ul>
+			</div>
+		</div>
 
 		<div class="modal fade bs-example-modal-lg" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-lg">
@@ -330,7 +315,7 @@
 	<!-- Custom Theme JavaScript -->
 	<script src="js/sb-admin-2.js"></script>
 
-	<form action="index.jsp" method="post" name="FormHome" id="FormHome">
+	<form action="moresdk.jsp" method="post" name="FormHome" id="FormHome">
 		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
 	</form>
 

@@ -96,10 +96,10 @@
 								<div class="form-group">
 									<div class="row">
 										<div class="col-md-3">
-											<label for="inputAPPName1" class="control-label">APP名稱</label>
+											<label for="<%=Common.APP_NAME%>" class="control-label">APP名稱</label>
 										</div>
 										<div class="col-md-9">
-											<input type="text" class="form-control" id="inputAPPName1" placeholder="APP名稱" name="<%=Common.APP_NAME%>">
+											<input type="text" class="form-control" id="<%=Common.APP_NAME%>" placeholder="APP名稱" name="<%=Common.APP_NAME%>">
 										</div>
 									</div>
 									<!-- end row-->
