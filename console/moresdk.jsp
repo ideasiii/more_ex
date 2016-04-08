@@ -391,12 +391,13 @@
 								<div class="sdkBlock">
 									<img src="img/androidm.png" alt="android" class="logo">
 									<p class="title"><%=sdkData.sdk_name%></p>
+									<img class="sdkImg" src="../image/<%=sdkData.sdk_name%>.png">
 									<p class="desc"><%=sdkData.sdk_desc%></p>
 								</div>
 								<div class="option">
-									<ul>
-										<li><a class="download" href="<%=sdkData.sdk_file%>">Download</a></li>
-										<li><a target="_blank" class="view" href="<%=sdkData.sdk_doc%>">Document</a></li>
+									<ul style="height: 50px;">
+										<li><a class="download" href="<%=sdkData.sdk_file%>"></a></li>
+										<li><a target="_blank" class="view" href="<%=sdkData.sdk_doc%>"></a></li>
 									</ul>
 								</div>
 							</li>
@@ -418,21 +419,18 @@
 										sdkData = it.next();
 										if (sdkData.sdk_os.trim().equals("android"))
 											continue;
-
-										//	if (!bLogined) {
-										//		sdkData.sdk_file = "#";
-										//	}
 							%>
 							<li>
 								<div class="sdkBlock">
 									<img src="img/iosm.png" alt="ios" class="logo">
 									<p class="title"><%=sdkData.sdk_name%></p>
+									<img class="sdkImg" src="../image/<%=sdkData.sdk_name%>.png">
 									<p class="desc"><%=sdkData.sdk_desc%></p>
 								</div>
 								<div class="option">
-									<ul>
-										<li><a class="download" href="<%=sdkData.sdk_file%>">Download</a></li>
-										<li><a target="_blank" class="view" href="<%=sdkData.sdk_doc%>">Document</a></li>
+									<ul style="height: 50px;">
+										<li><a class="download" href="<%=sdkData.sdk_file%>"></a></li>
+										<li><a target="_blank" class="view" href="<%=sdkData.sdk_doc%>"></a></li>
 									</ul>
 								</div>
 							</li>
