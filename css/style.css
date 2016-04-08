@@ -6163,7 +6163,7 @@ ul#fwtTopLinksX li a:hover {
 .sdkBlock .desc {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 12px;
-	text-align: left;
+	text-align: center;
 	padding: 10px 10px 0 10px;
 	color: #176093;
 	overflow-y: auto;
@@ -6240,8 +6240,8 @@ ul#fwtTopLinksX li a:hover {
 
 .homeAdWord {
 	width: 100%;
-	font-family: verdana;
-	font-size: large;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 15px;
 	text-align: left;
 	padding: 10px 10px 0 10px;
 	margin-left: 20px;
@@ -6252,8 +6252,8 @@ ul#fwtTopLinksX li a:hover {
 
 .homeAdWordLeft {
 	width: 650px;
-	font-family: verdana;
-	font-size: large;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 15px;
 	text-align: left;
 	padding: 10px 10px 0 10px;
 	margin-right: 20px;
