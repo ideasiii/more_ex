@@ -42,7 +42,14 @@ public abstract class Common
 			Arrays.asList(SDK_ID, SDK_OS, SDK_OWNER, SDK_NAME, SDK_DESC, SDK_FILE, SDK_DOC, CREATE_DATE));
 
 	final public static String APP_EDIT = "app_edit";
+
+	/** Device Type **/
 	final public static String ANDROID = "Android";
 	final public static String IOS = "IOS";
+	final public static String APPLIANCE = "家電";
+	final public static String TOY = "玩具";
+	final public static String IOT = "物聯網";
 
+	final public static ArrayList<String> listDeviceType = new ArrayList<String>(
+			Arrays.asList(ANDROID, IOS, APPLIANCE, TOY, IOT));
 }

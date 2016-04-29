@@ -45,7 +45,7 @@
 <meta name="description" content="MORE Console">
 <meta name="author" content="MORE Developer">
 
-<title>MORE</title>
+<title>MORE DEVICE DETAIL</title>
 
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.css" rel="stylesheet">
@@ -166,18 +166,18 @@
 									<div class="col-lg-6">
 
 										<div class="form-group">
-											<img src="<%=request.getContextPath() + strAppIcon%>" alt="<%=strAppIcon%>" width=75 height=75>&nbsp;&nbsp;<label>APP 圖示 <input type="file"
+											<img src="<%=request.getContextPath() + strAppIcon%>" alt="<%=strAppIcon%>" width=75 height=75>&nbsp;&nbsp;<label>Device 圖示<input type="file"
 												name="<%=Common.APP_ICON%>" id="<%=Common.APP_ICON%>" style="display: none;"
 											>
 											</label>
 										</div>
 
 										<div class="form-group">
-											<label>APP 名稱</label> <input class="form-control" id="<%=Common.APP_NAME%>" name="<%=Common.APP_NAME%>" value="<%=strAppName%>" disabled>
+											<label>Device 名稱</label> <input class="form-control" id="<%=Common.APP_NAME%>" name="<%=Common.APP_NAME%>" value="<%=strAppName%>" disabled>
 										</div>
 
 										<div class="form-group">
-											<label>APP 平台</label> <select class="form-control" id="<%=Common.APP_OS%>" name="<%=Common.APP_OS%>" disabled>
+											<label>Device 類型</label> <select class="form-control" id="<%=Common.APP_OS%>" name="<%=Common.APP_OS%>" disabled>
 												<%
 													if (strAppOs.trim().equals(Common.ANDROID))
 													{
@@ -186,7 +186,7 @@
 												<option>IOS</option>
 												<%
 													}
-													else
+													else if(strAppOs.trim().equals(Common.IOS))
 													{
 												%>
 												<option>Android</option>
@@ -198,7 +198,7 @@
 										</div>
 
 										<div class="form-group">
-											<label>APP 類別</label> <select class="form-control" id="<%=Common.APP_CATEGORY%>" name="<%=Common.APP_CATEGORY%>" disabled>
+											<label>Device 分類</label> <select class="form-control" id="<%=Common.APP_CATEGORY%>" name="<%=Common.APP_CATEGORY%>" disabled>
 												<option>工具</option>
 												<option>天氣</option>
 												<option>生活品味</option>
@@ -232,15 +232,15 @@
 									<!-- /.col-lg-6 (nested) -->
 									<div class="col-lg-6">
 										<h2>
-											APP ID:<%=strAppId%></h2>
+											Device ID:<%=strAppId%></h2>
 										<div class="form-group">
-											<br /> <br /> <br /> <label>APP 描述說明</label>
+											<br /> <br /> <br /> <label>Device 描述說明</label>
 											<p>
 												<textarea cols="50" rows="7" style="font-size: 16px; padding: 5px;" disabled id="<%=Common.APP_DESC%>" name="<%=Common.APP_DESC%>">
 												<%=strAppDesc%>
 											</textarea>
 										</div>
-										<input type="submit" class="btn btn-primary" value="APP設定更新" style="display: none;" id="btn_app_update_submit">
+										<input type="submit" class="btn btn-primary" value="Device 設定更新" style="display: none;" id="btn_app_update_submit">
 									</div>
 								</form>
 								<!-- /.col-lg-6 (nested) -->

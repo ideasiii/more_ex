@@ -6248,6 +6248,7 @@ ul#fwtTopLinksX li a:hover {
 	overflow-y: hidden;
 	height: 260px;
 	color: #176093;
+	line-height: 30px;
 }
 
 .homeAdWordLeft {
@@ -6260,6 +6261,7 @@ ul#fwtTopLinksX li a:hover {
 	overflow-y: hidden;
 	color: #176093;
 	float: left;
+	line-height: 30px;
 }
 
 .loginContainer {

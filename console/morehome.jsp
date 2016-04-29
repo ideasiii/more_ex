@@ -175,7 +175,7 @@
 					<div class="titleBar">
 
 						<p id="pageDescription" class="muted baseHtml">
-							<BR> <BR> MORE平台提供APP SDK, API, MDM, Dashboard…等服務。
+							<BR> <BR> MORE平台提供APP SDK, MDM, Authoring Tool…等服務。
 						</p>
 					</div>
 				</div>
@@ -194,6 +194,7 @@
 				<div class="pageContent">
 					<img class="footerLogo" alt="MORE Footbar Logo" src="../image/more.png">
 					<ul class="footerLinks">
+						<li><a target="_blank" href="privacy.html">Privacy</a></li>
 						<li><a target="_blank" href="morecontactus.jsp">Contact Us</a></li>
 					</ul>
 				</div>

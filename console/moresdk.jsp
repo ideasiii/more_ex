@@ -175,12 +175,12 @@
 													if (bLogined) {
 												%>
 												<li><button type="button" class="btn btn-success btn-lg" onClick="showTab(3)" style="margin-left: 600px;">
-														<p class="normalFont">My APP</p>
+														<p class="normalFont">My Device</p>
 													</button></li>
 												<li><div class="form-group">
 														<div class="col-sm-10">
 															<button type="button" class="btn btn-success btn-lg" onClick="showTab(2)">
-																<p class="normalFont">APP Register
+																<p class="normalFont">Device Register
 																<p>
 															</button>
 														</div>
@@ -282,35 +282,40 @@
 								<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
 								<div class="loginContainer">
 									<div class="form-group" style="margin-bottom: 50px; font-size: 16px;">
-										<b>APP 註冊</b>
+										<b>Device 註冊</b>
 									</div>
 
 									<div class="form-group">
-										<label for="<%=Common.APP_NAME%>" class="col-sm-2 control-label">APP名稱</label>
+										<label for="<%=Common.APP_NAME%>" class="col-sm-2 control-label">Device 名稱</label>
 										<div class="col-sm-10">
 											<input type="text" class="form-control" id="<%=Common.APP_NAME%>" placeholder="Email Account" name="<%=Common.APP_NAME%>">
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="<%=Common.APP_ICON%>" class="col-sm-2 control-label">APP 圖示</label>
+										<label for="<%=Common.APP_ICON%>" class="col-sm-2 control-label">Device 圖示</label>
 										<div class="col-sm-10">
 											<input class="form-control" name="<%=Common.APP_ICON%>" type="file" value="選擇檔案" />
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="<%=Common.APP_OS%>" class="col-sm-2 control-label">APP作業系統</label>
+										<label for="<%=Common.APP_OS%>" class="col-sm-2 control-label">Device 類型</label>
 										<div class="col-sm-10">
 											<select class="form-control" id="<%=Common.APP_OS%>" name="<%=Common.APP_OS%>" style="height: 34px;">
-												<option>Android</option>
-												<option>IOS</option>
+
+												<%
+													for (int i = 0; i < Common.listDeviceType.size(); ++i) {
+														out.println("<option>" + Common.listDeviceType.get(i) + "</option>");
+													}
+												%>
+
 											</select>
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label for="<%=Common.APP_CATEGORY%>" class="col-sm-2 control-label">APP類別</label>
+										<label for="<%=Common.APP_CATEGORY%>" class="col-sm-2 control-label">Device 類別</label>
 										<div class="col-sm-10">
 											<select class="form-control" id="<%=Common.APP_CATEGORY%>" name="<%=Common.APP_CATEGORY%>" style="height: 34px;">
 												<option>工具</option>
@@ -368,7 +373,7 @@
 
 									<div class="form-group">
 										<div class="col-sm-10">
-											<button type="button" class="btn btn-success active" onClick="checkAppAddData('formAppRegister')">新增並建立新的APP ID</button>
+											<button type="button" class="btn btn-success active" onClick="checkAppAddData('formAppRegister')">新增並建立新的Device ID</button>
 										</div>
 									</div>
 								</div>
@@ -464,6 +469,7 @@
 				<div class="pageContent">
 					<img class="footerLogo" alt="MORE Footbar Logo" src="../image/more.png">
 					<ul class="footerLinks">
+						<li><a target="_blank" href="privacy.html">Privacy</a></li>
 						<li><a target="_blank" href="morecontactus.jsp">Contact Us</a></li>
 					</ul>
 				</div>
