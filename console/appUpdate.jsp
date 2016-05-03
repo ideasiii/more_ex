@@ -2,7 +2,7 @@
 <%@ page import="sdk.ideas.Common"%>
 <%@ page import="sdk.ideas.StringUtility"%>
 <%@ page import="sdk.ideas.Logs"%>
-<%@ page import="sdk.ideas.SerSdk"%>
+<%@ page import="sdk.ideas.More"%>
 <%@ page import="org.apache.commons.fileupload.*"%>
 <%@ page import="org.apache.commons.fileupload.disk.DiskFileItemFactory"%>
 <%@ page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
@@ -127,12 +127,12 @@
 </HTML>
 
 <%
-	SerSdk serSdk = new SerSdk();
+	More more = new More();
 	if (StringUtility.isValid(strToken) && StringUtility.isValid(strAppId)) {
-		serSdk.updateApp(strAppId, strAppIcon, strAppName, strAppOs, strAppCategory, strAppDesc);
+		more.updateApp(strAppId, strAppIcon, strAppName, strAppOs, strAppCategory, strAppDesc);
 	}
 
-	serSdk = null;
+	more = null;
 %>
 <script>
 	setTimeout("formSubmit('FormAppList')", 3);

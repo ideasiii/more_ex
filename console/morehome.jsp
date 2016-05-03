@@ -22,7 +22,7 @@
 <!DOCTYPE html>
 <html id="XenForo" lang="utf-8" dir="LTR" class="Public NoJs LoggedOut NoSidebar  NoResponsive">
 <head>
-<head>
+
 <meta charset="utf-8">
 <meta name="keywords" content="MORE">
 <meta name="description" content="MORE">
@@ -36,7 +36,7 @@
 <script type="text/javascript">
 	
 </script>
-
+<LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
 <title>MORE HOME</title>
 
 </head>

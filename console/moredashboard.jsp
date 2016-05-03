@@ -36,6 +36,7 @@
 <script type="text/javascript">
 	
 </script>
+<LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
 <title>MORE DASHBOARD</title>
 
 </head>

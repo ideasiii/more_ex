@@ -113,7 +113,7 @@
 			con.close();
 			sqlite = null;
 	%>
-	<form action="applist.jsp" method="post" name="FormAppManager" id="FormAppManager">
+	<form action="moresdk.jsp" method="post" name="FormAppManager" id="FormAppManager">
 		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
 	</form>
 

@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" language="java"%>
 <%@ page import="sdk.ideas.Common"%>
-<%@ page import="sdk.ideas.SerSdk"%>
+<%@ page import="sdk.ideas.More"%>
 <%@ page import="sdk.ideas.StringUtility"%>
 <%@ page import="sdk.ideas.sqliteClient"%>
 <%@ page import="java.util.Iterator"%>
@@ -17,7 +17,7 @@
 		response.sendRedirect("index.jsp");
 		return;
 	}
-	SerSdk serSdk = new SerSdk();
+	More more = new More();
 	Logs.showTrace("App List  token:" + strToken);
 %>
 
@@ -166,14 +166,14 @@
 			<!--Start row-->
 
 			<%
-				ArrayList<SerSdk.AppData> listApp = new ArrayList<SerSdk.AppData>();
-				int nCount = serSdk.queryApp(listApp, strToken);
+				ArrayList<More.AppData> listApp = new ArrayList<More.AppData>();
+				int nCount = more.queryApp(listApp, strToken);
 
 				if (0 < nCount)
 				{
-					Iterator<SerSdk.AppData> it = null;
+					Iterator<More.AppData> it = null;
 					it = listApp.iterator();
-					SerSdk.AppData appData = null;
+					More.AppData appData = null;
 					String strAppIcon = null;
 					while (it.hasNext())
 					{
@@ -227,7 +227,7 @@
 	</div>
 
 	<%
-		serSdk = null;
+		more = null;
 	%>
 
 	<form action="index.jsp" method="post" name="FormHome" id="FormHome">

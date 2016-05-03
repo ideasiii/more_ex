@@ -2,7 +2,7 @@
 <%@ page import="sdk.ideas.Common"%>
 <%@ page import="sdk.ideas.StringUtility"%>
 <%@ page import="sdk.ideas.Logs"%>
-<%@ page import="sdk.ideas.SerSdk"%>
+<%@ page import="sdk.ideas.More"%>
 <%
 	final String strToken = request.getParameter(Common.USER_TOKEN);
 	final String strAppId = request.getParameter(Common.APP_ID);
@@ -11,7 +11,7 @@
 		return;
 	}
 
-	SerSdk serSdk = new SerSdk();
+	More more = new More();
 	Logs.showTrace("Delete App:" + strAppId);
 %>
 
@@ -40,8 +40,8 @@
 </HTML>
 
 <%
-	serSdk.deleteApp(strAppId);
-	serSdk = null;
+	more.deleteApp(strAppId);
+	more = null;
 %>
 <script>
 	formSubmit('FormAppList');

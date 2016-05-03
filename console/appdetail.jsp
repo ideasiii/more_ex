@@ -93,9 +93,9 @@
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
 			<div id="navbarCollapse" class="collapse navbar-collapse text-justify">
 				<div class="navbar-header">
-					
+
 					<a class="nav navbar-nav navbar-left" href="#" onClick="formSubmit('FormHome');"><img src="../image/more_logo.png" alt="MORE"
-						style="margin-left:5px;padding: 25px; width: 180px; height: 120px;box-shadow: 0 0 5px #888;border: 1px solid #fff;"
+						style="margin-left: 5px; padding: 25px; width: 180px; height: 120px; box-shadow: 0 0 5px #888; border: 1px solid #fff;"
 					></a>
 				</div>
 			</div>
@@ -178,22 +178,21 @@
 
 										<div class="form-group">
 											<label>Device 類型</label> <select class="form-control" id="<%=Common.APP_OS%>" name="<%=Common.APP_OS%>" disabled>
+
 												<%
-													if (strAppOs.trim().equals(Common.ANDROID))
+													for (int i = 0; i < Common.listDeviceType.size(); ++i)
 													{
-												%>
-												<option selected>Android</option>
-												<option>IOS</option>
-												<%
-													}
-													else if(strAppOs.trim().equals(Common.IOS))
-													{
-												%>
-												<option>Android</option>
-												<option selected>IOS</option>
-												<%
+														if (strAppOs.trim().equals(Common.listDeviceType.get(i)))
+														{
+															out.println("<option selected>" + Common.listDeviceType.get(i) + "</option>");
+														}
+														else
+														{
+															out.println("<option>" + Common.listDeviceType.get(i) + "</option>");
+														}
 													}
 												%>
+
 											</select>
 										</div>
 

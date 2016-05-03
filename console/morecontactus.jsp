@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
 <title>Insert title here</title>
 </head>
 <body>

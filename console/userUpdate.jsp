@@ -2,7 +2,7 @@
 <%@ page import="sdk.ideas.Common"%>
 <%@ page import="sdk.ideas.StringUtility"%>
 <%@ page import="sdk.ideas.Logs"%>
-<%@ page import="sdk.ideas.SerSdk"%>
+<%@ page import="sdk.ideas.More"%>
 
 <%
 	request.setCharacterEncoding("utf-8");
@@ -22,7 +22,7 @@
 <HTML>
 <HEAD>
 <LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
-<title>MORE</title>
+<title>MORE USER UPDATE</title>
 
 <!-- Javascript -->
 <script src="js/utility.js"></script>
@@ -44,9 +44,9 @@
 </HTML>
 
 <%
-	SerSdk serSdk = new SerSdk();
-	serSdk.updateUser(strAppId, strUserName, strUserPhone, strUserEmail);
-	serSdk = null;
+	More more = new More();
+	more.updateUser(strAppId, strUserName, strUserPhone, strUserEmail);
+	more = null;
 %>
 <script>
 	setTimeout("formSubmit('FormAppList')", 1);

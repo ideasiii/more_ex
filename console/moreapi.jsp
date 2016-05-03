@@ -49,6 +49,7 @@
 		}
 	}
 </script>
+<LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
 <title>MORE API</title>
 
 </head>

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" language="java"%>
-<%@ page import="sdk.ideas.SerSdk"%>
+<%@ page import="sdk.ideas.More"%>
 <%@ page import="sdk.ideas.StringUtility"%>
 <%@ page import="sdk.ideas.Common"%>
 <%@ page import="java.util.ArrayList"%>
@@ -9,7 +9,7 @@
 
 <%
 	response.sendRedirect("morehome.jsp");
-	SerSdk serSdk = new SerSdk();
+	More more = new More();
 	final String strToken = request.getParameter(Common.USER_TOKEN);
 	boolean bLogined = false;
 
@@ -234,16 +234,16 @@ th, td {
 			<p id="type_download" class="text-center text-muted" style="text-align: center;">Android SDK List</p>
 
 			<%
-				ArrayList<SerSdk.SdkData> listSdk = new ArrayList<SerSdk.SdkData>();
-				int nCount = serSdk.querySdk(listSdk);
+				ArrayList<More.SdkData> listSdk = new ArrayList<More.SdkData>();
+				int nCount = more.querySdk(listSdk);
 			%>
 
 			<div class="row" id="sdk_android">
 				<%
 					if (0 < nCount) {
-						Iterator<SerSdk.SdkData> it = null;
+						Iterator<More.SdkData> it = null;
 						it = listSdk.iterator();
-						SerSdk.SdkData sdkData = null;
+						More.SdkData sdkData = null;
 						while (it.hasNext()) {
 							sdkData = it.next();
 							if (sdkData.sdk_os.trim().equals("ios"))
@@ -302,9 +302,9 @@ th, td {
 			<div class="row" id="sdk_ios" style="display: none;">
 				<%
 					if (0 < nCount) {
-						Iterator<SerSdk.SdkData> it = null;
+						Iterator<More.SdkData> it = null;
 						it = listSdk.iterator();
-						SerSdk.SdkData sdkData = null;
+						More.SdkData sdkData = null;
 						while (it.hasNext()) {
 							sdkData = it.next();
 							if (sdkData.sdk_os.trim().equals("android"))
@@ -760,7 +760,7 @@ th, td {
 					"<script>document.getElementById('header_option').style.display = \"\";document.getElementById('FormLogin').style.display = \"none\";</script>");
 		}
 
-		serSdk = null;
+		more = null;
 
 		if (StringUtility.isValid(strShowIosDownload) && strShowIosDownload.trim().equals(Common.IOS))
 		{

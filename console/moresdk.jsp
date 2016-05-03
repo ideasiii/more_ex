@@ -80,7 +80,7 @@
 
 
 
-
+<LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
 <title>MORE SDK</title>
 
 </head>
