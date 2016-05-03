@@ -155,14 +155,29 @@
 		<div id="content">
 			<div class="pageWidth">
 				<div class="pageContent">
+					<div id="blockList">
+						<!-- Content Block -->
+						<ul>
+							<li>
+								<div class="sdkBlock">
+									<img src="../image/dashboard.png" alt="dashboard" class="logo">
+									<p class="title">資料傳輸查詢</p>
+									<img class="sdkImg" src="../image/query_data.png">
+									<p class="desc">Raw Data Query</p>
+								</div>
+								<div class="option">
+									<ul style="height: 50px;">
+										<li><a class="query" href=""></a></li>
 
-					<!-- Content Block -->
-					<div id="blockList"></div>
-
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
 					<div class="titleBar">
 						<!-- /Content Block -->
 
-						<p id="pageDescription" class="muted baseHtml">MORE Dashboard</p>
+
 					</div>
 				</div>
 				<!-- /pageContent -->
