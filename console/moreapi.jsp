@@ -174,10 +174,7 @@
 				<div class="pageContent">
 					<div id="blockList"></div>
 
-					<div class="titleBar">
-						<h1></h1>
-						<p id="pageDescription" class="muted baseHtml">MORE API</p>
-					</div>
+					
 				</div>
 				<!-- /pageContent -->
 			</div>
@@ -194,7 +191,8 @@
 				<div class="pageContent">
 					<img class="footerLogo" alt="MORE Footbar Logo" src="../image/more.png">
 					<ul class="footerLinks">
-						<li><a target="_blank" href="morecontactus.jsp">Contact Us</a></li>
+						<li><a target="_blank" href="privacy.html">隱私權政策</a></li>
+						<li><a target="_blank" href="service.html">會員服務使用條款</a></li>
 					</ul>
 				</div>
 			</div>
