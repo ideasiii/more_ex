@@ -157,39 +157,37 @@
 				<div class="pageContent">
 					<div id="blockList">
 						<!-- Content Block -->
-						
+
 						<script type='text/javascript' src='http://118.163.94.27:40080/javascripts/api/viz_v1.js'></script>
-
-
-<div class='tableauPlaceholder' style='width: 1024px; height: 661px;'>
-<object class='tableauViz' width='1024' height='661' style='display:none;'>
-<param name='host_url' value='http%3A%2F%2F118.163.94.27%3A40080%2F' /> 
-<param name='site_root' value='' />
-<param name='name' value='Path_toggle_0511_9_3&#47;ConsumersRelatedProductsNetworkGraph' />
-<param name='tabs' value='no' />
-<param name='toolbar' value='yes' />
-<param name='showShareOptions' value='true' />
-</object>
-</div>  
+						<div class='tableauPlaceholder' style='width: 100%; height: auto;'>
+							<object class='tableauViz' width='100%' height='591' style='display: none;'>
+								<param name='host_url' value='http%3A%2F%2F118.163.94.27%3A40080%2F' />
+								<param name='site_root' value='' />
+								<param name='name' value='P_Dashboard_1127_9_0&#47;P_Dashboard' />
+								<param name='tabs' value='no' />
+								<param name='toolbar' value='yes' />
+								<param name='showShareOptions' value='true' />
+							</object>
+						</div>
 
 						<ul>
 							<li>
 								<div class="sdkBlock">
 									<img src="../image/dashboard.png" alt="dashboard" class="logo">
-									<p class="title">資料傳輸查詢</p>
+									<p class="title">Tracker資料查詢</p>
 									<img class="sdkImg" src="../image/query_data.png">
-									<p class="desc">Raw Data Query</p>
+									<p class="desc">Tracker Data Query</p>
 								</div>
 								<div class="option">
 									<ul style="height: 50px;">
-										<li><a class="query" href=""></a></li>
+										<li><a class="query" href="/dashboard/console/index.jsp"></a></li>
 
 									</ul>
 								</div>
 							</li>
 						</ul>
 					</div>
-				
+
 				</div>
 				<!-- /pageContent -->
 			</div>
