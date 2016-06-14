@@ -157,7 +157,7 @@
 				<div class="pageContent">
 					<div id="blockList">
 						<!-- Content Block -->
-
+<!-- 
 						<script type='text/javascript' src='http://118.163.94.27:40080/javascripts/api/viz_v1.js'></script>
 						<div class='tableauPlaceholder' style='width: 100%; height: auto;'>
 							<object class='tableauViz' width='100%' height='591' style='display: none;'>
@@ -169,7 +169,7 @@
 								<param name='showShareOptions' value='true' />
 							</object>
 						</div>
-
+-->
 						<ul>
 							<li>
 								<div class="sdkBlock">
@@ -180,7 +180,7 @@
 								</div>
 								<div class="option">
 									<ul style="height: 50px;">
-										<li><a class="query" href="/dashboard/console/index.jsp"></a></li>
+										<li><span class="query" onClick="formSubmit('FormMoreRawData')"></span></li>
 
 									</ul>
 								</div>
@@ -242,6 +242,10 @@
 </form>
 
 <form action="moreregister.jsp" method="post" name="FormMoreRegister" id="FormMoreRegister">
+	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+</form>
+
+<form action="/dashboard/console/rawdata.jsp" method="post" name="FormMoreRawData" id="FormMoreRawData">
 	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
 </form>
 

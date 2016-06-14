@@ -5488,6 +5488,13 @@ div.forum_view .pageNavLinkGroup, div.conversation_list .pageNavLinkGroup
 	width: 60px;
 }
 
+#blockList ul ul li span.query {
+	background: url('../image/query.png') no-repeat;
+	display: block;
+	height: 50px;
+	width: 60px;
+}
+
 #blockList ul ul li a.view {
 	/*	background: url('../image/icons.gif') no-repeat 24px -99px;*/
 	background: url('../image/document.png') no-repeat;
@@ -5538,6 +5545,11 @@ div.forum_view .pageNavLinkGroup, div.conversation_list .pageNavLinkGroup
 
 #blockList ul ul li a.query:hover {
 	background: url('../image/query_hover.png') no-repeat;
+}
+
+#blockList ul ul li span.query:hover {
+	background: url('../image/query_hover.png') no-repeat;
+	cursor: pointer;
 }
 
 #blockList ul ul li  a.download:hover {
