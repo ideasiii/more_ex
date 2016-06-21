@@ -27,6 +27,10 @@
 	final String strContextPath = request.getContextPath();
 	final String uri = request.getRequestURI();
 	final String pageName = uri.substring(uri.lastIndexOf("/") + 1);
+	
+	
+	// test
+	String strP1 = request.getParameter("1");
 %>
 <!DOCTYPE html>
 <html id="XenForo" lang="utf-8" dir="LTR" class="Public NoJs LoggedOut NoSidebar  NoResponsive">

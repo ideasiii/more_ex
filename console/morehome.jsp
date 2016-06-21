@@ -212,7 +212,7 @@
 </form>
 
 <form action="moresdk.jsp" method="post" name="FormMoreSdk" id="FormMoreSdk">
-	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" /> 
 </form>
 
 <form action="moreapi.jsp" method="post" name="FormMoreApi" id="FormMoreApi">
