@@ -1,4 +1,4 @@
-<%@ page contentType="tapplication/json; charset=utf-8" language="java" session="false"%>
+<%@ page contentType="application/json; charset=utf-8" language="java" session="false"%>
 <%@ page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
 <%@ page import="java.util.Map"%>
 <%@ page import="sdk.ideas.AiPlug"%>
