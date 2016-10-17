@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=utf-8" language="java" session="false"%>
+<%@ page contentType="text/html; charset=utf-8" language="java"
+	session="false"%>
 <%@ page import="sdk.ideas.Common"%>
 <%@ page import="sdk.ideas.More"%>
 <%@ page import="sdk.ideas.StringUtility"%>
@@ -18,9 +19,13 @@
 	final String strHostUrl = request.getRequestURL().toString();
 	final String uri = request.getRequestURI();
 	final String pageName = uri.substring(uri.lastIndexOf("/") + 1);
+
+	/** Web Tracker **/
+	More.webTracker(request, "load page", null);
 %>
 <!DOCTYPE html>
-<html id="XenForo" lang="utf-8" dir="LTR" class="Public NoJs LoggedOut NoSidebar  NoResponsive">
+<html id="XenForo" lang="utf-8" dir="LTR"
+	class="Public NoJs LoggedOut NoSidebar  NoResponsive">
 <head>
 
 <meta charset="utf-8">
@@ -50,13 +55,14 @@
 						if (bLogined)
 						{
 					%>
-					<label for="LoginControl"><span class="concealed" onClick="formSubmit('FormMoreLogout')" style="cursor: pointer;">登出</span></label>
+					<label for="LoginControl"><span class="concealed"
+						onClick="formSubmit('FormMoreLogout')" style="cursor: pointer;">登出</span></label>
 					<%
-						}
-						else
+						} else
 						{
 					%>
-					<label for="LoginControl"><span class="concealed noOutline" style="cursor: pointer;">登入</span></label>
+					<label for="LoginControl"><span class="concealed noOutline"
+						style="cursor: pointer;">登入</span></label>
 					<%
 						}
 					%>
@@ -66,7 +72,8 @@
 	</div>
 	<!-- /Login Bar -->
 	<!-- Login Bar Content -->
-	<form action="auth_member.jsp" method="post" class="xenForm" style="display: none" name="login" id="login">
+	<form action="auth_member.jsp" method="post" class="xenForm"
+		style="display: none" name="login" id="login">
 		<input name="from" type="hidden" value="<%=pageName%>" />
 		<div class="ctrlWrapper">
 			<dl class="ctrlUnit">
@@ -74,7 +81,8 @@
 					<label for="LoginControl">帳號</label>
 				</dt>
 				<dd>
-					<input type="text" name="account" id="LoginControl" class="textCtrl" tabindex="101" style="height: 30px" />
+					<input type="text" name="account" id="LoginControl"
+						class="textCtrl" tabindex="101" style="height: 30px" />
 				</dd>
 			</dl>
 			<dl class="ctrlUnit">
@@ -82,15 +90,19 @@
 					<label for="ctrl_password">密碼</label>
 				</dt>
 				<dd>
-					<input type="password" name="password" class="textCtrl" id="ctrl_password" tabindex="102" style="height: 30px" />
+					<input type="password" name="password" class="textCtrl"
+						id="ctrl_password" tabindex="102" style="height: 30px" />
 				</dd>
 			</dl>
 			<dl class="ctrlUnit submitUnit">
 				<dt></dt>
 				<dd>
-					<input type="button" class="button primary" value="登入" tabindex="104" data-loginPhrase="登入" data-signupPhrase="登入" onclick="onLogin()" /> <input type="button"
-						class="button primary" value="註冊" tabindex="104" data-loginPhrase="註冊" data-signupPhrase="註冊" onClick="formSubmit('FormMoreRegister')"
-					/>
+					<input type="button" class="button primary" value="登入"
+						tabindex="104" data-loginPhrase="登入" data-signupPhrase="登入"
+						onclick="onLogin()" /> <input type="button"
+						class="button primary" value="註冊" tabindex="104"
+						data-loginPhrase="註冊" data-signupPhrase="註冊"
+						onClick="formSubmit('FormMoreRegister')" />
 				</dd>
 			</dl>
 		</div>
@@ -121,27 +133,36 @@
 								<ul class="publicTabs">
 
 									<!-- MORE HOME -->
-									<li class="navTab morehome selected"><span class="navLink" style="padding: 0 27px; cursor: default;">HOME</span></li>
+									<li class="navTab morehome selected"><span class="navLink"
+										style="padding: 0 27px; cursor: default;">HOME</span></li>
 									<!-- /MORE HOME -->
 
 									<!-- MORE SDK -->
-									<li class="navTab moresdk Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreSdk')">MORE SDK</span></li>
+									<li class="navTab moresdk Popup PopupControl PopupClosed"><span
+										class="navLink" onClick="formSubmit('FormMoreSdk')">MORE
+											SDK</span></li>
 									<!-- /MORE SDK -->
 
 									<!-- MORE API -->
-									<li class="navTab moreapi Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreApi')">MORE API</span></li>
+									<li class="navTab moreapi Popup PopupControl PopupClosed"><span
+										class="navLink" onClick="formSubmit('FormMoreApi')">MORE
+											API</span></li>
 									<!-- /MORE API -->
 
 									<!-- MORE MDM -->
-									<li class="navTab moremdm Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreMdm')">MORE MDM</span></li>
+									<li class="navTab moremdm Popup PopupControl PopupClosed"><span
+										class="navLink" onClick="formSubmit('FormMoreMdm')">MORE
+											MDM</span></li>
 									<!-- /MORE MDM -->
 
 									<!-- MORE DASHBOARD -->
-									<li class="navTab moredashboard Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreDashboard')">DASHBOARD</span></li>
+									<li class="navTab moredashboard Popup PopupControl PopupClosed"><span
+										class="navLink" onClick="formSubmit('FormMoreDashboard')">DASHBOARD</span></li>
 									<!-- /MORE DASHBOARD -->
 
 									<!-- MORE ABOUT -->
-									<li class="navTab moreabout Popup PopupControl PopupClosed"><span class="navLink" onClick="formSubmit('FormMoreAbout')">ABOUT</span></li>
+									<li class="navTab moreabout Popup PopupControl PopupClosed"><span
+										class="navLink" onClick="formSubmit('FormMoreAbout')">ABOUT</span></li>
 									<!-- /MORE ABOUT -->
 
 								</ul>
@@ -159,14 +180,22 @@
 					<!-- Block List -->
 					<div id="blockList">
 						<UL>
-							<LI><IMG class="homeAD" alt="MORE SDK" src="img/banner01.jpg"> <span class="homeAdWord"> MORE SDK將多項服務與應用包裝成多個獨立的模組,透過API的呼叫即可執行多種應用與服務 </span></LI>
-							<LI><span class="homeAdWordLeft" style="color: #369caa;"> MORE平台將多項服務與應用包裝成多個獨立的模組，提供給APP開發人員可以加入到自己的APP專案裡 透過API的呼叫即可執行多種應用與服務。 MORE平台提供的服務包含了：APP Event
-									Tracking Service, Facebook Authentication Service Tencent QQ Authentication Service, IOT Service, Dashboard Service SER API Service…等服務。 </span><IMG class="homeAdRight"
-								alt="MORE API" src="img/appmobile.jpg"
-							></LI>
-							<LI><IMG class="homeAD" alt="MORE MDM" src="img/mdm_ad.jpg" style="height: 400px;"> <span class="homeAdWord" style="color: #369caa;"> MORE Mobild Device
-									Manager 手機群組管理應用,讓企業更靈活管理租用的終端設備</span></LI>
-							<LI><IMG class="homeAD" alt="MORE TRACK" src="img/track_ad.jpg" style="height: 400px;"> <span class="homeAdWord"> MORE Tracker SDK收集終端裝置使用行為資料,透過MORE
+							<LI><IMG class="homeAD" alt="MORE SDK"
+								src="img/banner01.jpg"> <span class="homeAdWord">
+									MORE SDK將多項服務與應用包裝成多個獨立的模組,透過API的呼叫即可執行多種應用與服務 </span></LI>
+							<LI><span class="homeAdWordLeft" style="color: #369caa;">
+									MORE平台將多項服務與應用包裝成多個獨立的模組，提供給APP開發人員可以加入到自己的APP專案裡
+									透過API的呼叫即可執行多種應用與服務。 MORE平台提供的服務包含了：APP Event Tracking Service,
+									Facebook Authentication Service Tencent QQ Authentication
+									Service, IOT Service, Dashboard Service SER API Service…等服務。 </span><IMG
+								class="homeAdRight" alt="MORE API" src="img/appmobile.jpg"></LI>
+							<LI><IMG class="homeAD" alt="MORE MDM" src="img/mdm_ad.jpg"
+								style="height: 400px;"> <span class="homeAdWord"
+								style="color: #369caa;"> MORE Mobild Device Manager
+									手機群組管理應用,讓企業更靈活管理租用的終端設備</span></LI>
+							<LI><IMG class="homeAD" alt="MORE TRACK"
+								src="img/track_ad.jpg" style="height: 400px;"> <span
+								class="homeAdWord"> MORE Tracker SDK收集終端裝置使用行為資料,透過MORE
 									Dashboard了解未來商品趨勢與市場走向 </span></LI>
 						</UL>
 					</div>
@@ -192,7 +221,8 @@
 		<div class="footer">
 			<div class="pageWidth">
 				<div class="pageContent">
-					<img class="footerLogo" alt="MORE Footbar Logo" src="../image/more.png">
+					<img class="footerLogo" alt="MORE Footbar Logo"
+						src="../image/more.png">
 					<ul class="footerLinks">
 						<li><a target="_blank" href="privacy.html">隱私權政策</a></li>
 						<li><a target="_blank" href="service.html">會員服務使用條款</a></li>
@@ -205,34 +235,49 @@
 
 </body>
 
-<form action="morehome.jsp" method="post" name="FormMoreLogout" id="FormMoreLogout"></form>
+<form action="morehome.jsp" method="post" name="FormMoreLogout"
+	id="FormMoreLogout"></form>
 
-<form action="morehome.jsp" method="post" name="FormMoreHome" id="FormMoreHome">
-	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+<form action="morehome.jsp" method="post" name="FormMoreHome"
+	id="FormMoreHome">
+	<input name="<%=Common.USER_TOKEN%>" type="hidden"
+		value="<%=strToken%>" />
 </form>
 
-<form action="moresdk.jsp" method="post" name="FormMoreSdk" id="FormMoreSdk">
-	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" /> 
+<form action="moresdk.jsp" method="post" name="FormMoreSdk"
+	id="FormMoreSdk">
+	<input name="<%=Common.USER_TOKEN%>" type="hidden"
+		value="<%=strToken%>" />
 </form>
 
-<form action="moreapi.jsp" method="post" name="FormMoreApi" id="FormMoreApi">
-	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+<form action="moreapi.jsp" method="post" name="FormMoreApi"
+	id="FormMoreApi">
+	<input name="<%=Common.USER_TOKEN%>" type="hidden"
+		value="<%=strToken%>" />
 </form>
 
-<form action="moremdm.jsp" method="post" name="FormMoreMdm" id="FormMoreMdm">
-	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+<form action="moremdm.jsp" method="post" name="FormMoreMdm"
+	id="FormMoreMdm">
+	<input name="<%=Common.USER_TOKEN%>" type="hidden"
+		value="<%=strToken%>" />
 </form>
 
-<form action="moredashboard.jsp" method="post" name="FormMoreDashboard" id="FormMoreDashboard">
-	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+<form action="moredashboard.jsp" method="post" name="FormMoreDashboard"
+	id="FormMoreDashboard">
+	<input name="<%=Common.USER_TOKEN%>" type="hidden"
+		value="<%=strToken%>" />
 </form>
 
-<form action="moreabout.jsp" method="post" name="FormMoreAbout" id="FormMoreAbout">
-	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+<form action="moreabout.jsp" method="post" name="FormMoreAbout"
+	id="FormMoreAbout">
+	<input name="<%=Common.USER_TOKEN%>" type="hidden"
+		value="<%=strToken%>" />
 </form>
 
-<form action="moreregister.jsp" method="post" name="FormMoreRegister" id="FormMoreRegister">
-	<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+<form action="moreregister.jsp" method="post" name="FormMoreRegister"
+	id="FormMoreRegister">
+	<input name="<%=Common.USER_TOKEN%>" type="hidden"
+		value="<%=strToken%>" />
 </form>
 
 </html>

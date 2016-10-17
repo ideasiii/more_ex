@@ -10,7 +10,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Properties;
@@ -20,19 +22,28 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.MongoClient;
+
 import java.io.File;
 
 /**
  * @author Jugo
  */
-public class More {
+public class More
+{
 	public final static int MORE_ERR_SUCCESS = 1;
 	public final static int MORE_ERR_FAIL = 0;
 	public final static int MORE_ERR_EXCEPTION = -1;
 	public final static int MORE_ERR_INVALID_PARAMETER = -2;
 	public final static int MORE_ERR_MEMBER_EXIST = -3;
 
-	public static class MemberData {
+	public static class MemberData
+	{
 		public int member_id;
 		public String member_email;
 		public String member_password;
@@ -45,7 +56,8 @@ public class More {
 		public String create_date;
 	}
 
-	public static class SdkData {
+	public static class SdkData
+	{
 		public String sdk_id;
 		public String sdk_os;
 		public String sdk_owner;
@@ -56,7 +68,8 @@ public class More {
 		public String create_date;
 	}
 
-	public static class AppData {
+	public static class AppData
+	{
 		public String app_id;
 		public String app_name;
 		public String app_category;
@@ -70,14 +83,17 @@ public class More {
 		public String create_date;
 	}
 
-	public More() {
+	public More()
+	{
 
 	}
 
-	public int queryMember(final String strEmail, MemberData memData) {
+	public int queryMember(final String strEmail, MemberData memData)
+	{
 		int nCount = 0;
 
-		try {
+		try
+		{
 			sqliteClient sqlite = new sqliteClient();
 			Connection con = sqlite.getConnection(Common.DB_PATH_MORE_MEMBER);
 			String strSQL = "select * from more_member where member_email = '" + strEmail + "';";
@@ -86,7 +102,8 @@ public class More {
 			ResultSet rs = null;
 			stat = con.createStatement();
 			rs = stat.executeQuery(strSQL);
-			while (rs.next()) {
+			while (rs.next())
+			{
 				++nCount;
 				memData.member_id = rs.getInt("member_id");
 				memData.member_email = rs.getString("member_email");
@@ -104,7 +121,8 @@ public class More {
 			stat.close();
 			con.close();
 			sqlite = null;
-		} catch (SQLException e) {
+		} catch (SQLException e)
+		{
 			Logs.showError(e.toString());
 			e.printStackTrace();
 		}
@@ -113,12 +131,15 @@ public class More {
 	}
 
 	public int memberAdd(final String strEmail, final String strPassword, final String strName, final String strCompany,
-			final String strPhone, final String strToken) {
-		if (!StringUtility.isValid(strEmail) || !StringUtility.isValid(strPassword)) {
+			final String strPhone, final String strToken)
+	{
+		if (!StringUtility.isValid(strEmail) || !StringUtility.isValid(strPassword))
+		{
 			return MORE_ERR_INVALID_PARAMETER;
 		}
 
-		try {
+		try
+		{
 			MemberData memData = new MemberData();
 			int nCount = queryMember(strEmail, memData);
 			if (0 < nCount)
@@ -142,7 +163,8 @@ public class More {
 			pst.close();
 			con.close();
 			sqlite = null;
-		} catch (Exception e) {
+		} catch (Exception e)
+		{
 			Logs.showError(e.toString());
 			return MORE_ERR_EXCEPTION;
 		}
@@ -150,26 +172,32 @@ public class More {
 		return MORE_ERR_SUCCESS;
 	}
 
-	public synchronized String generateToken(String msg, boolean timeChange) {
+	public synchronized String generateToken(String msg, boolean timeChange)
+	{
 		long current = System.currentTimeMillis();
-		try {
+		try
+		{
 			MessageDigest md = MessageDigest.getInstance("MD5");
 			md.update(msg.getBytes());
-			if (timeChange) {
+			if (timeChange)
+			{
 				byte now[] = (new Long(current)).toString().getBytes();
 				md.update(now);
 			}
 			return toHex(md.digest());
-		} catch (NoSuchAlgorithmException e) {
+		} catch (NoSuchAlgorithmException e)
+		{
 			Logs.showError(e.toString());
 		}
 
 		return String.valueOf(current);
 	}
 
-	private String toHex(byte buffer[]) {
+	private String toHex(byte buffer[])
+	{
 		StringBuffer sb = new StringBuffer(buffer.length * 2);
-		for (int i = 0; i < buffer.length; i++) {
+		for (int i = 0; i < buffer.length; i++)
+		{
 			sb.append(Character.forDigit((buffer[i] & 240) >> 4, 16));
 			sb.append(Character.forDigit(buffer[i] & 15, 16));
 		}
@@ -177,10 +205,12 @@ public class More {
 		return sb.toString();
 	}
 
-	public int querySdk(ArrayList<SdkData> listSdk) {
+	public int querySdk(ArrayList<SdkData> listSdk)
+	{
 		int nCount = 0;
 
-		try {
+		try
+		{
 			sqliteClient sqlite = new sqliteClient();
 			Connection con = sqlite.getConnection(Common.DB_PATH_IDEAS);
 			String strSQL = "select * from sdk order by create_date;";
@@ -189,12 +219,14 @@ public class More {
 			con.close();
 			sqlite = null;
 
-			if (0 < listData.size()) {
+			if (0 < listData.size())
+			{
 				Iterator<HashMap<String, String>> it = null;
 				HashMap<String, String> mapItem;
 				it = listData.iterator();
 				SdkData sdkData = null;
-				while (it.hasNext()) {
+				while (it.hasNext())
+				{
 					sdkData = new SdkData();
 					mapItem = it.next();
 					sdkData.sdk_id = mapItem.get(Common.SDK_ID);
@@ -210,7 +242,8 @@ public class More {
 				}
 				nCount = listSdk.size();
 			}
-		} catch (SQLException e) {
+		} catch (SQLException e)
+		{
 			Logs.showError(e.toString());
 			e.printStackTrace();
 		}
@@ -218,8 +251,10 @@ public class More {
 		return nCount;
 	}
 
-	public void SendingEmail(String Email, String Body) {
-		try {
+	public void SendingEmail(String Email, String Body)
+	{
+		try
+		{
 			String host = "smtp.gmail.com";
 			String from = "louis.ju.tw@gmail.com"; // Your mail id
 			String pass = "Immortal-666"; // Your Password
@@ -237,12 +272,14 @@ public class More {
 			message.setFrom(new InternetAddress(from));
 			InternetAddress[] toAddress = new InternetAddress[to.length];
 			// To get the array of addresses
-			for (int i = 0; i < to.length; i++) { // changed from a while loop
+			for (int i = 0; i < to.length; i++)
+			{ // changed from a while loop
 				toAddress[i] = new InternetAddress(to[i]);
 			}
 			System.out.println(Message.RecipientType.TO);
-			for (int j = 0; j < toAddress.length; j++) { // changed from a while
-															// loop
+			for (int j = 0; j < toAddress.length; j++)
+			{ // changed from a while
+				// loop
 				message.addRecipient(Message.RecipientType.TO, toAddress[j]);
 			}
 			message.setSubject("Email from MORE");
@@ -252,15 +289,18 @@ public class More {
 			transport.connect(host, from, pass);
 			transport.sendMessage(message, message.getAllRecipients());
 			transport.close();
-		} catch (Exception e) {
+		} catch (Exception e)
+		{
 			System.out.println("MORE Send Mail Exception:" + e.toString());
 		}
 	}
 
-	public int queryApp(ArrayList<AppData> listApp, String strUserToken) {
+	public int queryApp(ArrayList<AppData> listApp, String strUserToken)
+	{
 		int nCount = 0;
 
-		try {
+		try
+		{
 			sqliteClient sqlite = new sqliteClient();
 			Connection con = sqlite.getConnection(Common.DB_PATH_IDEAS);
 			String strSQL = "select * from app where user_token = '" + strUserToken + "' order by create_date;";
@@ -269,12 +309,14 @@ public class More {
 			con.close();
 			sqlite = null;
 
-			if (0 < listData.size()) {
+			if (0 < listData.size())
+			{
 				Iterator<HashMap<String, String>> it = null;
 				HashMap<String, String> mapItem;
 				it = listData.iterator();
 				AppData appData = null;
-				while (it.hasNext()) {
+				while (it.hasNext())
+				{
 					appData = new AppData();
 					mapItem = it.next();
 					appData.app_id = mapItem.get(Common.APP_ID);
@@ -293,15 +335,18 @@ public class More {
 				}
 				nCount = listApp.size();
 			}
-		} catch (Exception e) {
+		} catch (Exception e)
+		{
 			Logs.showError(e.toString());
 			e.printStackTrace();
 		}
 		return nCount;
 	}
 
-	public void deleteApp(final String strAppId) {
-		try {
+	public void deleteApp(final String strAppId)
+	{
+		try
+		{
 			sqliteClient sqlite = new sqliteClient();
 			Connection con = sqlite.getConnection(Common.DB_PATH_IDEAS);
 
@@ -312,7 +357,8 @@ public class More {
 			stat = con.createStatement();
 			rs = stat.executeQuery(strSQL);
 			String strAppIcon = null;
-			if (rs.next()) {
+			if (rs.next())
+			{
 				strAppIcon = rs.getString("app_icon");
 			}
 			rs.close();
@@ -330,24 +376,30 @@ public class More {
 			sqlite = null;
 
 			// Delete local file
-			if (null != strAppIcon) {
+			if (null != strAppIcon)
+			{
 				File file = new File("/data/opt/tomcat/webapp/more" + strAppIcon);
-				if (null != file) {
+				if (null != file)
+				{
 
 					String absolutePath = file.getAbsolutePath();
 					String filePath = absolutePath.substring(0, absolutePath.lastIndexOf(File.separator));
 
-					if (file.delete()) {
+					if (file.delete())
+					{
 						System.out.println(file.getName() + " is deleted!");
-					} else {
+					} else
+					{
 						System.out.println("Delete operation is failed.");
 					}
 
 					File folderPath = new File(filePath);
 
-					if (folderPath.isDirectory()) {
+					if (folderPath.isDirectory())
+					{
 
-						if (folderPath.list().length <= 0) {
+						if (folderPath.list().length <= 0)
+						{
 
 							System.out.println("Directory is empty!");
 							folderPath.delete();
@@ -356,22 +408,27 @@ public class More {
 				}
 			}
 
-		} catch (Exception e) {
+		} catch (Exception e)
+		{
 			Logs.showError(e.toString());
 			e.printStackTrace();
 		}
 	}
 
 	public void updateApp(final String strAppId, final String strAppIcon, final String strAppName,
-			final String strAppOs, final String strAppCategory, final String strAppDesc) {
-		try {
+			final String strAppOs, final String strAppCategory, final String strAppDesc)
+	{
+		try
+		{
 			sqliteClient sqlite = new sqliteClient();
 			Connection con = sqlite.getConnection(Common.DB_PATH_IDEAS);
 
 			String sql = null;
-			if (null == strAppIcon) {
+			if (null == strAppIcon)
+			{
 				sql = "update app set app_name = ? , app_os = ? , app_category = ? , app_description = ? where app_id = ?";
-			} else {
+			} else
+			{
 				sql = "update app set app_icon = ?, app_name = ? , app_os = ? , app_category = ? , app_description = ? where app_id = ?";
 			}
 
@@ -379,7 +436,8 @@ public class More {
 			pst = con.prepareStatement(sql);
 			int idx = 1;
 
-			if (null != strAppIcon) {
+			if (null != strAppIcon)
+			{
 				pst.setString(idx++, strAppIcon);
 			}
 			pst.setString(idx++, strAppName);
@@ -392,15 +450,18 @@ public class More {
 
 			con.close();
 			sqlite = null;
-		} catch (Exception e) {
+		} catch (Exception e)
+		{
 			Logs.showError(e.toString());
 			e.printStackTrace();
 		}
 	}
 
 	public void updateUser(final String strAppId, final String strUserName, final String strUserPhone,
-			final String strUserEmail) {
-		try {
+			final String strUserEmail)
+	{
+		try
+		{
 			sqliteClient sqlite = new sqliteClient();
 			Connection con = sqlite.getConnection(Common.DB_PATH_IDEAS);
 
@@ -417,9 +478,96 @@ public class More {
 
 			con.close();
 			sqlite = null;
-		} catch (Exception e) {
+		} catch (Exception e)
+		{
 			Logs.showError(e.toString());
 			e.printStackTrace();
 		}
+	}
+
+	static public String getClientIP(HttpServletRequest request)
+	{
+		String ip = request.getHeader("X-Forwarded-For");
+		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip))
+		{
+			ip = request.getHeader("Proxy-Client-IP");
+		}
+		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip))
+		{
+			ip = request.getHeader("WL-Proxy-Client-IP");
+		}
+		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip))
+		{
+			ip = request.getHeader("HTTP_CLIENT_IP");
+		}
+		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip))
+		{
+			ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+		}
+		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip))
+		{
+			ip = request.getRemoteAddr();
+		}
+		return ip;
+	}
+
+	static public String getDateTime()
+	{
+		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date current = new Date();
+		return sdFormat.format(current);
+	}
+
+	@SuppressWarnings("deprecation")
+	static public int insert(String strIP, int nPort, final String strDB, final String strCollection,
+			final HashMap<String, String> mapData)
+	{
+		int nResult = 0;
+
+		if (null == mapData || 0 >= mapData.size())
+			return -1;
+
+		try
+		{
+			MongoClient mongo = new MongoClient(strIP, nPort);
+			// get database
+			// if database doesn't exists, mongodb will create it for you
+			DB db = mongo.getDB(strDB);
+
+			// get collection
+			// if collection doesn't exists, mongodb will create it for you
+			DBCollection collection = db.getCollection(strCollection);
+
+			/**** Insert ****/
+			// create a document to store key and value
+
+			BasicDBObject document = new BasicDBObject();
+
+			for (Object key : mapData.keySet())
+			{
+				document.append((String) key, mapData.get(key));
+			}
+			collection.insert(document);
+			if (null != mongo)
+				mongo.close();
+
+		} catch (Exception e)
+		{
+			nResult = -1;
+			System.out.println("Mongo Exception: " + e.toString());
+		}
+		return nResult;
+	}
+
+	static public void webTracker(HttpServletRequest request, String strAction, String strEvent)
+	{
+		HashMap<String, String> mapData = new HashMap<String, String>();
+		mapData.put("client", getClientIP(request));
+		mapData.put("host", request.getRequestURL().toString());
+		mapData.put("create_date", getDateTime());
+		mapData.put("action", strAction);
+		mapData.put("event", strEvent);
+		insert("127.0.0.1", 27017, "website", "more", mapData);
+		mapData.clear();
 	}
 }

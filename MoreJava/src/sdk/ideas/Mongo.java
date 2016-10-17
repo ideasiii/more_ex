@@ -142,8 +142,13 @@ public class Mongo
 	}
 
 	@SuppressWarnings("deprecation")
-	public int insert(final String strDB, final String strCollection)
+	public int insert(final String strDB, final String strCollection, final HashMap<String, String> mapData)
 	{
+		int nResult = 0;
+
+		if (null == mapData || 0 >= mapData.size())
+			return -1;
+
 		try
 		{
 			// get database
@@ -157,34 +162,20 @@ public class Mongo
 			/**** Insert ****/
 			// create a document to store key and value
 
-			BasicDBObject document;
-			String address[];
-			for (int i = 0; i < array_names.length; i++)
+			BasicDBObject document = new BasicDBObject();
+
+			for (Object key : mapData.keySet())
 			{
-				document = new BasicDBObject();
-				// value -> String
-				document.append("name", array_names[i]);
-				// value -> int
-				document.append("age", (int) (Math.random() * 60));
-				// value -> date
-				document.append("join", new Date());
-				// value -> array
-				document.append("friends", pickFriends());
-
-				address = pickAddress();
-				// value --> document
-				document.append("address", new BasicDBObject("country", address[0]).append("state", address[1])
-						.append("city", address[2]));
-
-				collection.insert(document);
-
+				document.append((String) key, mapData.get(key));
 			}
+			collection.insert(document);
 
 		} catch (Exception e)
 		{
-
+			nResult = -1;
+			System.out.println("Mongo Exception: " + e.toString());
 		}
-		return 0;
+		return nResult;
 	}
 
 }
