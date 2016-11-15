@@ -27,6 +27,7 @@ import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.conn.scheme.SchemeSocketFactory;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.conn.ssl.TrustStrategy;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
@@ -120,6 +121,37 @@ public class HttpsClient
 		return result;
 	}
 
+	public String sendPost(String url, String stringData) throws Exception
+	{
+
+		String result = "";
+		HttpClient client = null;
+		client = buildHttpClient();
+		HttpPost post = new HttpPost(url);
+		post.addHeader("Content-Type", "application/json");
+		post.setEntity(new StringEntity(stringData));
+
+		HttpResponse responsePOST = client.execute(post);
+		HttpEntity resEntity = responsePOST.getEntity();
+
+		if (resEntity != null)
+		{
+			result = EntityUtils.toString(resEntity);
+		}
+
+		client.getConnectionManager().shutdown();
+
+		if (StringUtility.isValid(result))
+		{
+			result.trim();
+		}
+		else
+		{
+			result = "";
+		}
+		return result;
+	}
+
 	public String sendGet(String url) throws Exception
 	{
 		String result = "";
@@ -179,8 +211,8 @@ public class HttpsClient
 
 	public static class Response
 	{
-		public int mnCode = 0;
-		public String mstrContent = null;
+		public int		mnCode		= 0;
+		public String	mstrContent	= null;
 	}
 
 	/** Http Client Method:Send **/
