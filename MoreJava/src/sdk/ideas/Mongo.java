@@ -63,10 +63,37 @@ public class Mongo
 		}
 	}
 
+	/**
+	 * 
+	 * @param strDB
+	 * @param strCollection
+	 * @param listFilter
+	 * @param listResult
+	 * @return
+	 * @example Mongo mongo = new Mongo(); mongo.Connect("localhost", 27017);
+	 *          ArrayList<String> listResult = new ArrayList<String>();
+	 *          ArrayList<Filter> listFilter = new ArrayList<Filter>();
+	 * 
+	 *          Filter f1 = new Filter(); f1.strField = "ID";
+	 *          f1.mapFilter.put("$regex", strAPPID); listFilter.add(f1);
+	 * 
+	 *          if (null != strStartDate || null != strEndDate) { Filter f2 =
+	 *          new Filter(); f2.strField = "create_date"; if (null !=
+	 *          strStartDate) { f2.mapFilter.put("$gte", strStartDate + "
+	 *          00:00:00"); }
+	 * 
+	 *          if (null != strEndDate) { f2.mapFilter.put("$lte", strEndDate +
+	 *          " 23:59:59"); } listFilter.add(f2); }
+	 * 
+	 *          int nCount = mongo.query("access", "mobile", listFilter,
+	 *          listResult);
+	 */
 	@SuppressWarnings("deprecation")
 	public int query(final String strDB, final String strCollection, final ArrayList<Filter> listFilter,
 			ArrayList<String> listResult)
 	{
+		if (null == mongo)
+			return -1;
 		DB db = mongo.getDB(strDB);
 		if (null != db)
 		{
@@ -112,6 +139,43 @@ public class Mongo
 		}
 
 		return listResult.size();
+	}
+
+	@SuppressWarnings("deprecation")
+	public int insert(final String strDB, final String strCollection, final HashMap<String, String> mapData)
+	{
+		int nResult = 0;
+
+		if (null == mapData || 0 >= mapData.size())
+			return -1;
+
+		try
+		{
+			// get database
+			// if database doesn't exists, mongodb will create it for you
+			DB db = mongo.getDB(strDB);
+
+			// get collection
+			// if collection doesn't exists, mongodb will create it for you
+			DBCollection collection = db.getCollection(strCollection);
+
+			/**** Insert ****/
+			// create a document to store key and value
+
+			BasicDBObject document = new BasicDBObject();
+
+			for (Object key : mapData.keySet())
+			{
+				document.append((String) key, mapData.get(key));
+			}
+			collection.insert(document);
+
+		} catch (Exception e)
+		{
+			nResult = -1;
+			System.out.println("Mongo Exception: " + e.toString());
+		}
+		return nResult;
 	}
 
 }

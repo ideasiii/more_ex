@@ -31,6 +31,9 @@
 	
 	// test
 	String strP1 = request.getParameter("1");
+	
+	/** Web Tracker **/
+	More.webTracker(request, "load page", null);
 %>
 <!DOCTYPE html>
 <html id="XenForo" lang="utf-8" dir="LTR" class="Public NoJs LoggedOut NoSidebar  NoResponsive">
