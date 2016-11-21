@@ -39,7 +39,7 @@
 		<p>
 			displayName <input name="displayName" type="text" />
 		</p>
-	
+
 		<p>
 			company <input name="company" type="text" />
 		</p>
@@ -54,6 +54,19 @@
 		</p>
 		<p>
 			<input name="register" type="submit" value="µù¥U" />
+		</p>
+	</form>
+	<p>&nbsp;</p>
+	<hr />
+	<p>&nbsp;</p>
+	<p>MORE API Get User Information</p>
+	<form action="run.jsp" method="post">
+		<input type="hidden" value="USER_INFO_QUERY" name="type">
+		<p>
+			User Id <input name=user-id type="text" />
+		</p>
+		<p>
+			<input name="user-info-get" type="submit" value="¬d¸ß" />
 		</p>
 	</form>
 

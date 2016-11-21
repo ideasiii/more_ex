@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=BIG5"
-	pageEncoding="BIG5"%>
+	pageEncoding="BIG5" session="false"%>
 
 <%@page import="sdk.ideas.HttpsClient"%>
 <%@ page import="org.json.JSONObject"%>
@@ -10,7 +10,7 @@
 	String strType = request.getParameter("type");
 	if (null != strType && strType.trim().equals("SIGNIN"))
 	{
-		strOutput = "Start Sign in</br>";
+		strOutput = "Get user client-ID</br>";
 		String httpsURL = "https://ser.kong.srm.pw/dashboard/token/client-id";
 
 		// 抓取POST來的資料
@@ -34,7 +34,7 @@
 
 	if (null != strType && strType.trim().equals("REGISTER"))
 	{
-		strOutput = "Start Register</br>";
+		strOutput = "User registeration</br>";
 		String httpsURL = "https://ser.kong.srm.pw/dashboard/user";
 
 		// ==== 抓取POST來的資料 ==== //
@@ -72,7 +72,7 @@
 		jobj.put("password", strPassword);
 		jobj.put("groupId", nGroupId);
 		jobj.put("displayName", strDisplayName);
-	
+
 		jobj.put("company", strCompany);
 		jobj.put("phone", strPhone);
 		jobj.put("purpose", strPurpose);
@@ -83,6 +83,24 @@
 		String strResult = httpsClient.sendPost(httpsURL, jobj.toString());
 		strOutput += ("post host:" + httpsURL + "</br>");
 		strOutput += ("data:" + jobj.toString() + "</br>");
+		strOutput += ("result: " + strResult + "</br>");
+	}
+
+	if (null != strType && strType.trim().equals("USER_INFO_QUERY"))
+	{
+		strOutput = "Get detail user information</br>";
+		String httpsURL = "https://ser.kong.srm.pw/dashboard/user";
+
+		// ==== 抓取POST來的資料 ==== //
+		String strUserId = request.getParameter("user-id");
+
+		// ==== 產生HTTP Get URL ==== //
+		String strURL = httpsURL + "?/user-id=" + strUserId;
+
+		// ==== 傳送資料 ==== //
+		HttpsClient httpsClient = new HttpsClient();
+		String strResult = httpsClient.sendGet(strURL);
+		strOutput += ("get host:" + strURL + "</br>");
 		strOutput += ("result: " + strResult + "</br>");
 	}
 %>
