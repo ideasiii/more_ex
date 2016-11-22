@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=BIG5"
-	pageEncoding="BIG5" session="false"%>
+	pageEncoding="BIG5"%>
 
 <%@page import="sdk.ideas.HttpsClient"%>
 <%@ page import="org.json.JSONObject"%>
@@ -8,8 +8,7 @@
 	String strOutput = "";
 
 	String strType = request.getParameter("type");
-	if (null != strType && strType.trim().equals("SIGNIN"))
-	{
+	if (null != strType && strType.trim().equals("SIGNIN")) {
 		strOutput = "Get user client-ID</br>";
 		String httpsURL = "https://ser.kong.srm.pw/dashboard/token/client-id";
 
@@ -32,8 +31,7 @@
 		strOutput += strResult;
 	}
 
-	if (null != strType && strType.trim().equals("REGISTER"))
-	{
+	if (null != strType && strType.trim().equals("REGISTER")) {
 		strOutput = "User registeration</br>";
 		String httpsURL = "https://ser.kong.srm.pw/dashboard/user";
 
@@ -86,8 +84,7 @@
 		strOutput += ("result: " + strResult + "</br>");
 	}
 
-	if (null != strType && strType.trim().equals("USER_INFO_QUERY"))
-	{
+	if (null != strType && strType.trim().equals("USER_INFO_QUERY")) {
 		strOutput = "Get detail user information</br>";
 		String httpsURL = "https://ser.kong.srm.pw/dashboard/user";
 
@@ -103,6 +100,11 @@
 		strOutput += ("get host:" + strURL + "</br>");
 		strOutput += ("result: " + strResult + "</br>");
 	}
+
+	if (null != strType && strType.trim().equals("CHKMAIL")) {
+		Cookie cookie = new Cookie("email", "valid mail");
+		response.addCookie(cookie);
+	}
 %>
 
 
@@ -117,5 +119,8 @@
 </head>
 <body>
 	<%=strOutput%>
+	<script>
+		window.close();
+	</script>
 </body>
 </html>
