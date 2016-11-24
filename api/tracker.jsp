@@ -28,7 +28,6 @@
 	{
 		if (null == strAPPID)
 		{
-			out.println("<h1>Error</h1><br><h2>No APP ID</h2></body></html>");
 			jsonOutput.put("code", ERROR_INVALID_PARAMETER);
 			jsonOutput.put("message", "Invalid Parameter, no app_id");
 		}
