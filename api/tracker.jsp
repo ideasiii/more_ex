@@ -33,7 +33,12 @@
 		}
 		else
 		{
+			Mongo mongo = new Mongo();
+			mongo.Connect("127.0.0.1", 27017);
+			ArrayList<String> listResult = new ArrayList<String>();
+			ArrayList<Filter> listFilter = new ArrayList<Filter>();
 
+			mongo = null;
 		}
 	}
 	catch (Exception e)
