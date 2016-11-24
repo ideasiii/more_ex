@@ -8,6 +8,7 @@
 <%@ page import="sdk.ideas.Mongo.Filter"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.HashMap"%>
+<%@ page trimDirectiveWhitespaces="true"%>
 
 <%!//==== Global define =====//
 
