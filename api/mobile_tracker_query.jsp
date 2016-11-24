@@ -67,7 +67,8 @@
 			{
 				jsonobj = new JSONObject(listResult.get(i));
 				jsonobj.remove("_id");
-				jarrResult.put(jsonobj);
+			//	jarrResult.put(jsonobj);
+				out.println(jsonobj.toString());
 			}
 			jsonOutput.append("data", jarrResult);
 		}
@@ -77,6 +78,6 @@
 		jsonOutput.put("error", e.getMessage());
 	}
 
-	out.println(jsonOutput.toString());
+//	out.println(jsonOutput.toString());
 	jsonOutput = null;
 %>
