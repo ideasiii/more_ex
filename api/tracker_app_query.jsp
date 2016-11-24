@@ -3,11 +3,10 @@
 
 <%@ page import="org.json.JSONObject"%>
 <%@ page import="org.json.JSONArray"%>
-<%@ page import="java.util.ArrayList"%>;
-<%@ page import="java.util.HashMap"%>;
-<%@ page import="java.util.Iterator"%>;
-<%@ page import="java.sql.*"%>;
+<%@ page import="java.util.Iterator"%>
 
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.HashMap"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 
 <%!//==== Global define 全域 ====//
