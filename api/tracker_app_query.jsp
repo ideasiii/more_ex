@@ -1,4 +1,4 @@
-<%@ page contentType="application/json; charset=UTF-8"
+<%@ page language="java" contentType="application/json; charset=UTF-8"
 	pageEncoding="UTF-8" session="false"%>
 
 <%@ page import="org.json.JSONObject"%>
@@ -9,13 +9,13 @@
 <%@ page import="java.sql.*"%>;
 <%@ page import="org.sqlite.SQLiteConfig"%>;
 <%@ page import="org.sqlite.SQLiteDataSource"%>;
-
+<%@ page trimDirectiveWhitespaces="true"%>
 
 <%!//==== Global define 全域 ====//
 
-	final private int	ERROR_SUCCESS			= 0;
-	final private int	ERROR_INVALID_PARAMETER	= -1;
-	final private int	ERROR_EXCEPTION			= -4;
+	//	final private int	ERROR_SUCCESS			= 0;
+	//	final private int	ERROR_INVALID_PARAMETER	= -1;
+	//	final private int	ERROR_EXCEPTION			= -4;
 
 	//==== End Global define ====//%>
 
