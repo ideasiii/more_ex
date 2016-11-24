@@ -5,15 +5,16 @@
 <%@ page import="org.json.JSONArray"%>
 <%@ page import="java.util.Iterator"%>
 <%@ page import="java.sql.*"%>
+<%@ page import="org.sqlite.SQLiteConfig"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.HashMap"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 
 <%!//==== Global define 全域 ====//
 
-	//	final private int	ERROR_SUCCESS			= 0;
-	//	final private int	ERROR_INVALID_PARAMETER	= -1;
-	//	final private int	ERROR_EXCEPTION			= -4;
+	final private int	ERROR_SUCCESS			= 0;
+	final private int	ERROR_INVALID_PARAMETER	= -1;
+	final private int	ERROR_EXCEPTION			= -4;
 
 	//==== End Global define ====//%>
 
