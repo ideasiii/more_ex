@@ -65,6 +65,6 @@
 		jsonOutput.put("code", ERROR_EXCEPTION);
 		jsonOutput.put("message", e.getMessage());
 	}
-	out.println(jsonOutput.toString());
+//	out.println(jsonOutput.toString());
 	jsonOutput = null;
 %>
