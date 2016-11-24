@@ -72,6 +72,7 @@
 				//	out.println(jsonobj.toString());
 			}
 			jsonOutput.put("code", ERROR_SUCCESS);
+			jsonOutput.put("message", "success");
 			jsonOutput.put("data", jarrResult);
 		}
 	}
