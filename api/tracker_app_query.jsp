@@ -7,8 +7,7 @@
 <%@ page import="java.util.HashMap"%>;
 <%@ page import="java.util.Iterator"%>;
 <%@ page import="java.sql.*"%>;
-<%@ page import="org.sqlite.SQLiteConfig"%>;
-<%@ page import="org.sqlite.SQLiteDataSource"%>;
+
 <%@ page trimDirectiveWhitespaces="true"%>
 
 <%!//==== Global define 全域 ====//
