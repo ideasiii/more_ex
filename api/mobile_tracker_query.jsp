@@ -73,6 +73,7 @@
 			}
 			jsonOutput.put("code", ERROR_SUCCESS);
 			jsonOutput.put("message", "success");
+			jsonOutput.put("count", nCount);
 			jsonOutput.put("data", jarrResult);
 		}
 	}
