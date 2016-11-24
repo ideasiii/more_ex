@@ -21,12 +21,11 @@
 
 <%
 	JSONObject jsonOutput = new JSONObject();
+	JSONObject jsonItem = null;
+	JSONArray jarrResult = new JSONArray();
 
 	try
 	{
-		jsonOutput.put("code", ERROR_SUCCESS);
-		jsonOutput.put("message", "no message");
-
 		SQLiteConfig sqconfig = new SQLiteConfig();
 		sqconfig.setReadOnly(true);
 		sqconfig.setSharedCache(true);
@@ -42,17 +41,24 @@
 		ResultSet rs = null;
 		stat = sqliteCon.createStatement();
 		rs = stat.executeQuery("select app_id,app_name,app_category,user_name,create_date from app;");
-
+		int nCount = 0;
 		while (rs.next())
 		{
-			out.println("app_id: " + rs.getString("app_id"));
-			out.println("app_name: " + rs.getString("app_name"));
-			out.println("app_category: " + rs.getString("app_category"));
-			out.println("user_name: " + rs.getString("user_name"));
-			out.println("create_date: " + rs.getString("create_date"));
+			jsonItem = new JSONObject();
+			jsonItem.put("app_id", rs.getString("app_id"));
+			jsonItem.put("app_name", rs.getString("app_name"));
+			jsonItem.put("app_category", rs.getString("app_category"));
+			jsonItem.put("user_name", rs.getString("user_name"));
+			jsonItem.put("create_date", rs.getString("create_date"));
+			jarrResult.put(jsonItem);
+			++nCount;
 		}
 
 		sqliteCon.close();
+		jsonOutput.put("code", ERROR_SUCCESS);
+		jsonOutput.put("message", "success");
+		jsonOutput.put("count", nCount);
+		jsonOutput.put("data", jarrResult);
 	}
 	catch (Exception e)
 	{
