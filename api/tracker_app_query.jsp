@@ -25,7 +25,7 @@
 	JSONArray jarrResult = new JSONArray();
 
 	try
-	{
+	{/*
 		SQLiteConfig sqconfig = new SQLiteConfig();
 		sqconfig.setReadOnly(true);
 		sqconfig.setSharedCache(true);
@@ -36,7 +36,7 @@
 		ds.getConnection().setAutoCommit(true);
 
 		Connection sqliteCon = ds.getConnection();
-/*
+
 		Statement stat = null;
 		ResultSet rs = null;
 		stat = sqliteCon.createStatement();
