@@ -19,13 +19,13 @@
 
 	//==== End Global define ====//%>
 
-<%
+<%/*
 	JSONObject jsonOutput = new JSONObject();
 	JSONObject jsonItem = null;
 	JSONArray jarrResult = new JSONArray();
 
 	try
-	{/*
+	{
 		SQLiteConfig sqconfig = new SQLiteConfig();
 		sqconfig.setReadOnly(true);
 		sqconfig.setSharedCache(true);
@@ -60,13 +60,13 @@
 		jsonOutput.put("message", "success");
 		jsonOutput.put("count", nCount);
 		jsonOutput.put("data", jarrResult);
-		*/
+
 	}
 	catch (Exception e)
 	{
 		jsonOutput.put("code", ERROR_EXCEPTION);
 		jsonOutput.put("message", e.getMessage());
 	}
-	//	out.println(jsonOutput.toString());
-	jsonOutput = null;
+	out.println(jsonOutput.toString());
+	jsonOutput = null;*/
 %>
