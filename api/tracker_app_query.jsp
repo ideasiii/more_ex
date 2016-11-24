@@ -53,7 +53,8 @@
 			jarrResult.put(jsonItem);
 			++nCount;
 		}
-
+		rs.close();
+		stat.close();
 		sqliteCon.close();
 		jsonOutput.put("code", ERROR_SUCCESS);
 		jsonOutput.put("message", "success");
@@ -65,6 +66,6 @@
 		jsonOutput.put("code", ERROR_EXCEPTION);
 		jsonOutput.put("message", e.getMessage());
 	}
-//	out.println(jsonOutput.toString());
+	//	out.println(jsonOutput.toString());
 	jsonOutput = null;
 %>
