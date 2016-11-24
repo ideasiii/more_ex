@@ -33,9 +33,7 @@
 			out.println("<h1>Error</h1><br><h2>No APP ID</h2></body></html>");
 			return;
 		}
-	%>
 
-	<%
 		Mongo mongo = new Mongo();
 		mongo.Connect("localhost", 27017);
 		ArrayList<String> listResult = new ArrayList<String>();
@@ -111,7 +109,8 @@
 						if (jsonobj.has((String) key))
 						{
 							out.println("<td>" + String.valueOf(jsonobj.get((String) key)) + "</td>");
-						} else
+						}
+						else
 						{
 							out.println("<td>&nbsp;</td>");
 						}
