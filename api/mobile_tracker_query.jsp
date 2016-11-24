@@ -38,7 +38,38 @@
 			ArrayList<String> listResult = new ArrayList<String>();
 			ArrayList<Filter> listFilter = new ArrayList<Filter>();
 
+			Filter f1 = new Filter();
+			f1.strField = "ID";
+			f1.mapFilter.put("$regex", strAPPID);
+			listFilter.add(f1);
+
+			if (null != strStartDate || null != strEndDate)
+			{
+				Filter f2 = new Filter();
+				f2.strField = "create_date";
+				if (null != strStartDate)
+				{
+					f2.mapFilter.put("$gte", strStartDate + " 00:00:00");
+				}
+
+				if (null != strEndDate)
+				{
+					f2.mapFilter.put("$lte", strEndDate + " 23:59:59");
+				}
+				listFilter.add(f2);
+			}
+
+			int nCount = mongo.query("access", "mobile", listFilter, listResult);
 			mongo = null;
+			JSONObject jsonobj = null;
+			JSONArray jarrResult = new JSONArray();
+			for (int i = 0; i < listResult.size(); ++i)
+			{
+				jsonobj = new JSONObject(listResult.get(i));
+				jsonobj.remove("_id");
+				jarrResult.put(jsonobj);
+			}
+			jsonOutput.append("data", jarrResult);
 		}
 	}
 	catch (Exception e)
