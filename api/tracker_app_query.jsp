@@ -36,11 +36,11 @@
 		ds.getConnection().setAutoCommit(true);
 
 		Connection sqliteCon = ds.getConnection();
-
+/*
 		Statement stat = null;
 		ResultSet rs = null;
 		stat = sqliteCon.createStatement();
-		rs = stat.executeQuery("select app_id,app_name,app_category,user_name,create_date from app;");
+		rs = stat.executeQuery("select app_id,app_name,app_category,user_name,create_date from app");
 		int nCount = 0;
 		while (rs.next())
 		{
@@ -60,6 +60,7 @@
 		jsonOutput.put("message", "success");
 		jsonOutput.put("count", nCount);
 		jsonOutput.put("data", jarrResult);
+		*/
 	}
 	catch (Exception e)
 	{
