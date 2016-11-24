@@ -13,6 +13,7 @@
 
 	final private int	ERROR_SUCCESS			= 0;
 	final private int	ERROR_INVALID_PARAMETER	= -1;
+	final private int	ERROR_EXCEPTION			= -4;
 
 	//==== End Global define ====//%>
 
@@ -67,17 +68,19 @@
 			{
 				jsonobj = new JSONObject(listResult.get(i));
 				jsonobj.remove("_id");
-			//	jarrResult.put(jsonobj);
-				out.println(jsonobj.toString());
+				jarrResult.put(jsonobj);
+				//	out.println(jsonobj.toString());
 			}
-			jsonOutput.append("data", jarrResult);
+			jsonOutput.put("code", ERROR_SUCCESS);
+			jsonOutput.put("data", jarrResult);
 		}
 	}
 	catch (Exception e)
 	{
-		jsonOutput.put("error", e.getMessage());
+		jsonOutput.put("code", ERROR_EXCEPTION);
+		jsonOutput.put("message", e.getMessage());
 	}
 
-//	out.println(jsonOutput.toString());
+	out.println(jsonOutput.toString());
 	jsonOutput = null;
 %>
