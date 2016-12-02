@@ -13,9 +13,9 @@
 
 <%!//==== Global define 全域 ====//
 
-	final private int	ERROR_SUCCESS			= 0;
-	final private int	ERROR_INVALID_PARAMETER	= -1;
-	final private int	ERROR_EXCEPTION			= -4;
+	final private int ERROR_SUCCESS = 0;
+	final private int ERROR_INVALID_PARAMETER = -1;
+	final private int ERROR_EXCEPTION = -4;
 
 	//==== End Global define ====//%>
 
@@ -68,29 +68,12 @@
 		jsonOutput.put("count", nCount);
 		jsonOutput.put("data", jarrResult);
 
-	}
-	catch (Exception e)
+	} catch (Exception e)
 	{
 		jsonOutput.put("code", ERROR_EXCEPTION);
 		jsonOutput.put("message", e.getMessage());
 	}
 	out.println(jsonOutput.toString());
 	jsonOutput = null;
-
-	/*CREATE TABLE "user" (
-	`id`	TEXT NOT NULL,
-	`app_id`	TEXT NOT NULL,
-	`mac`	TEXT,
-	`os`	TEXT,
-	`phone`	TEXT,
-	`fb_id`	TEXT,
-	`fb_name`	TEXT,
-	`fb_email`	TEXT,
-	`fb_account`	TEXT,
-	`g_account`	TEXT,
-	`t_account`	TEXT,
-	`created_date`	DATE DEFAULT (datetime('now','localtime')),
-	PRIMARY KEY(id)
-	)*/
 %>
 
