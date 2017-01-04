@@ -28,8 +28,7 @@
 
 <body>
 	<%
-		if (null == strAPPID)
-		{
+		if (null == strAPPID) {
 			out.println("<h1>Error</h1><br><h2>No APP ID</h2></body></html>");
 			return;
 		}
@@ -44,36 +43,31 @@
 		f1.mapFilter.put("$regex", strAPPID);
 		listFilter.add(f1);
 
-		if (null != strStartDate || null != strEndDate)
-		{
+		if (null != strStartDate || null != strEndDate) {
 			Filter f2 = new Filter();
 			f2.strField = "create_date";
-			if (null != strStartDate)
-			{
+			if (null != strStartDate) {
 				f2.mapFilter.put("$gte", strStartDate + " 00:00:00");
 			}
 
-			if (null != strEndDate)
-			{
+			if (null != strEndDate) {
 				f2.mapFilter.put("$lte", strEndDate + " 23:59:59");
 			}
 			listFilter.add(f2);
 		}
 
 		int nCount = mongo.query("access", "mobile", listFilter, listResult);
-
+		mongo.close();
 		JSONObject jsonobj = null;
 		HashMap<String, String> listKey = new HashMap<String, String>();
 
-		for (int i = 0; i < listResult.size(); ++i)
-		{
+		for (int i = 0; i < listResult.size(); ++i) {
 			jsonobj = new JSONObject(listResult.get(i));
 			jsonobj.remove("_id");
 
 			Iterator<?> keys = jsonobj.keys();
 
-			while (keys.hasNext())
-			{
+			while (keys.hasNext()) {
 				String key = (String) keys.next();
 				listKey.put(key, key);
 			}
@@ -89,8 +83,7 @@
 		<thead>
 			<tr>
 				<%
-					for (Object key : listKey.keySet())
-					{
+					for (Object key : listKey.keySet()) {
 						out.println("<th scope=\"col\">" + (String) key + "</th>");
 					}
 				%>
@@ -98,20 +91,15 @@
 		</thead>
 		<tbody>
 			<%
-				for (int i = 0; i < listResult.size(); ++i)
-				{
+				for (int i = 0; i < listResult.size(); ++i) {
 					jsonobj = new JSONObject(listResult.get(i));
 					jsonobj.remove("_id");
 
 					out.println("<tr>");
-					for (Object key : listKey.keySet())
-					{
-						if (jsonobj.has((String) key))
-						{
+					for (Object key : listKey.keySet()) {
+						if (jsonobj.has((String) key)) {
 							out.println("<td>" + String.valueOf(jsonobj.get((String) key)) + "</td>");
-						}
-						else
-						{
+						} else {
 							out.println("<td>&nbsp;</td>");
 						}
 					}

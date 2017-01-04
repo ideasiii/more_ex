@@ -19,7 +19,7 @@
 	//==== End Global define ====//%>
 
 <%
-	//example: query.jsp?app_id=1462241606197&start_date=2016-07-10&end_date=2016-07-15
+	//example: tracker_data_query.jsp?app_id=1462241606197&start_date=2016-07-10&end_date=2016-07-15
 	final String strAPPID = request.getParameter("app_id");
 	final String strStartDate = request.getParameter("start_date");
 	final String strEndDate = request.getParameter("end_date");
