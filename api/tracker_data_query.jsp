@@ -12,9 +12,9 @@
 
 <%!//==== Global define =====//
 
-	final private int	ERROR_SUCCESS			= 0;
-	final private int	ERROR_INVALID_PARAMETER	= -1;
-	final private int	ERROR_EXCEPTION			= -4;
+	final private int ERROR_SUCCESS = 0;
+	final private int ERROR_INVALID_PARAMETER = -1;
+	final private int ERROR_EXCEPTION = -4;
 
 	//==== End Global define ====//%>
 
@@ -26,15 +26,11 @@
 
 	JSONObject jsonOutput = new JSONObject();
 
-	try
-	{
-		if (null == strAPPID)
-		{
+	try {
+		if (null == strAPPID) {
 			jsonOutput.put("code", ERROR_INVALID_PARAMETER);
 			jsonOutput.put("message", "Invalid Parameter, no app_id");
-		}
-		else
-		{
+		} else {
 			Mongo mongo = new Mongo();
 			mongo.Connect("127.0.0.1", 27017);
 			ArrayList<String> listResult = new ArrayList<String>();
@@ -45,28 +41,25 @@
 			f1.mapFilter.put("$regex", strAPPID);
 			listFilter.add(f1);
 
-			if (null != strStartDate || null != strEndDate)
-			{
+			if (null != strStartDate || null != strEndDate) {
 				Filter f2 = new Filter();
 				f2.strField = "create_date";
-				if (null != strStartDate)
-				{
+				if (null != strStartDate) {
 					f2.mapFilter.put("$gte", strStartDate + " 00:00:00");
 				}
 
-				if (null != strEndDate)
-				{
+				if (null != strEndDate) {
 					f2.mapFilter.put("$lte", strEndDate + " 23:59:59");
 				}
 				listFilter.add(f2);
 			}
 
 			int nCount = mongo.query("access", "mobile", listFilter, listResult);
+			mongo.close();
 			mongo = null;
 			JSONObject jsonobj = null;
 			JSONArray jarrResult = new JSONArray();
-			for (int i = 0; i < listResult.size(); ++i)
-			{
+			for (int i = 0; i < listResult.size(); ++i) {
 				jsonobj = new JSONObject(listResult.get(i));
 				jsonobj.remove("_id");
 				jarrResult.put(jsonobj);
@@ -77,9 +70,7 @@
 			jsonOutput.put("count", nCount);
 			jsonOutput.put("data", jarrResult);
 		}
-	}
-	catch (Exception e)
-	{
+	} catch (Exception e) {
 		jsonOutput.put("code", ERROR_EXCEPTION);
 		jsonOutput.put("message", e.getMessage());
 	}
