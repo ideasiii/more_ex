@@ -8,23 +8,22 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientOptions;
+import com.mongodb.ReadPreference;
+import com.mongodb.ServerAddress;
 
-public class Mongo
-{
+public class Mongo {
 
-	static public class Filter
-	{
+	static public class Filter {
 		public String strField;
 		public HashMap<String, String> mapFilter;
 
-		public Filter()
-		{
+		public Filter() {
 			mapFilter = new HashMap<String, String>();
 		}
 
 		@Override
-		protected void finalize() throws Throwable
-		{
+		protected void finalize() throws Throwable {
 			mapFilter.clear();
 			mapFilter = null;
 			strField = null;
@@ -34,30 +33,31 @@ public class Mongo
 
 	MongoClient mongo = null;
 
-	public Mongo()
-	{
+	public Mongo() {
 
 	}
 
-	public MongoClient Connect(String strIP, int nPort)
-	{
+	public MongoClient Connect(String strIP, int nPort) {
 		if (null != mongo)
 			mongo.close();
-		mongo = new MongoClient(strIP, nPort);
+		// mongo = new MongoClient(strIP, nPort);
+
+		MongoClientOptions options = MongoClientOptions.builder().connectionsPerHost(100)
+				.readPreference(ReadPreference.secondaryPreferred()).build();
+
+		mongo = new MongoClient(new ServerAddress(strIP, nPort), options);
+
 		return mongo;
 	}
 
 	@Override
-	protected void finalize() throws Throwable
-	{
+	protected void finalize() throws Throwable {
 		close();
 		super.finalize();
 	}
 
-	public void close()
-	{
-		if (null != mongo)
-		{
+	public void close() {
+		if (null != mongo) {
 			mongo.close();
 			mongo = null;
 		}
@@ -90,34 +90,27 @@ public class Mongo
 	 */
 	@SuppressWarnings("deprecation")
 	public int query(final String strDB, final String strCollection, final ArrayList<Filter> listFilter,
-			ArrayList<String> listResult)
-	{
+			ArrayList<String> listResult) {
 		if (null == mongo)
 			return -1;
 		DB db = mongo.getDB(strDB);
-		if (null != db)
-		{
+		if (null != db) {
 			DBCollection collection = db.getCollection(strCollection);
-			if (null != collection)
-			{
+			if (null != collection) {
 
 				DBCursor cursor = null;
-				if (null != listFilter && 0 < listFilter.size())
-				{
+				if (null != listFilter && 0 < listFilter.size()) {
 					Filter filter = null;
 					String strField = null;
 					BasicDBObject filterQuery = new BasicDBObject();
-					for (int i = 0; i < listFilter.size(); ++i)
-					{
+					for (int i = 0; i < listFilter.size(); ++i) {
 						filter = listFilter.get(i);
 						BasicDBObject subFilter = new BasicDBObject();
 
-						for (Object key : filter.mapFilter.keySet())
-						{
+						for (Object key : filter.mapFilter.keySet()) {
 							strField = (String) key;
 							subFilter.append(strField, filter.mapFilter.get(key));
-							if (strField.trim().equals("$regex"))
-							{
+							if (strField.trim().equals("$regex")) {
 								subFilter.append("$options", "i");
 							}
 						}
@@ -126,13 +119,11 @@ public class Mongo
 
 					cursor = collection.find(filterQuery);
 					System.out.println(filterQuery.toString());
-				} else
-				{
+				} else {
 					cursor = collection.find();
 				}
 
-				while (cursor.hasNext())
-				{
+				while (cursor.hasNext()) {
 					listResult.add(cursor.next().toString());
 				}
 			}
@@ -142,15 +133,13 @@ public class Mongo
 	}
 
 	@SuppressWarnings("deprecation")
-	public int insert(final String strDB, final String strCollection, final HashMap<String, String> mapData)
-	{
+	public int insert(final String strDB, final String strCollection, final HashMap<String, String> mapData) {
 		int nResult = 0;
 
 		if (null == mapData || 0 >= mapData.size())
 			return -1;
 
-		try
-		{
+		try {
 			// get database
 			// if database doesn't exists, mongodb will create it for you
 			DB db = mongo.getDB(strDB);
@@ -164,14 +153,12 @@ public class Mongo
 
 			BasicDBObject document = new BasicDBObject();
 
-			for (Object key : mapData.keySet())
-			{
+			for (Object key : mapData.keySet()) {
 				document.append((String) key, mapData.get(key));
 			}
 			collection.insert(document);
 
-		} catch (Exception e)
-		{
+		} catch (Exception e) {
 			nResult = -1;
 			System.out.println("Mongo Exception: " + e.toString());
 		}
