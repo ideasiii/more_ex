@@ -1,7 +1,7 @@
 /**
  * This module is for MORE project.
  */
-package sdk.ideas;
+package morejava;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

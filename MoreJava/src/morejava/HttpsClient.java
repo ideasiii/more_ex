@@ -1,4 +1,4 @@
-﻿package sdk.ideas;
+﻿package morejava;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -31,9 +31,10 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.apache.http.client.HttpClient;
 
-import sdk.ideas.StringUtility;
+import morejava.StringUtility;
+
+import org.apache.http.client.HttpClient;
 
 public class HttpsClient
 {

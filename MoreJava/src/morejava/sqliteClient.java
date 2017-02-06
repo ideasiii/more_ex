@@ -1,4 +1,4 @@
-package sdk.ideas;
+package morejava;
 
 import java.sql.*;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package sdk.ideas;
+package morejava;
 
 import java.util.UUID;
 

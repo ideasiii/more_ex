@@ -4,7 +4,7 @@
  * @descript define common data type
  */
 
-package sdk.ideas;
+package morejava;
 
 public abstract class Type
 {

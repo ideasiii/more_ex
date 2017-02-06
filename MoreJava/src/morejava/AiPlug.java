@@ -2,7 +2,7 @@
  * AiPlug智慧插座API，主要呼叫台灣智慧AiPlug API
  * This for Web
  */
-package sdk.ideas;
+package morejava;
 
 /**
  * @author Louis Ju

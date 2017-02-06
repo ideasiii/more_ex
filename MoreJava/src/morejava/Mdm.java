@@ -1,4 +1,4 @@
-package sdk.ideas;
+package morejava;
 
 public class Mdm
 {

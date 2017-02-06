@@ -3,7 +3,8 @@
 <%@ page import="sdk.ideas.Common"%>
 <%@ page import="org.apache.commons.fileupload.*"%>
 <%@ page import="org.apache.commons.fileupload.disk.DiskFileItemFactory"%>
-<%@ page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
+<%@ page
+	import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
 <%@ page import="org.apache.commons.io.FilenameUtils"%>
 <%@page import="java.io.File"%>
 <%@ page import="java.io.BufferedReader"%>
@@ -13,12 +14,10 @@
 <%@ page import="java.util.List"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="java.util.HashMap"%>
-<%@ page import="sdk.ideas.StringUtility"%>
-<%@ page import="sdk.ideas.sqliteClient"%>
 <%@ page import="java.util.Iterator"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.Arrays"%>
-<%@ page import="sdk.ideas.Logs"%>
+<%@ page import="morejava.*"%>
 
 <HTML>
 <head>
@@ -32,7 +31,8 @@
 	<p style="text-align: center;">&nbsp;</p>
 	<p style="text-align: center;">&nbsp;</p>
 	<p style="text-align: center;">
-		<img alt="Loading" src="img/map_loading.gif" style="width: 260px; height: 260px;" />
+		<img alt="Loading" src="img/map_loading.gif"
+			style="width: 260px; height: 260px;" />
 	</p>
 	<%
 		//Check that we have a file upload request
@@ -113,8 +113,10 @@
 			con.close();
 			sqlite = null;
 	%>
-	<form action="moresdk.jsp" method="post" name="FormAppManager" id="FormAppManager">
-		<input name="<%=Common.USER_TOKEN%>" type="hidden" value="<%=strToken%>" />
+	<form action="moresdk.jsp" method="post" name="FormAppManager"
+		id="FormAppManager">
+		<input name="<%=Common.USER_TOKEN%>" type="hidden"
+			value="<%=strToken%>" />
 	</form>
 
 	<script>

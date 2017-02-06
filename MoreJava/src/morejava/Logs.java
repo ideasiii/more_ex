@@ -4,7 +4,7 @@
  * @description common log module
  */
 
-package sdk.ideas;
+package morejava;
 
 import java.lang.Throwable;
 import java.util.Date;
